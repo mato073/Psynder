@@ -1,0 +1,92 @@
+<div class="relative h-full w-full border border-b-0 border-t-0 overflow-y-auto bg-gray-50 px-48 py-24" style="width: 80vw">
+  <img class ="absolute top-4 left-4 h-7 w-7 cursor-pointer rounded-full hover:bg-opacity-5 hover:bg-black" src="/assets/svg/close-24px.svg"
+    (click)="switchBackToMap()"
+  >
+  <div
+    class="flex flex-row p-10 border border-gray-300 rounded-md w-full"
+  >
+    <!-- <img src="../../../../../../assets/png/avatar.png" class="h-28 w-28 my-auto"> -->
+    <div class="relative flex-grow flex flex-col">
+      <div class="absolute right-0 top-0 flex flex-row">
+        <img class="w-5 h-5 mr-2" src="../../../../assets/svg/directions_walk-24px.svg">
+        <p class="my-auto text-base">{{ therapist.distance }}km</p>
+      </div>
+      <div class="text-gray-800 text-4xl font-semibold">
+        {{ therapist.name }}
+      </div>
+      <div class="mt-2">
+        <div class="flex flex-row mt-2">
+          <img class="w-5 h-5 my-auto" src="../../../../assets/svg/mail-24px.svg">
+          <a class="ml-2 text-gray-600 transition-colors duration-300 ease-in-out hover:text-primary-500"
+            href="{{ 'mailto:' + therapist.email }}" target="_blank"
+          >
+            {{ therapist.email }}
+          </a>
+          <img class="ml-8 w-5 h-5 my-auto" src="../../../../assets/svg/phone-24px.svg">
+          <div class="ml-2 text-gray-600">
+            {{ therapist.phoneNumber }}
+          </div>
+        </div>
+      </div>
+      <div class="mt-8">
+        <span class="text-primary-500 font-semibold text-lg">Spécialités</span>
+        <div class="flex flex-row mt-3">
+          <div *ngFor="let specialty of therapist.specialties"
+            class="mr-1 rounded-md py-1 px-2 border border-gray-300 bg-gray-50"
+          >
+            <span class="font-regular text-base text-gray-800">
+              {{ specialty.name }}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-8" *ngIf="therapist.description.length > 0">
+        <span class="text-primary-500 font-semibold text-lg">Description</span>
+        <quill-view-html
+          class="quill-view"
+          [content]="therapist.description"
+          theme="snow"
+        ></quill-view-html>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-24 px-10 divide-y">
+    <span class="text-2xl font-semibold mb-4 text-gray-800">
+      Prendre rendez-vous
+    </span>
+
+    <!-- TMP -->
+    <div>
+      <p class="mt-6 text-t-primary-500 text-base">
+        Ce thérapeute est factice et a été créé pour les besoins de notre beta, il n'est pas possible de prendre rendez-vous avec.
+      </p>
+    </div>
+
+    <!-- <div class="flex flex-row mt-4 w-full">
+      <div class="flex flex-col mt-6">
+        <span class="text-gray-500 font-semibold  mb-2">
+          Date
+        </span>
+        <app-date-picker
+        >
+        </app-date-picker>
+      </div>
+      <div class="flex flex-col mt-6 ml-24 w-1/3">
+        <span class="text-gray-500 font-semibold mb-2">
+          À
+        </span>
+        <app-time-picker
+        >
+        </app-time-picker>
+      </div>
+      <button class="self-end shadow-md hover:shadow-sm bg-primary-600 rounded-md hover:bg-primary-500 px-4 py-2 ml-36 mb-2">
+        <span class="font-medium text-white text-lg">
+          Réserver
+        </span>
+      </button>
+    </div> -->
+  </div>
+
+</div>

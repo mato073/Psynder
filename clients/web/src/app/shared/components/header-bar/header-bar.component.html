@@ -1,0 +1,45 @@
+<nav class="sticky relative bg-base-200 flex flex-row items-stretch border-b border-gray-300 w-screen"
+  [class.bg-t-base-600]="isTherapist"
+  [class.border-t-secondary-200]="isTherapist"
+>
+  <div class="px-4 py-3 mr-4">
+    <a [routerLink]="['/']"><img class="w-32 my-auto mt-2" src="../../../../assets/png/banner_black.png"></a>
+  </div>
+
+  <div *ngFor="let section of sections"
+    class="px-2 mx-6 border-primary-500 flex flex-col items-center"
+    [class.border-t-secondary-500]="isTherapist"
+    [class.border-b-4]="isSectionSelected(section.absoluteRoute)">
+    <div class="my-auto text-sm font-medium text-gray-500">
+      <p
+        href="#responsive-header"
+        class="cursor-pointer hover:text-black"
+        (click)="switchRoute(section.absoluteRoute)"
+        [class.text-black]="isSectionSelected(section.absoluteRoute)">
+        {{ section.title }}
+      </p>
+    </div>
+  </div>
+  <div class="absolute right-8 h-full flex flex-row justify-center">
+    <a class="my-auto mr-8 text-gray-800 text-sm font-medium hover:underline"
+      [routerLink]="['/about']">
+      À propos
+    </a>
+    <a class="my-auto mr-8 text-gray-800 text-sm font-medium hover:underline"
+      [routerLink]="['/faq']">
+      Foire aux questions
+    </a>
+    <a class="my-auto mr-8 text-gray-800 text-sm font-medium hover:underline"
+      [routerLink]="['/feedback']">
+      Faire un retour
+    </a>
+    <a class="my-auto mr-8 text-gray-800 text-sm font-medium hover:underline"
+      [routerLink]="['/download']">
+      Télécharger l'application
+    </a>
+    <button class="inset-y-auto text-t-primary-500 text-sm font-medium hover:underline"
+      (click)="logout()">
+      Se déconnecter
+    </button>
+  </div>
+</nav>

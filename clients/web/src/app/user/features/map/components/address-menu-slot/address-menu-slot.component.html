@@ -1,0 +1,23 @@
+<div class="ml-1 w-full h-12 flex flex-row items-center content-center">
+  <div *ngIf="!gls.addressFetched; else addressTemplate"
+    class="rounded-lg h-12 w-56 bg-gray-200 animate-pulse mr-4"
+  >
+  </div>
+  <!-- *ngIf="!gls.addressFetched; else addressTemplate" -->
+  <ng-template #addressTemplate>
+    <p class="text-sm text-gray-700 flex-grow">
+      {{ gls.formattedAddress }}
+    </p>
+  </ng-template>
+  <button class="right-0 ml-8 py-1 px-3 rounded-lg hover:bg-primary-100 transition-colors duration-300 ease-in-out"
+    (click)="inputNewAddress()"
+  >
+    <span
+      class="text-sm text-primary-600 text-left"
+    >
+      Modifier
+    </span>
+  </button>
+</div>
+<template #addressInputPlaceholder>
+</template>

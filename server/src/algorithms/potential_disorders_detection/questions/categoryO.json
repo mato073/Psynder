@@ -1,0 +1,91 @@
+{
+	"potentialDisorder": "Anxiété",
+	"Questions": [
+		{
+			"name" : "O1a",
+			"question": "Au cours de votre vie, avez-vous eu au moins une période d’au moins 6 mois au cours de laquelle/desquelles vous aviez l’impression de vous faire trop de soucis à propos de tout et de rien ?\nOu bien au cours desquelles vous vous sentiez excessivement préoccupé(e), inquiet(e), anxieux(se), pour des problèmes de la vie de tous les jours (au travail/à l’école) à la maison, ou à propos de votre entourage ?\n\nNotez oui si oui à l'un ou l'autre.",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "O1b",
+			"question": "Par rapport à la question précédente, aviez-vous ce type de préoccupation presque tous les jours ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "O1c",
+			"question": "Par rapport à la question avant la précédente, vous était-il difficile de contrôler ces préoccupations/ces soucis, vous empêchaient-ils/elles de vous concentrer sur ce que vous aviez à faire ?\n\nNotez oui si oui à l'un ou l'autre.",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "O2a",
+			"question": "Au cours de cette période d'au moins six mois, lorsque vous sentiez-vous particulièrement préoccupé(e), inquiet(e), anxieux(se), vous est-il arrivé de vous sentir agité(e), tendu(e), d'avoir les nerfs à fleur de peau ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "O2b",
+			"question": "Au cours de cette période d'au moins six mois, vous est-il souvent arrivé d’avoir les muscles tendus ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "O2c",
+			"question": "Au cours de cette période d'au moins six mois, vous sentiez-vous souvent fatigué(e), faible, ou facilement épuisé(e) ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "O2d",
+			"question": "Au cours de cette période d'au moins six mois, ressentiez-vous souvent des difficultés à vous concentrer ou des passages à vide ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "O2e",
+			"question": "Au cours de cette période d'au moins six mois, étiez-vous particulièrement irritable ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "O2f",
+			"question": "Au cours de cette période d'au moins six mois, aviez-vous l'impression de souvent avoir des problèmes de sommeil* ?\n\n* : Difficultés d’endormissement, réveils au milieu de la nuit, réveils précoces ou dormir trop",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "O3",
+			"question": "Ces préoccupations/soucis ont-elles/ils été provoqué(e)s et maintenu(e)s par une maladie physique ou par la prise de médicaments ou de drogue ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "O4",
+			"question": "À quand remonte, à peu près, la première fois où vous avez eu une telle période d’anxiété tout en ayant les préoccupations dont nous venons de parler ?",
+			"types": ["DATE.FAR"],
+			"answered": false,
+			"value": "date far"
+		},
+		{
+			"name": "O5",
+			"question": "À quand remonte, à peu près, la dernière fois où vous avez eu une telle période d’anxiété tout en ayant les préoccupations dont nous venons de parler ?",
+			"types": ["ANSWERS"],
+			"answered": false,
+			"answers": [{"name": "Très récemment", "value": 7}, {"name": "Il y a quelques temps", "value": 5}, {"name": "Il y a plusieurs mois", "value": 3}, {"name": "Cela remonte à longtemps", "value": 1}],
+			"value": false
+		}
+	],
+	"conditions": [[{"name": "O1","number": 1,"value": false}], [{"name": "O2","number": 1,"value": false}], [{"name": "O2","number": 1,"value": false}], [{"name": "O3","number": 1,"value": true}]]
+}

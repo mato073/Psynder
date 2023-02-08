@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "893723459884",
+    "project_id": "psynder-5bce3",
+    "storage_bucket": "psynder-5bce3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:893723459884:android:61c9e8e47e7a6c59566c89",
+        "android_client_info": {
+          "package_name": "com.mobilepsynder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "893723459884-br1lbfokbgadtpdid0nnv8ap2ov8o1uq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mobilepsynder",
+            "certificate_hash": "bad0ba94692a76d8131c65b5421061ed32c08e2c"
+          }
+        },
+        {
+          "client_id": "893723459884-cmq1lth9hmrl23not7s3iegl7im45i1p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjfKYnkM0F8RjWC9nWWksG8ikMupf1TjY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "893723459884-cmq1lth9hmrl23not7s3iegl7im45i1p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

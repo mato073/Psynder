@@ -1,0 +1,104 @@
+{
+	"potentialDisorder": "Stress post-traumatique",
+	"Questions": [
+		{
+			"name" : "I1",
+			"question": "Avez-vous vécu un événement extrêmement traumatique incitant des sujets très sensible tel que passer dans l'au-delà, blessures sévères mentales ou physiques ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "I2",
+			"question": "Depuis, avez-vous eu une période durant laquelle vous avez fortement pensé à cet événement, où vous en avez souvent rêvé voire l'impression de le revivre ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "I3a",
+			"question": "Durant cette période ou au cours du mois écoulé, avez-vous essayé de ne plus penser à/d'oublier cet événement ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "I3b",
+			"question": "Durant cette période ou au cours du mois écoulé, aviez-vous du mal à vous remémorer ce qu'il s'était passé ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "I3c",
+			"question": "Durant cette période ou au cours du mois écoulé, aviez-vous perdu l'intérêt pour les choses qui vous plaisaient auparavant ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "I3d",
+			"question": "Durant cette période ou au cours du mois écoulé, aviez-vous l'impression d'être devenu(e)s un(e) étranger(ère) vis-à-vis des autres ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "I3e",
+			"question": "Durant cette période ou au cours du mois écoulé, aviez-vous l'impression de ne plus avoir de sentiments, aviez-vous des difficultés à ressentir les choses ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "I3f",
+			"question": "Durant cette période ou au cours du mois écoulé, aviez-vous l'impression que votre vie ne serait plus jamais la même ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "I4a",
+			"question": "Durant cette période ou au cours du mois écoulé, aviez-vous des difficultés à dormir ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "I4b",
+			"question": "Durant cette période ou au cours du mois écoulé, étiez-vous particulièrement irritable ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "I4c",
+			"question": "Durant cette période ou au cours du mois écoulé, aviez-vous des difficultés à vous concentrer ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "I4d",
+			"question": "Durant cette période ou au cours du mois écoulé, étiez-vous nerveux ou constamment sur vos gardes ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "I4e",
+			"question": "Durant cette période ou au cours du mois écoulé, un rien vous faisait-il sursauter ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "I5",
+			"question": "Durant cette période ou au cours du mois écoulé, ces problèmes ont-ils entraîné chez vous une souffrance importante ou bien vous ont-ils vraiment gêné dans votre travail, dans vos relations avec les autres ou dans d’autres domaines importants pour vous ?\n\nNotez oui si oui à l'un ou l'autre.",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		}
+	],
+	"conditions": [[{"name": "I1","number": 1,"value": false}], [{"name": "I2","number": 1,"value": false}], [{"name": "I3","number": 4,"value": false}], [{"name": "I4","number": 3,"value": false}]]
+}

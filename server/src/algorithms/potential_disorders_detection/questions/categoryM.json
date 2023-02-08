@@ -1,0 +1,41 @@
+{
+	"potentialDisorder": "Anorexie mentale",
+	"Questions": [
+		{
+			"name" : "M1",
+			"question": "Au cours de la période où votre poids était le plus bas ou au cours des trois derniers mois, avez-vous refusé de prendre du poids malgré le fait que vous pesiez peu ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "M2",
+			"question": "Au cours de la période où votre poids était le plus bas ou au cours des trois derniers mois, aviez-vous peur de prendre du poids ou redoutiez-vous de devenir trop gros(se) ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "M3a",
+			"question": "Au cours de la période où votre poids était le plus bas ou au cours des trois derniers mois, vous trouviez-vous encore trop gros(se), ou pensiez-vous qu’une partie de votre corps était trop grosse ?\n\nNotez oui si oui à l'un ou l'autre.",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "M3b",
+			"question": "Au cours de la période où votre poids était le plus bas ou au cours des trois derniers mois, l’opinion ou l’estime que vous aviez de vous-même étaient-elles largement influencées par votre poids ou vos formes corporelles ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "M3c",
+			"question": "Au cours de la période où votre poids était le plus bas ou au cours des trois derniers mois, pensiez-vous que ce poids était normal, voire excessif ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		}
+	],
+	"conditions": [[{"name": "M1","number": 1,"value": false}], [{"name": "M2","number": 1,"value": false}], [{"name": "M3","number": 3,"value": false}]]
+}

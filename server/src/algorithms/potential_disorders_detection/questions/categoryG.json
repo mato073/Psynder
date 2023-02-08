@@ -1,0 +1,49 @@
+{
+	"potentialDisorder": "Phobie sociale",
+	"Questions": [
+		{
+			"name" : "G1",
+			"question": "Avez-vous déjà eu au moins une période où vous redoutiez ou étiez gêné(e) d'être le centre de l'attention ou bien aviez peur de vous sentir humilié(e) dans certaines situations avec d'autres personnes ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "G2",
+			"question": "Pensiez-vous que cette peur était déraisonnable ou excessive ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "G3",
+			"question": "Tentiez-vous d'éviter ces situations (où vous étiez au centre de l'attention) le plus possible ? Vous sentiez-vous très mal à l'aise lorsque vous deviez les affronter ?\n\nNotez oui si oui à l'un ou l'autre.",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "G4",
+			"question": "Cette peur entrainait-elle une grande souffrance, ou une grande gêne dans votre milieu de vie ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "G5",
+			"question": "Cette peur était-elle toujours déclenchée et maintenue par une maladie physique ou une prise de médicament ou drogue ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name": "G6",
+			"question": "À quand remonte, à peu près, la première fois où vous avez redouté ces situations ?",
+			"types": ["ANSWERS"],
+			"answered": false,
+			"answers": [{"name": "Très récemment", "value": 7}, {"name": "Il y a quelques temps", "value": 5}, {"name": "Il y a plusieurs mois", "value": 3}, {"name": "Cela remonte à longtemps", "value": 1}],
+			"value": false
+		}
+	],
+	"conditions": [[{"name": "G1","number": 1,"value": false}], [{"name": "G2","number": 1,"value": false}], [{"name": "G3","number": 1,"value": false}], [{"name": "G4","number": 1,"value": false}], [{"name": "G5","number": 1,"value": true}]]
+}

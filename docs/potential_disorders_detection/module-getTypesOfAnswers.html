@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Module: getTypesOfAnswers</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <script src="scripts/nav.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.6/fuse.min.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link type="text/css" rel="stylesheet" href="styles/skyceil.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="utilities">
+        <div id="search">
+            <input type="text" id="search-box" placeholder="Search for stuffs..."><br>
+            <div id="search-results" style="display: none;"></div>
+        </div>
+        <button class="theme" data-theme="light"><i class="fas fa-moon"></i></button>
+    </div>
+    <hr>
+    <h4><a href="index.html">Home</a></h4><h5 class="no-bottom must-underline">Modules</h5><ul><li><span class="small-icon M">M</span><b><a href="module-allQuestionsAnsweredWithNameStartingBy.html">allQuestionsAnsweredWithNameStartingBy</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="module-allQuestionsAnsweredWithNameStartingBy.html#~allQuestionsAnsweredWithNameStartingBy">allQuestionsAnsweredWithNameStartingBy</a></li></ul></li><li><span class="small-icon M">M</span><b><a href="module-checkAnswer.html">checkAnswer</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="module-checkAnswer.html#~checkAnswer">checkAnswer</a></li><li><span class="small-icon F">F</span><a href="module-checkAnswer.html#~checkValidityofDateAnswer">checkValidityofDateAnswer</a></li><li><span class="small-icon F">F</span><a href="module-checkAnswer.html#~checkValidityofIntAnswer">checkValidityofIntAnswer</a></li></ul></li><li><span class="small-icon M">M</span><b><a href="module-countMaxPoints.html">countMaxPoints</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="module-countMaxPoints.html#~countMaxPoints">countMaxPoints</a></li><li><span class="small-icon F">F</span><a href="module-countMaxPoints.html#~getValuesOfAnswersObjectArray">getValuesOfAnswersObjectArray</a></li></ul></li><li><span class="small-icon M">M</span><b><a href="module-countPoints.html">countPoints</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="module-countPoints.html#~countPoints">countPoints</a></li></ul></li><li><span class="small-icon M">M</span><b><a href="module-getTypesOfAnswers.html">getTypesOfAnswers</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="module-getTypesOfAnswers.html#~getTypesOfAnswer">getTypesOfAnswer</a></li></ul></li><li><span class="small-icon M">M</span><b><a href="module-getValuesOfForksAnswersInArray.html">getValuesOfForksAnswersInArray</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="module-getValuesOfForksAnswersInArray.html#~getValuesOfForksAnswersInArray">getValuesOfForksAnswersInArray</a></li></ul></li><li><span class="small-icon M">M</span><a href="module-parsingSurvey.html">parsingSurvey</a></li><li><span class="small-icon M">M</span><b><a href="module-potentialDisordersDetection.html">potentialDisordersDetection</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="module-potentialDisordersDetection.html#~potentialDisordersDetection">potentialDisordersDetection</a></li></ul></li></ul><h4>Global</h4><ul><li><a href="global.html#FAIL">FAIL</a></li><li><a href="global.html#POSSIBLE_ANSWERS">POSSIBLE_ANSWERS</a></li><li><a href="global.html#SUCCESS">SUCCESS</a></li></ul>
+</nav>
+
+<div id="main">
+    <div class="burger">
+        <div class="burger-line-1"></div>
+        <div class="burger-line-2"></div>
+        <div class="burger-line-3"></div>
+    </div>
+
+    <h1 class="page-title">Module: getTypesOfAnswers</h1>
+
+    
+
+
+
+
+<section>
+<header>
+    <hr>
+    
+        
+            
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description"><p>Module with the function getTypesOfAnswers to know waited types of answers for a question.</p>
+<p>Code with comments:</p>
+<pre class="prettyprint source"><code>function(currentSurvey, currentQuestionNumber) {
+	// First we initialize the array of waitnig types response
+	const waitingTypesOfAnswer = [];
+	const question = currentSurvey.Questions[currentQuestionNumber];
+	const types = questions.types;
+
+	for (let i = 0; i &lt; types.length; i++)
+		switch (types[i]) {
+			case (&quot;BOOL&quot;):
+				waitingTypesOfAnswer.push(POSSIBLE_ANSWERS.BOOL);
+				break;
+
+			case (&quot;DATE.NEAR&quot;):
+				waitingTypesOfAnswer.push(POSSIBLE_ANSWERS.DATE.NEAR);
+				break;
+
+			case (&quot;DATE.FAR&quot;):
+				waitingTypesOfAnswer.push(POSSIBLE_ANSWERS.DATE.FAR);
+				break;
+
+			case (&quot;BRUT.INT&quot;):
+				if (!question.forksAnswers) {
+					// If BRUT.INT is a possible type of answer, forksAnswers must also be defined in the question else we'll throw an error
+					throw Error(&quot;If BRUT.INT is a possible type of answer, forksAnswers must also be defined in the question to be used&quot;);
+				}
+				waitingTypesOfAnswer.push(POSSIBLE_ANSWERS.BRUT.INT);
+				break;
+
+			case (&quot;BRUT.STRING&quot;):
+				waitingTypesOfAnswer.push(POSSIBLE_ANSWERS.BRUT.STRING);
+				break;
+
+			default:
+				throw Error(`Type ${type[i]} is not valid`);
+		}
+	return (waitingTypesOfAnswer);
+}
+</code></pre></div>
+        
+
+        
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="module-countMaxPoints.html">module:countMaxPoints</a></li>
+        
+            <li><a href="module-countPoints.html">module:countPoints</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<hr>
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="~getTypesOfAnswer"><span class="type-signature">(inner) </span>getTypesOfAnswer<span class="signature">(currentSurvey, currentQuestionNumber)</span><span class="type-signature"> &rarr; {object}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Function to display questions and possible answers depending of variables in the current question.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>currentSurvey</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">JSON</span>
+
+
+                
+                </td>
+
+                
+
+                
+
+                <td class="description last"><p>Current survey we are working with.</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>currentQuestionNumber</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">int</span>
+
+
+                
+                </td>
+
+                
+
+                
+
+                <td class="description last"><p>Number of the current question in the survey we are working with.</p></td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+<ul>
+        <li>
+
+    <div class="param-desc">
+    
+        <p>Throw an error if the type of <a href="global.html#POSSIBLE_ANSWERS"><code>POSSIBLE_ANSWERS.BRUT</code></a> isn't a int or a string.</p>
+    
+    </div>
+
+</li>
+    
+        <li>
+
+    <div class="param-desc">
+    
+        <p>Throw an error if brutAnswer AND forksAnswers aren't both defined in the current question.</p>
+    
+    </div>
+
+</li>
+    </ul>
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <ul>
+<li>Returns an array of <a href="global.html#POSSIBLE_ANSWERS"><code>possible answers</code></a>.</li>
+</ul>
+</div>
+
+
+
+<ul>
+    <li>
+        Type: <span class="simple-code">
+<span class="param-type">object</span>
+
+</span>
+    </li>
+</ul>
+
+    
+
+
+
+
+
+<hr>
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> using <a href="https://github.com/devsnowflake/jsdoc-skyceil">Skyceil Theme</a>
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+
+</body>
+</html>

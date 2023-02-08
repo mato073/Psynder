@@ -1,0 +1,98 @@
+{
+	"potentialDisorder": "Dépendance à l'alcool",
+	"Questions": [
+		{
+			"name" : "J1",
+			"question": "Au cours de votre vie, avez-vous eu au moins une période (d’au moins 12 mois) durant laquelle/lesquelles il vous est arrivé à plus de trois reprises de boire, en moins de trois heures, plus que l’équivalent d’une bouteille de vin (ou de 3 verres d’alcool fort) ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "J2a",
+			"question": "Au cours des 12 derniers mois, buviez-vous plus que d'habitude pour avoir les mêmes effets qu'auparavant ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "J2b",
+			"question": "Lorsque vous buviez moins, vos mains tremblaient-elles, transpiriez-vous ou vous sentiez agité(e) ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "J2c",
+			"question": "Vous est-il arrivé de boire plus que vous n'en aviez l'intention ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "J2d",
+			"question": "Avez-vous tenté de réduire votre consommation d'alcool sans pouvoir y arriver ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "J2e",
+			"question": "Les jours où vous buviez, passiez-vous beaucoup de temps à vous procurer de l'alcool, à boire ou à vous remettre des effets de l'alcool ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "J2f",
+			"question": "Les jours où vous buviez, passiez-vous moins de temps sur vos activités ou avec vos proches dû à l'alcool ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "J2g",
+			"question": "Avez-vous continué de boire tout en sachant les effets que cela entrainait pour votre santé ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "J3a",
+			"question": "Aviez-vous déjà été sous emprise de l'alcool alors que vous aviez des choses à faire au travail/à l'école ou à la maison ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "J3b",
+			"question": "Avez-vous déjà conduit sous l'effet de l'alcool ou étiez dans une situation risquée comme celle-ci ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "J3c",
+			"question": "Avez-vous déjà eu des problèmes légaux car vous aviez bu ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "J3d",
+			"question": "Avez-vous continué de boire tout en sachant que cela entraînait des problèmes avec votre famille et votre entourage ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name": "J4",
+			"question": "À quand remonte, à peu près, la première fois où vous avez eu une telle période d’au moins 12 mois durant laquelle vous buviez et aviez les problèmes dont nous venons de parler ?",
+			"types": ["ANSWERS"],
+			"answered": false,
+			"answers": [{"name": "Très récemment", "value": 7}, {"name": "Il y a quelques temps", "value": 5}, {"name": "Il y a plusieurs mois", "value": 3}, {"name": "Cela remonte à longtemps", "value": 1}],
+			"value": false
+		}
+	],
+	"conditions": [[{"name": "J1","number": 1,"value": false}], [{"name": "J2","number": 5,"value": false}], [{"name": "J3","number": 4,"value": false}]]
+}

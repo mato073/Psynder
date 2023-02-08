@@ -1,0 +1,55 @@
+<div *ngIf="isShown()"
+    class="flex flex-row my-1 bg-base-200 rounded-md w-full p-4 shadow cursor-pointer transform hover:shadow-2xl transition ease-in duration-200 focus:border-4 focus:border-primary-500"
+    (click)="switchToTherapistDetails()"
+>
+  <!-- <img [src]="therapist.avatar" class="h-16 w-16"> -->
+  <div class="w-16 h-16 flex rounded-full bg-gray-200">
+    <p class="m-auto text-lg">
+      {{ therapist.initials }}
+    </p>
+  </div>
+  
+  <div class="flex flex-col ml-8">
+    <!-- <div class="flex flex-row"> -->
+      <!-- 
+      <div class="specialty h-2 my-auto">
+        <div id="specialty-bg" [class]="therapist.specialty.color" 
+          [ngClass]="{'px-2': true, 'rounded': true}">
+          <p class="text-center text-xs text-black">{{ therapist.specialty.title }}</p>
+        </div>
+      </div> --> <!-- 
+      <div class="py-1 px-2 h-6 ml-6">
+        <div class="text-black text-sm my-auto mt-1 font-thin">
+          {{ therapist.distance }}km
+        </div>
+      </div>
+      -->
+      <!-- 
+      <div class=" rounded-lg py-1 px-2 h-6 ml-2">
+        <div class="text-black text-sm my-auto mt-1 font-thin">
+          ~ {{ therapist.averageSessionPrice }}€
+        </div>
+      </div> -->
+    <!-- </div> -->
+    <div class="absolute right-2 top-2">
+      <div class="text-sm my-auto mt-1 font-regular text-gray-500">
+        {{ therapist.distance }}km
+      </div>
+    </div>
+
+    <div class="my-auto text-base font-regular text-gray-800">
+      {{ therapist.name }}
+    </div>
+
+    <div *ngIf="therapist.score > 0"
+      class="w-full"
+    >
+      <div class="bg-gray-300 mt-2 w-48 h-4 rounded-full">
+        <div 
+        [class]="scoreBarWidth"
+        [ngClass]="{'h-4': true, 'rounded-full': true}" 
+        [style]="scoreBarStyle"></div>
+      </div>
+    </div>
+  </div>
+</div>

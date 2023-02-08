@@ -1,0 +1,104 @@
+Le fichier JSON a pour but d'accéder à différentes valeurs sans avoir à faire de gros parsing de fichier.
+/!\ Tout ce qui n'est pas défini en tant qu'exemple est susceptible de ne pas fonctionner. /!\
+/!\ Si les catégories potentialDisorder, Questions et conditions ne sont pas définies, une erreur sera émise. De même si les sous-catégories de la catégorie Question que sont name et question. /!\
+
+
+Ils doivent être définis de la manière suivante:
+
+{
+	"potentialDisorder": "le trouble auquel on veut ajouter des points dans le ficier AI.js",
+	"Questions": [
+		{
+			"name": "nom de la question, exemple: A1",
+			"question": "Question à afficher, exemple: Au cours de votre vie avez-vous eu une période de deux semaines ou plus, où vous vous sentiez particulièrement triste, cafardeux(se), déprimé(e), la plupart du temps au cours de la journée, et ce, presque tous les jours ?",
+			"answered": valeur de type bool pour indiquer si la question a été répondue (doit toujours être ) false),
+			"value": valeur pouvant être soit de type bool soit string; si valeur de type bool et égale à true: +1 point sinon si égale à false: +0 point 
+		},
+
+Dans le cas où une question comprend plusieurs sous-question (A5 -> a, b, c, ...) il faut nommer ces question par leur nom primaire (ici A5) suivi de leur 'sous-nom' (exemple A5a).
+		{
+			"name": "A5a",
+			"question": "Votre appétit a-t-il notablement changé, ou avez-vous pris ou perdu du poids sans en avoir l’intention ? (variation au cours du mois de ± 5 %, c. à d. ± 3,5 kg / ± 8 lbs., pour une personne de 70 kg / 120 lbs.)\nNotez oui si oui à l'un ou l'autre.",
+			"answered": false,
+			"value": false
+		},
+		{
+			"name": "A5b",
+			"question": "Aviez-vous des problèmes de sommeil presque toutes les nuits (endormissement, réveils nocturnes ou précoces, dormir trop)?",
+			"answered": false,
+			"value": false
+		},
+		{
+			"name": "A5c",
+			"question": "Parliez-vous ou vous déplaciez-vous plus lentement que d’habitude, ou au contraire vous sentiez-vous agité(e), et aviez-vous du mal à rester en place, presque tous les jours?",
+			"answered": false,
+			"value": false
+		},
+		{
+			"name": "A5d",
+			"question": "Vous sentiez-vous presque tout le temps fatigué(e), sans énergie, et ce presque tous les jours?",
+			"answered": false,
+			"value": false
+		},
+		{
+			"name": "A5e",
+			"question": "Vous sentiez-vous sans valeur ou coupable, et ce presque tous les jours?",
+			"answered": false,
+			"value": false
+		},
+		{
+			"name": "A5f",
+			"question": "Aviez-vous du mal à vous concentrer ou à prendre des décisions, et ce presque tous les jours ?",
+			"answered": false,
+			"value": false
+		},
+		{
+			"name": "A5g",
+			"question": "Avez-vous eu à plusieurs reprises des idées noires comme penser qu’il vaudrait mieux que vous soyez mort(e), ou avez-vous pensé à vous faire du mal ?",
+			"answered": false,
+			"value": false
+		},
+		{
+			"name": "A6",
+			"question": "Ces problèmes entraînent-ils/entraînaient-ils chez vous une souffrance importante ou bien vous gênent-ils/gênaient-ils vraiment dans votre travail, dans vos relations avec les autres ou dans d’autres domaines importants pour vous ?",
+			"answered": false,
+			"value": false
+		},
+		{
+			"name": "A7",
+			"question": "Les problèmes dont nous venons de parler ont-ils toujours été déclenchés et maintenus par une maladie physique, ou par la prise de médicaments ou de drogues?",
+			"answered": false,
+			"value": false
+		},
+		{
+			"name": "A8a",
+			"question": "Au cours de votre vie, combien de périodes de deux semaines ou plus avez vous eues durant lesquelles vous vous sentiez particulièrement déprimé(e) ou sans intérêt pour la plupart des choses et où vous aviez les problèmes dont nous venons de parler?",
+			"answered": false,
+On peut préciser différentes réponses à afficher, celles-ci ont pour but d'ajouter une forme de nuance auxquelles on peut assigner des valeurs (exemple: réponse 1 donne 1 point et réponse 2 en donne 2, ...).
+			"answers": [{"name": "Peu de fois", "value": 1}, {"name": "Quelques fois", "value": 3}, {"name": "Un nombre conséquent de fois", "value": 5}, {"name": "Beaucoup de fois", "value": 7}],
+On peut aussi proposer de donner une valeur brute à une réponse.
+			"brutAnswer": "int",
+Si une valeur brute à une réponse est possible, on doit alors définir une ou plusieurs fourchettes afin de savoir combien de point donner à cette question. Exemple: entre 0 et 2 donne 1 point, entre 3 et 5 donne 3 points, ...
+			"forksAnswers": [{"fork": "0-2", "value": 1}, {"fork": "3-5", "value": 3}, {"fork": "5-10", "value": 5}, {"fork": "10+", "value": 7}],
+Dans un cas comme celui-ci, où les points attribués sont définis par d'autres paramètres, la variable value doit rester à false.
+			"value": false
+		},
+		{
+			"name": "A8b",
+			"question": "Quand pour la première fois avez-vous eu une telle période ?",
+On peut décider d'attendre une valeur autre que de type bool (=> string) et préciser ce qu'on attend, ici une date, et le nombre de points à ajouter en fonction de si on veut une date proche ou éloignée. (échelles de temps à redemande aux spécialiste pour pas mettre de valeurs à vue de nez)
+			"answered": false,
+			"value": "date far" Dans ce cas, on veut donner d'avantage de points si la date donnée est lointaine (exemple: si date >= 6 mois alors date lointaine donc + 3 points sinon +1 point)
+		},
+		{
+			"name": "A8c",
+			"question": "Quand pour la dernière fois avez-vous eu une telle période?",
+			"answered": false,
+			"value": "date near" Dans ce cas, on veut donner d'avantage de points si la date donnée est proche (exemple si date <= 2 semaines alors date proche donc + 3 points sinon +1 point)
+		}
+	],
+Les conditions fonctionnent comme des phrase. La condition "A5 3 true" se lit: "Les questions dont le nom commencent par A5 doivent être au nombre minimum de 5 avec la valeur true pour changer de catégorie".
+Certaines conditions peuvent compter un ET (and) comme "A1 1 false and A2 1 false" qui se lirait:  "Les questions dont le nom commencent par A1 doivent être au nombre minimum de 1 avec la valeur false et les questions dont le nom commencent par A1 doivent être au nombre minimum de 1 avec la valeur false pour changer de catégorie"
+(A vérifier si on autorise plusieurs ET)
+	"conditions": ["A1 1 false and A2 1 false", "A5 3 true", "A5 4 true and A1 1 true", "A5 4 true and A2 1 true", "A6 1 false", "A7 1 true"]
+}

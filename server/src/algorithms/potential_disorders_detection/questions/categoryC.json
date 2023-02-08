@@ -1,0 +1,48 @@
+{
+	"potentialDisorder": "Risques suicidaires",
+	"Questions":[
+		{
+			"name":"C1",
+			"question": "Au cours du dernier mois, avez-vous pensé à disparaître ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name":"C2",
+			"question": "Au cours du dernier mois, avez-vous voulu vous faire du mal ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name":"C3",
+			"question": "Au cours du dernier mois, est-ce que vous avez eu des idées noires ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name":"C4",
+			"question": "Au cours du dernier mois, avez-vous établi la façon dont vous pourriez mettre en action des idées noires ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name":"C5",
+			"question": "Au cours du dernier mois, avez-vous alors tenté de mettre en action ces idées noires ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name":"C6",
+			"question": "Au cours de votre vie, avez-vous tenté de mettre en action ces idées noires ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		}
+	],
+	"conditions":[[{"name": "C","number": 6,"value": false}]]
+}

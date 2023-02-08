@@ -1,0 +1,56 @@
+<div class="grid grid-rows-2 overflow-y-auto">
+  <div class="mx-56 mt-52 border-gray-700">
+    <p class="text-center text-2xl p-8 text-gray-800">{{description}}</p>
+  </div>
+  <div *ngIf="answers === true && disabled === false && endCategory === false" class="grid grid-cols-4 mx-56 mt-16">
+    <div class="justify-self-start mx-6">
+      <button (click)="answer('1')" class="rounded border-2 text-center px-24 py-12 text-2xl bg-gray-100 font-medium hover:bg-gray-200 border-gray-200">Peu de fois
+      </button>
+    </div>
+    <div class="justify-self-center mx-6">
+      <button (click)="answer('3')" class="rounded border-2 text-center px-24 py-12 text-2xl bg-gray-100 font-medium hover:bg-gray-200 border-gray-200">Quelques fois
+      </button>
+    </div>
+    <div class="justify-self-center mx-6">
+      <button (click)="answer('5')" class="rounded border-2 text-center px-24 py-8 text-2xl bg-gray-100 font-medium hover:bg-gray-200 border-gray-200">Un nombre conséquent de fois
+      </button>
+    </div>
+    <div class="justify-self-end mx-6">
+      <button (click)="answer('7')" class="rounded border-2 text-center px-24 py-12 text-2xl bg-gray-100 font-medium hover:bg-gray-200 border-gray-200">Beaucoup de fois
+      </button>
+    </div>
+  </div>
+  <div *ngIf="date === true && disabled === false && endCategory === false" class="grid grid-cols-2 mx-56 mt-16 gap-0">
+    <app-date-picker (date)="setDate($event)" class="mx-1 justify-self-end"></app-date-picker>
+    <div class="mx-8 justify-self-start">
+      <button (click)="answer('')" class="rounded border-2 text-center px-24 py-8 text-xl bg-gray-100 font-medium hover:bg-gray-200 border-gray-200">Ok
+      </button>
+    </div>
+  </div>
+  <div *ngIf="answers === false && date === false && disabled === false && endCategory === false" class="grid grid-cols-2 mx-56 mt-16">
+    <div class="justify-self-end mx-6">
+      <button (click)="answer('non')" class="rounded border-2 text-center px-32 py-12 text-2xl bg-gray-100 font-medium hover:bg-gray-200 border-gray-200">{{noButton}}
+      </button>
+    </div>
+    <div class="justify-self-start mx-6">
+      <button (click)="answer('oui')" class="rounded border-2 text-center px-32 py-12 text-2xl bg-gray-100 font-medium hover:bg-gray-200 border-gray-200">{{yesButton}}
+      </button>
+    </div>
+  </div>
+  <!--
+  <div class="justify-self-start">
+    <button *ngIf="returnToLast === true" (click)="backToLastQuestion()" class="rounded border-2 text-center px-32 py-12 text-2xl bg-gray-100 font-medium hover:bg-gray-200 border-gray-200">
+    Revenir
+    </button>
+  </div>-->
+  <div *ngIf="disabled === false && endCategory === true" class="grid grid-cols-2 mx-56">
+    <div class="justify-self-end mx-6">
+      <button (click)="goToMap()" class="rounded border-2 text-center px-32 py-12 text-2xl bg-gray-100 font-medium hover:bg-gray-200 border-gray-200">Accéder à la carte
+      </button>
+    </div>
+    <div class="justify-self-start mx-6">
+      <button (click)="nextCategory()" class="rounded border-2 text-center px-32 py-12 text-2xl bg-gray-100 font-medium hover:bg-gray-200 border-gray-200">Continuer
+      </button>
+    </div>
+  </div>
+</div>

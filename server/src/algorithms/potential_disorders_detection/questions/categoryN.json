@@ -1,0 +1,49 @@
+{
+	"potentialDisorder": "Boulimie",
+	"Questions": [
+		{
+			"name" : "N1",
+			"question": "Au cours de votre vie, avez-vous eu au moins une période d’au moins trois semaines où vous aviez des crises de boulimie durant lesquelles vous mangiez de très grandes quantités de nourriture dans une période de temps limitée ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "N2",
+			"question": "Au cours de cette/ces période(s), aviez-vous des crises au moins deux fois par semaine ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "N3",
+			"question": "Durant ces crises de boulimie, aviez-vous l’impression de ne pas pouvoir vous arrêter de manger ou de ne pas pouvoir contrôler la quantité de nourriture que vous preniez ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "N4",
+			"question": "Vous est-il arrivé de vous forcer à vomir, faire des régimes extrêmes ou faire d'intenses exercices physiques dans le but d'éviter la prise de poids ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "N5",
+			"question": "L’opinion ou l’estime que vous aviez de vous-même étaient-elles largement influencées par votre poids ou vos formes corporelles ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name": "N6",
+			"question": "À quand remonte, à peu près, la dernière fois où vous avez eu une telle période d’au moins 3 mois où vous aviez au moins 2 crises de boulimie par semaine tout en ayant les préoccupations dont nous venons de parler ?",
+			"types": ["ANSWERS"],
+			"answered": false,
+			"answers": [{"name": "Très récemment", "value": 7}, {"name": "Il y a quelques temps", "value": 5}, {"name": "Il y a plusieurs mois", "value": 3}, {"name": "Cela remonte à longtemps", "value": 1}],
+			"value": false
+		}
+	],
+	"conditions": [[{"name": "N1","number": 1,"value": false}], [{"name": "N2","number": 1,"value": false}], [{"name": "N3","number": 1,"value": false}], [{"name": "N4","number": 1,"value": false}], [{"name": "N5","number": 1,"value": false}]]
+}

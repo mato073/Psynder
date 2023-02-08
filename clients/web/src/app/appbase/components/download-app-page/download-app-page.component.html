@@ -1,0 +1,60 @@
+<div class="bg-base-500 flex w-screen h-screen overflow-hidden" style="overflow: hidden !important;">
+  <div class="mt-8 pl-12">
+    <img class="w-48 fixed" src="../../../../assets/png/banner_4600x1500_with_transparency.png" (click)="redirectToLandingPage()">
+  </div>
+
+  <div class="fixed right-0 right-12 top-10">
+    <button
+      class="mr-10 rounded-lg cursor-pointer font-medium text-base text-gray-800 hover:underline"
+      (click)="redirectToAboutPage()">
+      À propos
+    </button>
+    <button
+      class="mr-10 rounded-lg cursor-pointer font-medium text-base text-gray-800 hover:underline"
+      (click)="redirectToFAQPage()">
+      Foire aux questions
+    </button>
+    <button
+      class="mr-10 rounded-lg cursor-pointer font-medium text-base text-gray-800 hover:underline"
+      (click)="redirectToFeedbackPage()">
+      Faire un retour
+    </button>
+    <button
+      class="mr-10 rounded-lg cursor-pointer font-medium text-base text-gray-800 hover:underline"
+      (click)="redirectToLoginSignupPage()">
+      Connexion / Inscription
+    </button>
+  </div>
+
+  <div class="flex flex-col my-auto mx-auto">
+    <img class="w-64 md:w-96 mt-8 md:-mt-16 mx-auto" src="../../../../assets/svg/laying.svg">
+    <div class="flex flex-wrap flex-col">
+      <div class="mx-auto md:ml-12 md:max-w-2xl">
+        <h1 class="container text-xl md:text-4xl lg:text-5xl font-semibold text-black">
+          Télécharger l'application
+        </h1>
+        <h3 class="mt-4 md:mt-12 text-base md:text-xl font-semibold text-black">
+          À noter
+        </h3>
+        <p class="flex-wrap mt-2 md:mt-4 text-gray-600 text-xs md:text-sm">
+          Pour pouvoir télécharger et installer l'application sur votre smartphone, vous pouvez
+          être amené(e) à devoir modifier des réglages de sécurité.<br><br>
+          Les instructions à suivre sur Android sont indiquées
+          <a class="text-blue-600 font-medium underline"
+            href="https://www.frandroid.com/comment-faire/tutoriaux/184151_comment-installer-un-fichier-apk-sur-son-terminal-android"
+            target="_blank">
+            ici</a>.<br><br>
+          Désolé aux utilisateurs d'iOS, l'app n'est pas encore compatible !
+        </p>
+      </div>
+    </div>
+    <button
+      class="mt-14 px-5 py-3 mx-auto flex flex-row border border-black rounded-lg hover:bg-black hover:bg-opacity-5"
+      (click)="downloadAndroid()">
+      <img class="w-14 my-auto" src="../../../../assets/png/android-logo.png">
+      <span class="ml-8 my-auto font-medium text-2xl">
+        Télécharger
+      </span>
+    </button>
+  </div>
+</div>

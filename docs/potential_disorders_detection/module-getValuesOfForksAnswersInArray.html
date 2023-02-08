@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Module: getValuesOfForksAnswersInArray</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <script src="scripts/nav.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.6/fuse.min.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link type="text/css" rel="stylesheet" href="styles/skyceil.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="utilities">
+        <div id="search">
+            <input type="text" id="search-box" placeholder="Search for stuffs..."><br>
+            <div id="search-results" style="display: none;"></div>
+        </div>
+        <button class="theme" data-theme="light"><i class="fas fa-moon"></i></button>
+    </div>
+    <hr>
+    <h4><a href="index.html">Home</a></h4><h5 class="no-bottom must-underline">Modules</h5><ul><li><span class="small-icon M">M</span><b><a href="module-allQuestionsAnsweredWithNameStartingBy.html">allQuestionsAnsweredWithNameStartingBy</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="module-allQuestionsAnsweredWithNameStartingBy.html#~allQuestionsAnsweredWithNameStartingBy">allQuestionsAnsweredWithNameStartingBy</a></li></ul></li><li><span class="small-icon M">M</span><b><a href="module-checkAnswer.html">checkAnswer</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="module-checkAnswer.html#~checkAnswer">checkAnswer</a></li><li><span class="small-icon F">F</span><a href="module-checkAnswer.html#~checkValidityofDateAnswer">checkValidityofDateAnswer</a></li><li><span class="small-icon F">F</span><a href="module-checkAnswer.html#~checkValidityofIntAnswer">checkValidityofIntAnswer</a></li></ul></li><li><span class="small-icon M">M</span><b><a href="module-countMaxPoints.html">countMaxPoints</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="module-countMaxPoints.html#~countMaxPoints">countMaxPoints</a></li><li><span class="small-icon F">F</span><a href="module-countMaxPoints.html#~getValuesOfAnswersObjectArray">getValuesOfAnswersObjectArray</a></li></ul></li><li><span class="small-icon M">M</span><b><a href="module-countPoints.html">countPoints</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="module-countPoints.html#~countPoints">countPoints</a></li></ul></li><li><span class="small-icon M">M</span><b><a href="module-getTypesOfAnswers.html">getTypesOfAnswers</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="module-getTypesOfAnswers.html#~getTypesOfAnswer">getTypesOfAnswer</a></li></ul></li><li><span class="small-icon M">M</span><b><a href="module-getValuesOfForksAnswersInArray.html">getValuesOfForksAnswersInArray</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="module-getValuesOfForksAnswersInArray.html#~getValuesOfForksAnswersInArray">getValuesOfForksAnswersInArray</a></li></ul></li><li><span class="small-icon M">M</span><a href="module-parsingSurvey.html">parsingSurvey</a></li><li><span class="small-icon M">M</span><b><a href="module-potentialDisordersDetection.html">potentialDisordersDetection</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="module-potentialDisordersDetection.html#~potentialDisordersDetection">potentialDisordersDetection</a></li></ul></li></ul><h4>Global</h4><ul><li><a href="global.html#FAIL">FAIL</a></li><li><a href="global.html#POSSIBLE_ANSWERS">POSSIBLE_ANSWERS</a></li><li><a href="global.html#SUCCESS">SUCCESS</a></li></ul>
+</nav>
+
+<div id="main">
+    <div class="burger">
+        <div class="burger-line-1"></div>
+        <div class="burger-line-2"></div>
+        <div class="burger-line-3"></div>
+    </div>
+
+    <h1 class="page-title">Module: getValuesOfForksAnswersInArray</h1>
+
+    
+
+
+
+
+<section>
+<header>
+    <hr>
+    
+        
+            
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description"><p>Module with function to get the values that correspond to the values of each fork value.</p>
+<p>Code with comments:</p>
+<pre class="prettyprint source"><code>function(arr) {
+	const values = [];
+
+	for (let i = 0; i &lt; arr.length; i++)
+		values.push(arr.value);
+	return (values);
+}
+</code></pre></div>
+        
+
+        
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<hr>
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="~getValuesOfForksAnswersInArray"><span class="type-signature">(async, inner) </span>getValuesOfForksAnswersInArray<span class="signature">(arr)</span><span class="type-signature"> &rarr; {Array.&lt;int>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Function to get the values that correspond to the values of each fork value.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>arr</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">Array.&lt;object></span>
+
+
+                
+                </td>
+
+                
+
+                
+
+                <td class="description last"><p>Array of objects that looks like [{&quot;fork&quot;: &quot;int-int&quot;, &quot;value&quot;: int}]</p></td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Return an array of int corresponding to the values of each fork value.</p>
+</div>
+
+
+
+<ul>
+    <li>
+        Type: <span class="simple-code">
+<span class="param-type">Array.&lt;int></span>
+
+</span>
+    </li>
+</ul>
+
+    
+
+
+
+
+
+<hr>
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> using <a href="https://github.com/devsnowflake/jsdoc-skyceil">Skyceil Theme</a>
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+
+</body>
+</html>

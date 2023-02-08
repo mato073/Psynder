@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Psynder</title>
+  <link rel="icon" type="image/png" sizes="16x16" href="./images/logo.png">
+
+  <script src="scripts/prettify/prettify.js"></script>
+  <script src="scripts/prettify/lang-css.js"></script>
+  <script src="scripts/nav.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.6/fuse.min.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link type="text/css" rel="stylesheet" href="styles/skyceil.css">
+  <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+  <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+      <div class="utilities">
+          <img src="./images/logo.png" width="64" height="64" alt="Psynder's logo">
+          <h1>Psynder</h1>
+          <button class="theme" data-theme="light"><i class="fas fa-moon"></i></button>
+      </div>
+      <hr>
+            <h4><a href="index.html">Home</a></h4>
+            <h5 class="no-bottom must-underline">Documentations</h5>
+            <ul>
+                <li><span class="small-icon M">M</span><b>Server</b></li>
+                <ul class="has-class-methods">
+                    <li><span class="small-icon D">D</span><a href="../server_api-rest/index.html" target="_blank">🇬🇧 Server API-Rest</a></li>
+                    <li><span class="small-icon D">D</span><a href="../potential_disorders_detection/index.html" target="_blank">🇬🇧 Potential disorders detection</a></li>
+                    <li><span class="small-icon D">D</span><a href="../matching_algorithm/index.html" target="_blank">🇬🇧 Matching algorithm</a></li>
+                </ul>
+            </ul>
+            <h5 class="no-bottom must-underline">Others</h5>
+            <ul>
+                <li><span class="small-icon M">M</span><b>PDFs</b></li>
+                <ul class="has-class-methods">
+                    <li><span class="small-icon D">D</span><a href="../Unit_tests_documentation.pdf" target="_blank">🇬🇧 Unit tests</a></li>
+                    <li><span class="small-icon D">D</span><a href="../Recherches sur les algorithmes de matching.pdf" target="_blank">🇫🇷 Recherches sur les algorithmes de matching</a></li>
+                </ul>
+            </ul>
+    </nav>
+
+    <div id="main">
+        <div class="burger">
+            <div class="burger-line-1"></div>
+            <div class="burger-line-2"></div>
+            <div class="burger-line-3"></div>
+        </div>
+        <h1 class="page-title">Home</h1>
+
+        <section>
+            <article><div align=center>
+                <h1><b>Psynder</b></h1>
+                <img src="./images/banner.png" alt="banner psynder" height="300" width="920"/>
+            </div>
+
+            <h1>Description</h1>
+            <p>
+                <strong>FR 🇫🇷 :</strong> Psynder est une solution visant à rapprocher des personnes souffrant de troubles psychologiques, et en particulier de dépression, avec des thérapeutes qualifiés. Au travers d’un questionnaire scientifiquement reconnu, l’application permet de redonner confiance à des personnes souvent repliées sur elles-mêmes et qui évitent de sortir de leur zone de confort.
+                <br>
+                Lien vers l'API: <a href="http://x2022psynder2788877055001.francecentral.cloudapp.azure.com:8080/" target="_blank">x2022psynder2788877055001.francecentral.cloudapp.azure.com:8080</a>
+                <br>
+                Lien vers le client web: <a href="https://x2022psynder2788877055001.francecentral.cloudapp.azure.com/" target="_blank">x2022psynder2788877055001.francecentral.cloudapp.azure.com</a> (ou <a href="http://psynder.fr/" target="_blank">psynder.fr</a>, voire <a href="http://www.psynder.fr/" target="_blank">www.psynder.fr</a>)
+            </p>
+            <p>
+                <strong>EN 🇬🇧:</strong> Psynder is a solution aimed at bringing together people suffering from psychological disorders, and in particular depression, with qualified therapists. Through a scientifically recognized questionnaire, the application helps to restore confidence in people who are often withdrawn and who avoid leaving their comfort zone.
+                <br>
+                Link to the API : <a href="http://x2022psynder2788877055001.francecentral.cloudapp.azure.com:8080/" target="_blank">x2022psynder2788877055001.francecentral.cloudapp.azure.com:8080</a>
+                <br>
+                Link to the web client : <a href="http://x2022psynder2788877055001.francecentral.cloudapp.azure.com/" target="_blank">x2022psynder2788877055001.francecentral.cloudapp.azure.com</a> (or <a href="http://psynder.fr/" target="_blank">psynder.fr</a>, and even <a href="http://www.psynder.fr/" target="_blank">www.psynder.fr</a>)
+            </p>
+            <br>
+
+            <h2>Members</h2>
+            <ul>
+                <li>Stanislas HÉGRON</li>
+                <li>Marc-Antoine WITTLING</li>
+                <li>Nicolas BERNES</li>
+                <li>Stanislas ZLOTINE</li>
+                <li>Gaspard MATER</li>
+                <li>Ronan BOUZIANE</li>
+                <li>Lesly Lim</li>
+            </ul>
+
+            <h1>Client-Mobile for React-Native-CLI</h1>
+            <p>This project was generated with <a href="https://github.com/facebook/react-native" target="_blank">React Native</a> version: react-native-cli 2.0.1 and react-native 0.62.2</p>
+            <h2>Development platform</h2>
+            <p>It works for windows and Android</p>
+            <h2>Installation</h2>
+            <p>https://reactnative.dev/docs/environment-setup</p>
+            <h2>Installation for device</h2>
+            <p>Using a physical device:
+            If you have a physical Android device, you can use it for development in place of an AVD by plugging it in to your computer using a USB cable.</p>
+            <p>Using a virtual device:
+            Install [Android Studio] https://developer.android.com/studio/ on our computer.
+            And open ./AwesomeProject/android, you can see the list of available Android Virtual Devices (AVDs) by opening the &quot;AVD Manager&quot; from within Android Studio.</p>
+            <h2>Build</h2>
+            <p>In the folder <code>Mobile-Psynder</code> execute <code>react-native run-android</code></p>
+            <h2>React-Native-CLI app</h2>
+            <p>Your app is now open in your device.</p></article>
+        </section>
+    </div>
+
+    <br class="clear">
+
+    <footer>
+        <p><small>&copy; 2021 Psynder All Rights Reserved</small></p>
+    </footer>
+
+    <script>prettyPrint();</script>
+    <script src="scripts/linenumber.js"></script>
+</body>
+</html>

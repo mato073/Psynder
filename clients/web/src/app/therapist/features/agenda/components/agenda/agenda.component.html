@@ -1,0 +1,179 @@
+<!-- CUSTOM CALENDAR TEMPLATES-->
+<ng-template 
+  #customWeekHeaderTemplate
+  let-days="days"
+  let-locale="locale"
+  let-dayHeaderClicked="dayHeaderClicked"
+  let-eventDropped="eventDropped"
+>
+  <div class="cal-day-headers">
+    <div
+      class="cal-header"
+      *ngFor="let day of days; trackBy:trackByWeekDayHeaderDate"
+      [class.cal-past]="day.isPast"
+      [class.cal-future]="day.isFuture"
+      [class.cal-weekend]="day.isWeekend"
+      [ngClass]="day.cssClass"
+      (mwlClick)="dayHeaderClicked.emit({day: day})"
+      mwlDroppable
+      dragOverClass="cal-drag-over"
+      (drop)="eventDropped.emit({event: $event.dropData.event, newStart: day.date})">
+      <b>{{ day.date | calendarDate:'weekViewColumnHeader':locale }}</b><br>
+      <div class="mx-auto flex w-10 h-10 rounded-full z-50"
+        [class.cal-today]="day.isToday"
+      >
+        <span class="my-auto mx-auto">{{ day.date | calendarDate:'weekViewColumnSubHeader':locale }}</span>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template
+      #customEventTemplate
+      let-weekEvent="weekEvent"
+      let-tooltipPlacement="tooltipPlacement"
+      let-eventClicked="eventClicked"
+      let-tooltipTemplate="tooltipTemplate"
+      let-tooltipAppendToBody="tooltipAppendToBody"
+      let-tooltipDisabled="tooltipDisabled"
+      let-tooltipDelay="tooltipDelay"
+      let-column="column"
+      let-daysInWeek="daysInWeek"
+    >
+  <div
+    class="cal-event flex flex-row w-full"
+    [ngStyle]="{
+      backgroundColor: weekEvent.event.color?.secondary,
+      borderColor: weekEvent.event.color?.primary
+    }"
+    [mwlCalendarTooltip]="
+      !tooltipDisabled
+        ? (weekEvent.event.title
+          | calendarEventTitle
+            : (daysInWeek === 1 ? 'dayTooltip' : 'weekTooltip')
+            : weekEvent.tempEvent || weekEvent.event)
+        : ''
+    "
+    [tooltipPlacement]="tooltipPlacement"
+    [tooltipEvent]="weekEvent.tempEvent || weekEvent.event"
+    [tooltipTemplate]="tooltipTemplate"
+    [tooltipAppendToBody]="tooltipAppendToBody"
+    [tooltipDelay]="tooltipDelay"
+    (mwlClick)="eventClicked.emit({ sourceEvent: $event })"
+    (mwlKeydownEnter)="eventClicked.emit({ sourceEvent: $event })"
+    tabindex="0"
+    role="application"
+    [attr.aria-label]="
+      { event: weekEvent.tempEvent || weekEvent.event, locale: locale }
+        | calendarA11y: 'eventDescription'
+    "
+    (click)="onWeekEventClick(weekEvent.event)"
+  >
+    <mwl-calendar-event-actions
+      [event]="weekEvent.tempEvent || weekEvent.event"
+    >
+      <!-- [customTemplate]="eventActionsTemplate" -->
+    </mwl-calendar-event-actions>
+    &ngsp;
+    <mwl-calendar-event-title
+      [event]="weekEvent.tempEvent || weekEvent.event"
+      [view]="daysInWeek === 1 ? 'day' : 'week'"
+    >
+    <!-- [customTemplate]="eventTitleTemplate" -->
+    </mwl-calendar-event-title>
+  </div>
+</ng-template>
+
+
+<!-- COMPONENT TEMPLATE -->
+<div class="mt-2 mb-6 pl-16 w-full flex flex-row">
+  <button class="my-auto h-7 w-7 flex text-center rounded-full hover:bg-t-secondary-200 focus:outline-none active:bg-t-secondary-300" 
+    mwlCalendarPreviousView
+    [view]="view"
+    [(viewDate)]="viewDate"
+    (click)="getAppointmentsForTimeframe()"
+  >
+    <svg class="h-6 w-6 m-auto text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+      <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+    </svg>
+  </button>
+  <button class="my-auto h-7 w-7 rounded-full hover:bg-t-secondary-200 focus:outline-none active:bg-t-secondary-300" 
+    mwlCalendarNextView
+    [view]="view"
+    [(viewDate)]="viewDate"
+    (click)="getAppointmentsForTimeframe()"
+  >
+    <svg class="h-6 w-6 m-auto text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+      <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+    </svg>
+  </button>
+  <h3 class="flex-grow text-title w-90 mt-2 ml-8 text-2xl font-light my-auto">
+    {{ viewDate | calendarDate:(view + 'ViewTitle'):locale:weekStartsOn }}
+  </h3>
+
+  <button
+    *ngIf="view === CalendarView.Week"
+    class="flex flex-row my-auto px-3 h-10 mt-2 rounded-full mr-36 bg-t-primary-500 hover:shadow-lg focus:outline-none active:transition-none active:bg-t-primary-600 active:shadow-inner transition-shadow duration-300 ease-in-out"
+    (click)="createAppointmentModalTriggered = true"
+  >
+    <svg class="w-4 h-4 ml-1 my-auto text-white" viewBox="0 0 20 20" fill="currentColor">
+      <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+    </svg>
+    <p class="mr-2 ml-2 text-base font-medium my-auto text-white">
+      Rendez-vous
+    </p>
+  </button>
+
+
+  <div class="mr-4 mt-2 flex flex-row">
+    <button class="py-1 px-3 h-9 rounded-md text-t-gray-500 text-md font-normal hover:text-t-gray-600 focus:outline-none"
+    [class.bg-t-secondary-200]="view === CalendarView.Month"
+    [class.text-t-secondary-600]="view === CalendarView.Month"
+    (click)="setView(CalendarView.Month)"
+    >
+      Mois
+    </button>
+    <button class="ml-1 mr-4 py-1 h-9 px-3 rounded-md text-t-gray-500 text-md font-normal hover:text-t-gray-600 focus:outline-none"
+    [class.bg-t-secondary-200]="view === CalendarView.Week"
+    [class.text-t-secondary-600]="view === CalendarView.Week"
+    (click)="setView(CalendarView.Week)"
+    >
+      Semaine
+    </button>
+  </div>
+</div>
+<div
+  #scrollContainer
+  [ngSwitch]="view"
+>
+  <mwl-calendar-month-view
+    *ngSwitchCase="CalendarView.Month"
+    [viewDate]="viewDate"
+  ></mwl-calendar-month-view>
+
+  <mwl-calendar-week-view
+    *ngSwitchCase="CalendarView.Week"
+    [viewDate]="viewDate"
+    [weekStartsOn]="1"
+    [locale]="locale"
+    [events]="events"
+    [headerTemplate]="customWeekHeaderTemplate"
+    [eventTemplate]="customEventTemplate"
+    ></mwl-calendar-week-view>
+  </div>
+  
+
+  <app-create-appointment-modal
+    *ngIf="createAppointmentModalTriggered"
+    (modalClosedEvent)="createAppointmentModalTriggered = false"
+    (appointmentCreated)="getAppointmentsForTimeframe()"
+  >
+  </app-create-appointment-modal>
+
+  <app-update-appointment-modal
+    *ngIf="updateAppointmentModalTriggered"
+    [apt]="appointmentToUpdate"
+    (modalClosedEvent)="updateAppointmentModalTriggered = false"
+    (dateUpdated)="getAppointmentsForTimeframe()"
+  >
+  </app-update-appointment-modal>

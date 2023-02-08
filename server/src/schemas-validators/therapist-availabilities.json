@@ -1,0 +1,50 @@
+{
+	"validator": {
+		"$jsonSchema": {
+			"bsonType": "object",
+			"required": ["days"],
+			"properties": {
+				"days": {
+					"bsonType": "array",
+					"description": "array of objects containing the time slots of the therapist for each day, required",
+					"items": {
+						"bsonType": "object",
+						"required": ["day", "timeSlots"],
+						"properties": {
+							"day": {
+								"bsonType": "string",
+								"description": "name of the day, must be a string and is required"
+							},
+							"timeSlots": {
+								"bsonType": "array",
+								"description": "array of objects containing each time slot of the day, required",
+								"items": {
+									"bsonType": "object",
+									"required": ["from", "to", "type"],
+									"properties": {
+										"from": {
+											"bsonType": "string",
+											"description": "start of the time slot in format HH:MM, must be a string and is required"
+										},
+										"to": {
+											"bsonType": "string",
+											"description": "end of the time slot in format HH:MM, must be a string and is required"
+										},
+										"type": {
+											"bsonType": "string",
+											"description": "Type of the time slot, must be a string and is required"
+										},
+										"color": {
+											"bsonType": "string",
+											"description": "Must be a string and is not required"
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

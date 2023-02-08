@@ -1,0 +1,389 @@
+{
+	"info": {
+		"_postman_id": "e75d2ff2-8d61-4264-bda9-747bd27a89e4",
+		"name": "Psynder-location",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "add location user",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "lat",
+							"value": "53.578180",
+							"type": "text"
+						},
+						{
+							"key": "lng",
+							"value": "9.945350",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/current/location",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"current",
+						"location"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add first location therapist",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "lat",
+							"value": "53.599980",
+							"type": "text"
+						},
+						{
+							"key": "lng",
+							"value": "10.013510",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/therapists/current/location",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"therapists",
+						"current",
+						"location"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add second location therapist",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "lat",
+							"value": "42.456",
+							"type": "text"
+						},
+						{
+							"key": "lng",
+							"value": "43.869",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/therapists/current/location",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"therapists",
+						"current",
+						"location"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get location by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/locations/604fb2f37322a06df5bbf19a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"locations",
+						"604fb2f37322a06df5bbf19a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get current user location",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/current/location",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"current",
+						"location"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get current therapist location",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/therapists/close-to-me",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"therapists",
+						"close-to-me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user location by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/current/location",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"current",
+						"location"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update location with id",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "lat",
+							"value": "3.00",
+							"type": "text"
+						},
+						{
+							"key": "lng",
+							"value": "50.4",
+							"type": "text"
+						},
+						{
+							"key": "formattedAddress",
+							"value": "44 bvd Guist'hau, 44000 Nantes",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/locations/6047970c5c005a82a828ba2d",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"locations",
+						"6047970c5c005a82a828ba2d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update current user location",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "lat",
+							"value": "2.46",
+							"type": "text"
+						},
+						{
+							"key": "lng",
+							"value": "50.2",
+							"type": "text"
+						},
+						{
+							"key": "formattedAddress",
+							"value": "28 rue Adolphe Moitié, 44000 Nantes",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/current/location",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"current",
+						"location"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete locaton",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "get therapists close to user",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/therapists/close-to-me?lat=52.520008&lng=13.404954",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"therapists",
+						"close-to-me"
+					],
+					"query": [
+						{
+							"key": "lat",
+							"value": "52.520008"
+						},
+						{
+							"key": "lng",
+							"value": "13.404954"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

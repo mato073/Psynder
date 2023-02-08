@@ -1,0 +1,41 @@
+{
+	"validator": {
+		"$jsonSchema": {
+			"bsonType": "object",
+			"required": ["user", "therapist", "messages"],
+			"properties": {
+				"user": {
+					"bsonType": "objectId",
+					"description": "ID of the user and is required"
+				},
+				"thrapist": {
+					"bsonType": "objectId",
+					"description": "ID of the therapist and is required"
+				},
+				"messages": {
+					"bsonType": "array",
+					"description": "array of objects containing the content, the sender, the date (in ISO format) of the message, is required",
+					"items": {
+						"bsonType": "object",
+						"required": ["date", "sender", "content"],
+						"properties": {
+							"date": {
+								"bsonType": "string",
+								"description": "date in ISO format as string, is required"
+							},
+							"sender": {
+								"enum": [ "user", "therapist" ],
+								"bsonType": "string",
+								"description": "should be 'user' or 'therapist', is required"
+							},
+							"content": {
+								"bsonType": "string",
+								"description": "content of the message, should be a string, is required"
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

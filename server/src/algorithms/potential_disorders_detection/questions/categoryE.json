@@ -1,0 +1,133 @@
+{
+	"potentialDisorder": "Trouble de la panique",
+	"Questions":[
+		{
+			"name":"E1",
+			"question": "Avez-vous déjà eu des situations durant lesquelles vous vous êtes senti(e) subitement très anxieux(se), très mal à l'aise ou effrayé(e) ? Même dans des situations quelconques ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name":"E2",
+			"question": "Ces crises ont-elles été imprévisibles, ou sont arrivées sans que rien ne les provoque ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name":"E3",
+			"question": "Suite à l'une des situations précédemment citées, avez-vous déjà eu une période d'au moins un mois où vous redoutiez d'avoir d'autres crises ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name":"E4a",
+			"question": "Au cours de l'une de ces situations, aviez-vous des palpitations ou votre cœur battait-il très fort ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name":"E4b",
+			"question": "Au cours de l'une de ces situations, transpiriez-vous ou aviez les mains moites ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name":"E4c",
+			"question": "Au cours de l'une de ces situations, aviez-vous des tremblements ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name":"E4d",
+			"question": "Au cours de l'une de ces situations, aviez-vous du mal à respirer ? L'impression d'étouffer ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name":"E4e",
+			"question": "Au cours de l'une de ces situations, aviez-vous l'impression de suffoquer ou d'avoir une boule à la gorge ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name":"E4f",
+			"question": "Au cours de l'une de ces situations, ressentiez-vous une douleur ou une gêne au niveau du thorax ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name":"E4g",
+			"question": "Au cours de l'une de ces situations, aviez-vous la nausée ou une gêne au niveau de l'estomac ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name":"E4h",
+			"question": "Au cours de l'une de ces situations, aviez-vous des vertiges ou une perte de connaissance ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name":"E4i",
+			"question": "Au cours de l'une de ces situations, vous sentiez-vous comme détaché de la réalité ou d'une autre partie du corps ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name":"E4j",
+			"question": "Au cours de l'une de ces situations, aviez-vous déjà eu peur de perdre le contrôle de vous-même ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name":"E4k",
+			"question": "Au cours de l'une de ces situations, aviez-vous peur de disparaitre ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name":"E4l",
+			"question": "Au cours de l'une de ces situations, aviez-vous des engourdissements ou picotements ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name":"E4m",
+			"question": "Au cours de l'une de ces situations, aviez-vous des bouffées de chaleur ou frissons ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name":"E5",
+			"question": "Au cours du mois écoulé, avez-vous eu de telles crises à plusieurs reprises (au moins deux fois) en ayant constamment peur d’en avoir une autre ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},		
+		{
+			"name": "E6",
+			"question": "À quand remonte, à peu près, la première fois où vous avez eu une telle crise ?",
+			"types": ["ANSWERS"],
+			"answered": false,
+			"answers": [{"name": "Très récemment", "value": 7}, {"name": "Il y a quelques temps", "value": 5}, {"name": "Il y a plusieurs mois", "value": 3}, {"name": "Cela remonte à longtemps", "value": 1}],
+			"value": false
+		}
+	],
+	"conditions": [[{"name": "E1","number": 1,"value": false}], [{"name": "E2","number": 1,"value": false}], [{"name": "E3","number": 1,"value": false}], [{"name": "E4","number": 1,"value": false}], [{"name": "E5","number": 1,"value": false}]]
+}

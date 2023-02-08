@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Home</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <script src="scripts/nav.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.6/fuse.min.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link type="text/css" rel="stylesheet" href="styles/skyceil.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="utilities">
+        <div id="search">
+            <input type="text" id="search-box" placeholder="Search for stuffs..."><br>
+            <div id="search-results" style="display: none;"></div>
+        </div>
+        <button class="theme" data-theme="light"><i class="fas fa-moon"></i></button>
+    </div>
+    <hr>
+    <h4><a href="index.html">Home</a></h4><h5 class="no-bottom must-underline">Modules</h5><ul><li><span class="small-icon M">M</span><b><a href="module-Database.html">Database</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="module-Database.html#~_createCollection">_createCollection</a></li><li><span class="small-icon F">F</span><a href="module-Database.html#~close">close</a></li><li><span class="small-icon F">F</span><a href="module-Database.html#~connect">connect</a></li><li><span class="small-icon F">F</span><a href="module-Database.html#~get">get</a></li><li><span class="small-icon F">F</span><a href="module-Database.html#~isConnected">isConnected</a></li><li><span class="small-icon F">F</span><a href="module-Database.html#~updateField">updateField</a></li><li><span class="small-icon F">F</span><a href="module-Database.html#~updateManyFields">updateManyFields</a></li></ul></li><li><span class="small-icon M">M</span><b><a href="module-Routes-Admin.html">Routes-Admin</a></b><ul class="has-class-methods"><li><span class="small-icon M">M</span><a href="module-Routes-Admin.html#DELETE/admin/therapists/:id">DELETE /admin/therapists/:id</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Admin.html#GET/admin/locked">GET /admin/locked</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Admin.html#PUT/therapists/:id/unlock">PUT /therapists/:id/unlock</a></li></ul></li><li><span class="small-icon M">M</span><b><a href="module-Routes-Appointments.html">Routes-Appointments</a></b><ul class="has-class-methods"><li><span class="small-icon M">M</span><a href="module-Routes-Appointments.html#DELETE/appointments/:id">DELETE /appointments/:id</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Appointments.html#GET/appointments/:id">GET /appointments/:id</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Appointments.html#PATCH/appointments/:id">PATCH /appointments/:id</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Appointments.html#POST/appointments">POST /appointments</a></li></ul></li><li><span class="small-icon M">M</span><b><a href="module-Routes-Location.html">Routes-Location</a></b><ul class="has-class-methods"><li><span class="small-icon M">M</span><a href="module-Routes-Location.html#DELETE/locations/:id">DELETE /locations/:id</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Location.html#GET/locations/:id">GET /locations/:id</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Location.html#PATCH/locations/:id">PATCH /locations/:id</a></li></ul></li><li><span class="small-icon M">M</span><b><a href="module-Routes-Other.html">Routes-Other</a></b><ul class="has-class-methods"><li><span class="small-icon M">M</span><a href="module-Routes-Other.html#GET/">GET /</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Other.html#GET/android-app">GET /android-app</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Other.html#GET/banner%257Bdot%257Dpng">GET /banner{dot}png</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Other.html#GET/health-check">GET /health-check</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Other.html#GET/logo%257Bdot%257Dpng">GET /logo{dot}png</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Other.html#GET/mobile-app-version">GET /mobile-app-version</a></li></ul></li><li><span class="small-icon M">M</span><b><a href="module-Routes-Specialties.html">Routes-Specialties</a></b><ul class="has-class-methods"><li><span class="small-icon M">M</span><a href="module-Routes-Specialties.html#DELETE/specialties/:id">DELETE /specialties/:id</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Specialties.html#GET/specialties">GET /specialties</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Specialties.html#GET/specialties/:id">GET /specialties/:id</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Specialties.html#PATCH/specialties/:id">PATCH /specialties/:id</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Specialties.html#POST/specialties">POST /specialties</a></li></ul></li><li><span class="small-icon M">M</span><b><a href="module-Routes-Survey.html">Routes-Survey</a></b><ul class="has-class-methods"><li><span class="small-icon M">M</span><a href="module-Routes-Survey.html#GET/survey/:fileName">GET /survey/:fileName</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Survey.html#GET/survey/names">GET /survey/names</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Survey.html#POST/survey/check-conditions">POST /survey/check-conditions</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Survey.html#POST/survey/users/results">POST /survey/users/results</a></li></ul></li><li><span class="small-icon M">M</span><b><a href="module-Routes-Therapist-Availabilities.html">Routes-Therapist-Availabilities</a></b><ul class="has-class-methods"><li><span class="small-icon M">M</span><a href="module-Routes-Therapist-Availabilities.html#GET/availabilities/">GET /availabilities/</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Therapist-Availabilities.html#GET/availabilities/:id/">GET /availabilities/:id/</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Therapist-Availabilities.html#GET/availabilities/current/">GET /availabilities/current/</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Therapist-Availabilities.html#PATCH/availabilities/">PATCH /availabilities/</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Therapist-Availabilities.html#POST/availabilities/">POST /availabilities/</a></li></ul></li><li><span class="small-icon M">M</span><b><a href="module-Routes-Therapists.html">Routes-Therapists</a></b><ul class="has-class-methods"><li><span class="small-icon M">M</span><a href="module-Routes-Therapists.html#DELETE/therapists/current">DELETE /therapists/current</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Therapists.html#DELETE/therapists/current/appointmentType/:id">DELETE /therapists/current/appointmentType/:id</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Therapists.html#DELETE/therapists/current/disorderAlreadyTreated">DELETE /therapists/current/disorderAlreadyTreated</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Therapists.html#DELETE/therapists/current/specialties">DELETE /therapists/current/specialties</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Therapists.html#GET/current/appointments">GET /current/appointments</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Therapists.html#GET/therapists/:id">GET /therapists/:id</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Therapists.html#GET/therapists/:id/location">GET /therapists/:id/location</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Therapists.html#GET/therapists/close-to-me">GET /therapists/close-to-me</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Therapists.html#GET/therapists/current">GET /therapists/current</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Therapists.html#GET/therapists/current/appointmentType/:id">GET /therapists/current/appointmentType/:id</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Therapists.html#GET/therapists/current/appointmentTypes">GET /therapists/current/appointmentTypes</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Therapists.html#GET/therapists/current/clients">GET /therapists/current/clients</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Therapists.html#GET/therapists/current/location">GET /therapists/current/location</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Therapists.html#GET/therapists/current/messages?nlasts=0">GET /therapists/current/messages?nlasts=0</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Therapists.html#PATCH/therapists/:id/location">PATCH /therapists/:id/location</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Therapists.html#PATCH/therapists/current">PATCH /therapists/current</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Therapists.html#PATCH/therapists/current/appointmentType/:id">PATCH /therapists/current/appointmentType/:id</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Therapists.html#PATCH/therapists/current/location">PATCH /therapists/current/location</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Therapists.html#PATCH/therapists/reset-password">PATCH /therapists/reset-password</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Therapists.html#POST/therapist/login">POST /therapist/login</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Therapists.html#POST/therapists/:id/location">POST /therapists/:id/location</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Therapists.html#POST/therapists/current/appointmentType">POST /therapists/current/appointmentType</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Therapists.html#POST/therapists/current/disorderAlreadyTreated">POST /therapists/current/disorderAlreadyTreated</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Therapists.html#POST/therapists/current/location">POST /therapists/current/location</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Therapists.html#POST/therapists/current/sendMessage">POST /therapists/current/sendMessage</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Therapists.html#POST/therapists/current/specialties">POST /therapists/current/specialties</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Therapists.html#POST/therapists/signup">POST /therapists/signup</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Therapists.html#POST/therapists/social/login">POST /therapists/social/login</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Therapists.html#POST/therapists/social/signup">POST /therapists/social/signup</a></li></ul></li><li><span class="small-icon M">M</span><b><a href="module-Routes-Users.html">Routes-Users</a></b><ul class="has-class-methods"><li><span class="small-icon M">M</span><a href="module-Routes-Users.html#DELETE/users/current">DELETE /users/current</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Users.html#GET/users/:id">GET /users/:id</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Users.html#GET/users/current">GET /users/current</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Users.html#GET/users/current/location">GET /users/current/location</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Users.html#GET/users/current/messages?nlasts=0">GET /users/current/messages?nlasts=0</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Users.html#GET/users/matching">GET /users/matching</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Users.html#GET/users/matching">GET /users/matching</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Users.html#GETusers/current/appointments">GET users/current/appointments</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Users.html#PATCH/users/:id/location">PATCH /users/:id/location</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Users.html#PATCH/users/current">PATCH /users/current</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Users.html#PATCH/users/current/location">PATCH /users/current/location</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Users.html#PATCH/users/reset-password">PATCH /users/reset-password</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Users.html#POST/users/current/location">POST /users/current/location</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Users.html#POST/users/current/message">POST /users/current/message</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Users.html#POST/users/login">POST /users/login</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Users.html#POST/users/signup">POST /users/signup</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Users.html#POST/users/social/login">POST /users/social/login</a></li><li><span class="small-icon M">M</span><a href="module-Routes-Users.html#POST/users/social/signup">POST /users/social/signup</a></li></ul></li></ul><h5 class="no-bottom must-underline">Externals</h5><ul><li><span class="small-icon E">E</span><a href="external-_config.json_.html">config.json</a></li></ul><h4>Global</h4><ul><li><a href="global.html#AUTHSOURCE">AUTHSOURCE</a></li><li><a href="global.html#close">close</a></li><li><a href="global.html#connect">connect</a></li><li><a href="global.html#DBNAME">DBNAME</a></li><li><a href="global.html#DBURI">DBURI</a></li><li><a href="global.html#get">get</a></li><li><a href="global.html">GET /emails/is-password-reset-token-valid</a></li><li><a href="global.html#HOST">HOST</a></li><li><a href="global.html#PORT">PORT</a></li><li><a href="global.html">POST /emails/reset-password</a></li><li><a href="global.html">POST /token/refresh</a></li></ul>
+</nav>
+
+<div id="main">
+    <div class="burger">
+        <div class="burger-line-1"></div>
+        <div class="burger-line-2"></div>
+        <div class="burger-line-3"></div>
+    </div>
+
+    <h1 class="page-title">Home</h1>
+
+    
+
+
+
+    
+
+
+    <h3> </h3>
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    <hr>
+    <section>
+        <article><div align=center>
+	<h1><b>Psynder</b></h1>
+	<img src="./banner.png" alt="banner psynder" height="300" width="920"/>
+</div>
+<h1>Description</h1>
+<p><strong>FR 🇫🇷 :</strong> Psynder est une solution visant à rapprocher des personnes souffrant de troubles psychologiques, et en particulier de dépression, avec des thérapeutes qualifiés. Au travers d’un questionnaire scientifiquement reconnu, l’application permet de redonner confiance à des personnes souvent repliées sur elles-mêmes et qui évitent de sortir de leur zone de confort.
+<br>Lien vers l'API: <a href="http://x2022psynder2788877055001.francecentral.cloudapp.azure.com:8080/" target="_blank">x2022psynder2788877055001.francecentral.cloudapp.azure.com:8080</a>
+<br>Lien vers le client web: <a href="https://x2022psynder2788877055001.francecentral.cloudapp.azure.com/" target="_blank">x2022psynder2788877055001.francecentral.cloudapp.azure.com</a> (ou <a href="http://psynder.fr/" target="_blank">psynder.fr</a>, voire <a href="http://www.psynder.fr/" target="_blank">www.psynder.fr</a>)</p>
+<p><strong>EN 🇬🇧:</strong> Psynder is a solution aimed at bringing together people suffering from psychological disorders, and in particular depression, with qualified therapists. Through a scientifically recognized questionnaire, the application helps to restore confidence in people who are often withdrawn and who avoid leaving their comfort zone.
+<br>Link to the API : <a href="http://x2022psynder2788877055001.francecentral.cloudapp.azure.com:8080/" target="_blank">x2022psynder2788877055001.francecentral.cloudapp.azure.com:8080</a>
+<br>Link to the web client : <a href="http://x2022psynder2788877055001.francecentral.cloudapp.azure.com/" target="_blank">x2022psynder2788877055001.francecentral.cloudapp.azure.com</a> (or <a href="http://psynder.fr/" target="_blank">psynder.fr</a>, and even <a href="http://www.psynder.fr/" target="_blank">www.psynder.fr</a>)</p>
+<br/>
+<h2>Members</h2>
+<ul>
+<li>Stanislas HÉGRON</li>
+<li>Marc-Antoine WITTLING</li>
+<li>Nicolas BERNES</li>
+<li>Stanislas ZLOTINE</li>
+<li>Gaspard MATER</li>
+<li>Ronan BOUZIANE</li>
+<li>Lesly LIM</li>
+</ul>
+<h1>Client-Mobile for React-Native-CLI</h1>
+<p>This project was generated with <a href="https://github.com/facebook/react-native">React Native</a> version: react-native-cli 2.0.1 and react-native 0.62.2</p>
+<h2>Development platform</h2>
+<p>It works for windows and Android</p>
+<h2>Installation</h2>
+<p>https://reactnative.dev/docs/environment-setup</p>
+<h2>Installation for device</h2>
+<p>Using a physical device:
+If you have a physical Android device, you can use it for development in place of an AVD by plugging it in to your computer using a USB cable.</p>
+<p>Using a virtual device:
+Install [Android Studio] https://developer.android.com/studio/ on our computer.
+And open ./AwesomeProject/android, you can see the list of available Android Virtual Devices (AVDs) by opening the &quot;AVD Manager&quot; from within Android Studio.</p>
+<h2>Build</h2>
+<p>In the folder <code>Mobile-Psynder</code> execute <code>npx react-native run-android</code></p>
+<h2>React-Native-CLI app</h2>
+<p>Your app is now open in your device.</p></article>
+    </section>
+
+
+
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> using <a href="https://github.com/devsnowflake/jsdoc-skyceil">Skyceil Theme</a>
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+
+</body>
+</html>

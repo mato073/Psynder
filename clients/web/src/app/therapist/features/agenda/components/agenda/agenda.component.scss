@@ -1,0 +1,21 @@
+.text-title {
+    text-transform: capitalize;
+}
+
+.header-text .b {
+    font-weight: 300;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+ 
+::-webkit-scrollbar-track {
+    background-color: #F2F1F9;
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #D1D5DB; 
+}

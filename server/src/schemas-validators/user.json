@@ -1,0 +1,47 @@
+{
+	"validator": {
+		"$jsonSchema": {
+			"bsonType": "object",
+			"required": [ "email", "password", "firstName", "lastName", "phoneNumber" ],
+			"properties": {
+				"email": {
+					"bsonType": "string",
+					"description": "must be a string and is required"
+				},
+				"emailAuthorized": {
+					"bsonType": "bool",
+					"description": "must be a boolean"
+				},
+				"password": {
+					"bsonType": "string",
+					"description": "must be a string and is required"
+				},
+				"firstName": {
+					"bsonType": "string",
+					"description": "must be a string and is required"
+				},
+				"lastName": {
+					"bsonType": "string",
+					"description": "must be a string and is required"
+				},
+				"phoneNumber": {
+					"bsonType": "string",
+					"description": "must be a string and is required"
+				},
+				"potentialDisorders": {
+					"bsonType": "array",
+					"description": "must be an array of objects containing 'name', 'getDisorder', 'score' and 'maxScore' fields"
+				},
+				"activeTherapies": {
+					"bsonType": "array",
+					"description": "array containing the IDs of the current active therapies of the user, not required",
+					"uniqueItems": true,
+					"additionalProperties": false,
+					"items": {
+						"bsonType": "objectId"
+					}
+				}
+			}
+		}
+	}
+}

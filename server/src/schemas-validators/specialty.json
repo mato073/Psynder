@@ -1,0 +1,30 @@
+{
+	"validator": {
+		"$jsonSchema": {
+			"bsonType": "object",
+			"required": [ "name" ],
+			"properties": {
+				"name": {
+					"bsonType": "string",
+					"description": "must be a string and is required"
+				},
+				"acronym": {
+					"bsonType": "string",
+					"description": "must be a really short string < 5, an acronym for the specialty name"
+				},
+				"description": {
+					"bsonType": "string",
+					"description": "must be a string that explains the specialty"
+				},
+				"managedDisorders": {
+					"bsonType": "array",
+					"description":"must be a string and is not required",
+					"items": {
+						"bsonType": "string",
+						"description": "must be a string and is required"
+					}
+				}
+			}
+		}
+	}
+}

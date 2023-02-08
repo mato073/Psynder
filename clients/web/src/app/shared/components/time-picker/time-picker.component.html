@@ -1,0 +1,69 @@
+<div class="container mx-auto flex flex-row">
+  <div class="relative mb-2 w-1/2" (clickOutside)="showHours = false">
+    <div class="flex flex-row">
+      <div class="w-full mr-2">
+        <input type="hidden" name="hours" #hours>
+        <input 
+          type="text"
+          readonly
+          [ngModel]="hoursValue"
+          (click)="showHours = !showHours"
+          class="z-0 w-full border pl-4 pr-10 py-1.5 leading-none rounded-md shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium
+          ring-indigo-300 focus:ring-2"
+        >
+        <div
+          *ngIf="showHours"
+          class="flex flex-col max-h-52 overflow-y-auto divide-y z-10 border border-gray-300 bg-white w-full mt-10 rounded-md shadow absolute top-0 left-0"
+          style="width: calc(100% - 3rem)"
+        >
+          <div *ngFor="let hour of POSSIBLE_HOURS"
+            class="p-1 text-center text-gray-600 font-medium cursor-pointer"
+            [class.bg-indigo-500]="hour === hoursValue"
+            [class.hover:bg-indigo-100]="hour !== hoursValue"
+            (click)="newHourValue(hour)"
+          >
+            <span [class.text-white]="hour === hoursValue">
+              {{ hour }}
+            </span>
+          </div>
+        </div>
+      </div>
+      <p class="text-base my-auto font-medium text-gray-400 mr-6 mt-2">h</p>
+    </div>  
+  </div>
+
+
+  <div class="relative mb-2 w-1/2" (clickOutside)="showMinutes = false">
+    <div class="flex flex-row">
+      <div class="w-full mr-2">
+        <input type="hidden" name="minutes" #minutes>
+        <input 
+          type="text"
+          readonly
+          [ngModel]="minutesValue"
+          (click)="showMinutes = !showMinutes"
+          class="z-0 w-full border pl-4 pr-10 py-1.5 leading-none rounded-md shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium
+          ring-indigo-300 focus:ring-2"
+        >
+        <div
+          *ngIf="showMinutes"
+          class="flex flex-col max-h-52 overflow-y-auto divide-y z-10 border border-gray-300 bg-white w-full mt-10 rounded-md shadow absolute top-0 left-0"
+          style="width: calc(100% - 3rem)"
+        >
+          <div *ngFor="let minute of POSSIBLE_MINUTES"
+            class="p-1 pr-0 text-center text-gray-600 font-medium cursor-pointer"
+            [class.bg-indigo-500]="minute === minutesValue"
+            [class.hover:bg-indigo-100]="minute !== minutesValue"
+            (click)="newMinutesValue(minute)"
+          >
+            <span [class.text-white]="minute === minutesValue">
+              {{ minute }}
+            </span>
+          </div>
+        </div>
+      </div>
+      <p class="text-base my-auto font-medium text-gray-400 mt-2">min</p>
+    </div>  
+  </div>
+
+</div>

@@ -1,0 +1,187 @@
+<div class="fixed z-50 inset-0 overflow-y-auto">
+  <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+    <!--
+      Background overlay, show/hide based on modal state.
+
+      Entering: "ease-out duration-300"
+        From: "opacity-0"
+        To: "opacity-100"
+      Leaving: "ease-in duration-200"
+        From: "opacity-100"
+        To: "opacity-0"
+    -->
+    <div class="fixed inset-0 transition-opacity">
+      <div class="absolute inset-0 bg-t-gray-500 opacity-75"></div>
+    </div>
+
+    <!-- -->
+
+    <!-- This element is to trick the browser into centering the modal contents. -->
+    <span class="hidden sm:inline-block sm:align-middle sm:h-screen"></span>&#8203;
+    <!--
+      Modal panel, show/hide based on modal state.
+
+      Entering: "ease-out duration-300"
+        From: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+        To: "opacity-100 translate-y-0 sm:scale-100"
+      Leaving: "ease-in duration-200"
+        From: "opacity-100 translate-y-0 sm:scale-100"
+        To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+    -->
+    <div #modal class="relative h-3/4 p-12 inline-block flex-row align-bottom bg-white rounded-md text-left overflow-hidden shadow-xl transition-all sm:my-8 sm:align-middle sm:max-h-lg" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+      <button class="absolute p-1 right-0 top-0 mt-4 mr-6 rounded-full hover:bg-t-gray-100"
+        (click)="modalClosedEvent.emit()"
+      >
+        <img class="w-6 h-6" src="../../../../assets/svg/close-24px.svg">
+      </button>
+      
+      <div *ngIf="!updateViewTriggered; else updateViewTemplate" 
+        class="flex flex-col divide-y"
+      >
+        <div class="mb-2 text-t-gray-800 text-3xl font-semibold">
+          Rendez-vous
+        </div>
+
+        <div class="mt-0">
+          <div class="mt-8 flex flex-row divide-x">
+  
+            <!-- Date -->
+            <div class="mr-10 flex flex-col">
+              <h3 class="text-t-gray-400 text-xl font-semibold">
+                Date
+              </h3>
+              <div class="mt-8 flex flex-row">
+                <p class="w-8 text-medium text-t-gray-500">Le</p>
+                <p class="text-base font-medium text-t-gray-800">
+                  {{ date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear() }}
+                </p>
+              </div>
+              <div class="mt-5 flex flex-row">
+                <p class="w-8 text-medium text-t-gray-500">De</p>
+                <p class="text-base font-medium text-t-gray-800">
+                  {{ date.getHours() + 'h' + date.getMinutes() }}
+                </p>
+              </div>
+              <div class="mt-5 flex flex-row">
+                <p class="w-8 text-medium text-t-gray-500">À</p>
+                <p class="text-base font-medium text-t-gray-800">
+                  {{ endDate.getHours() + 'h' + endDate.getMinutes() }}
+                </p>
+              </div>
+            </div>
+
+            <!-- User -->
+            <div>
+              <div class="ml-10 flex flex-col">
+                <h3 class="text-t-gray-400 text-xl font-semibold">
+                  Client
+                </h3>
+                <div class="mt-5 text-4xl font-semibold text-t-gray-800 mr-32">
+                  {{ user.firstName + ' ' + user.lastName }}
+                </div>
+                <div class="mt-5 text-base font-medium text-t-gray-500">
+                  {{ user.email }}
+                </div>
+                <div class="mt-4 text-base font-medium text-t-gray-500">
+                  {{ user.phoneNumber }}
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        
+        <button class="mt-14 w-full bg-t-gray-300 h-12 rounded-md hover:bg-t-gray-200"
+          (click)="updateViewTriggered = true"
+        >
+          <span class="my-auto text-t-gray-700 text-lg">
+            Modifier
+          </span>
+        </button>
+        <button class="mt-4 w-full bg-red-500 h-12 rounded-md hover:bg-red-400"
+          [class.bg-t-gray-200]="deleteClicked"
+          (click)="onDelete()"
+        >
+          <span class="my-auto text-white text-lg"
+            [class.text-t-gray-600]="validateClicked"
+          >
+            Supprimer
+          </span>
+        </button>
+      </div>
+
+      <ng-template #updateViewTemplate>
+        <button class="absolute p-1 left-0 top-0 mt-4 ml-6 rounded-full hover:bg-t-gray-100"
+        (click)="updateViewTriggered = false"
+      >
+        <img class="w-6 h-6" src="../../../../assets/svg/arrow_back_24dp.svg">
+      </button>
+        <div class="divide-y max-w-lg">
+          <div class="mt-4 mb-2 text-t-gray-800 text-3xl font-semibold">
+            Ajourner le rendez-vous
+          </div>
+
+          <div class="px-1">
+            <label
+              class="mt-4 truncate block font-body font-semibold text-t-gray-400 text-lg mb-2"
+            >
+              Client  
+            </label>
+            <p class="text-t-gray-800 text-lg font-medium">
+              {{ user.firstName + ' ' + user.lastName }}
+            </p>
+
+            <label
+              class="mt-4 truncate block font-body font-semibold text-t-gray-400 text-lg mb-2"
+            >
+              Date
+            </label>
+            <app-date-picker
+              [dateIn]="date"
+              (date)="setNewDate($event)"
+            ></app-date-picker>
+            <!-- (date)="setDate($event)" -->
+            <div class="mt-4">
+              <label
+                class="mt-4 truncate block font-body font-semibold text-t-gray-400 text-lg mb-2"
+              >
+                À
+              </label>
+              <app-time-picker
+                (timeInMin)="setNewDateTime($event)"
+                [hour]="tmpDate.getHours()"
+                [min]="tmpDate.getMinutes()"
+              ></app-time-picker>
+                <!-- (time)="setTime($event)" -->
+            </div>
+            <div class="mt-4">
+              <label
+               class="mt-4 truncate block font-body font-semibold text-t-gray-400 text-lg mb-2"
+              >
+                Durée
+              </label>
+              <app-time-picker
+                (timeInMin)="setNewDuration($event)"
+                [hour]="math.floor(tmpDuration / 60)"
+                [min]="tmpDuration % 60"
+              ></app-time-picker>
+                <!-- (time)="setDuration($event)" -->
+            </div>
+            <button  
+              class="mt-8 rounded-md font-medium w-full h-12 border bg-t-primary-500 text-white hover:bg-t-primary-400"
+              [class.bg-t-gray-200]="validateClicked"
+              (click)="onUpdate()"
+            >
+              <span class="my-auto"
+                [class.text-t-gray-600]="validateClicked"
+              >
+                Valider
+              </span>
+            </button>
+          </div>
+        </div>
+      </ng-template>
+
+    </div>
+  </div>
+</div>

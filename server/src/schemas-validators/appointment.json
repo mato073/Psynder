@@ -1,0 +1,26 @@
+{
+	"validator": {
+		"$jsonSchema": {
+			"bsonType": "object",
+			"required": [ "date", "user", "therapist", "type" ],
+			"properties": {
+				"date": {
+					"bsonType": "date",
+					"description": "date of the appointment, required"
+				},
+				"user": {
+					"bsonType": "string",
+					"description": "uid of the non-therapist user, required"
+				},
+				"therapist": {
+					"bsonType": "string",
+					"description": "uid of the therapist, required"
+				},
+				"type": {
+					"bsonType": "objectId",
+					"description": "ID of the custom appointment type, required"
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,38 @@
+stages:
+    # - build
+    - test
+
+
+variables:
+    CONTAINER_TEST_IMAGE: nbernes/run-server:latest
+    SERVER_LOCAL_TEST_FILE: ./tests/CI_tests_local_API.postman_collection.json
+    DOCKER_HOST: tcp://docker:2375/
+
+
+# build_server_image:
+#     stage: build
+#     image: docker:stable
+#     
+#     services:
+#         - name: docker:stable-dind
+#           entrypoint: ["env", "-u", "DOCKER_HOST"]
+#           command: ["dockerd-entrypoint.sh"]
+# 
+#     script:
+#         - docker build -t $CONTAINER_TEST_IMAGE . -f ./server/Dockerfile
+#         - docker push $CONTAINER_TEST_IMAGE
+
+
+test_server_image:
+    stage: test
+    image: node:latest
+
+    services:
+        - name: mongo:latest
+          alias: db
+        - name: nbernes/run-server:latest
+          alias: api
+    
+    script:
+        - npm i -g newman
+        - newman run $SERVER_LOCAL_TEST_FILE

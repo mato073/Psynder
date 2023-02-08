@@ -1,0 +1,114 @@
+{
+	"potentialDisorder": "Episode dépressif majeur",
+	"Questions": [
+		{
+			"name": "A1",
+			"question": "Au cours de votre vie, avez-vous vécu (au moins) une période d'au moins deux semaines où vous vous sentiez particulièrement triste ou déprimé(e) (durant la plupart de la journée), et ce, presque tous les jours ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name": "A2",
+			"question": "Au cours de votre vie, avez-vous vécu au moins une période d'un minimum de deux semaines où vous aviez presque tout le temps le sentiment de n’avoir plus goût à rien, d’avoir perdu l’intérêt et/ou le plaisir pour les choses qui vous plaisaient habituellement ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name": "A3a",
+			"question": "Actuellement, vous sentez-vous particulièrement triste ou déprimé(e) ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name": "A3b",
+			"question": "Actuellement, ressentez-vous le sentiment de n’avoir plus goût à rien ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name": "A5a",
+			"question": "Votre appétit acuel a-t-il notablement changé vis-à-vis de celui que vous avez majoritairement eu au cours de votre vie ? Ou avez-vous pris ou perdu du poids sans en avoir l’intention ?\n\nNotez oui si oui à l'un ou l'autre.",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name": "A5b",
+			"question": "Au cours de votre vie, aviez-vous eu des problèmes de sommeil presque toutes les nuits* ?\n\n* : Endormissement, réveils nocturnes ou précoces, dormir trop",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name": "A5c",
+			"question": "Au cours de votre vie, parliez-vous et/ou vous déplaciez-vous plus lentement qu'à l’habitude ? Ou au contraire vous sentiez-vous agité(e) Aviez-vous du mal à rester en place, presque tous les jours ?\n\nNotez oui si oui à l'un ou l'autre.",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name": "A5d",
+			"question": "Au cours de votre vie, vous sentiez-vous presque tout le temps fatigué(e), sans énergie et ce presque tous les jours ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name": "A5e",
+			"question": "Au cours de votre vie, vous sentiez-vous sans valeur ou coupable de quelque chose ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name": "A5f",
+			"question": "Au cours de votre vie, aviez-vous régulièrement du mal à vous concentrer ou à prendre des décisions ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name": "A5g",
+			"question": "Avez-vous eu à plusieurs reprises des idées noires comme penser qu’il vaudrait mieux que vous n'existiez plus ? Ou avez-vous pensé à vous faire du mal ?\n\nNotez oui si oui à l'un ou l'autre.",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name": "A6",
+			"question": "Ces problèmes entraînent/entraînaient-ils chez vous une souffrance importante ? Ou bien vous gênent/gênaient-ils vraiment dans votre travail, dans vos relations avec les autres ou dans d’autres domaines importants pour vous ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name": "A7",
+			"question": "Le ou les problèmes, auxquels vous pensiez précédemment, ont-ils toujours été déclenchés et maintenus par une maladie physique, ou par la prise de médicaments ou de drogues ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name": "A8a",
+			"question": "Au cours de votre vie, combien de périodes de minimum deux semaines avez-vous eues durant lesquelles vous vous sentiez particulièrement déprimé(e) ou sans intérêt pour la plupart des choses et où vous aviez le ou les problèmes auxquels vous pensiez précédemment ?",
+			"types": ["ANSWERS", "BRUT.INT"],
+			"answered": false,
+			"answers": [{"name": "Peu de fois", "value": 1}, {"name": "Quelques fois", "value": 3}, {"name": "Un nombre conséquent de fois", "value": 5}, {"name": "Beaucoup de fois", "value": 7}],
+			"forksAnswers": [{"fork": "0-2", "value": 1}, {"fork": "3-5", "value": 3}, {"fork": "6-9", "value": 5}, {"fork": "10+", "value": 7}],
+			"value": false
+		},
+		{
+			"name": "A8b",
+			"question": "A quand remonte la dernière fois que vous avez eu une période ?",
+			"types": ["ANSWERS"],
+			"answered": false,
+			"answers": [{"name": "Très récemment", "value": 7}, {"name": "Il y a quelques jours", "value": 5}, {"name": "Il y a quelques semaines", "value": 3}, {"name": "Il y a plus d'un mois", "value": 1}],
+			"value": false
+		}
+	],
+	"conditions": [[{"name": "A1","number": 1,"value": false},{"name": "A2","number": 1,"value": false}], [{"name": "A5","number": 3,"value": true},{"name": "A1","number": 1,"value": true},{"name": "A2","number": 1,"value": true}],[{"name": "A5","number": 4,"value": true},{"name": "A1","number": 1,"value": false}], [{"name": "A5","number": 4,"value": true},{"name": "A2","number": 1,"value": false}],[{"name": "A6","number": 1,"value": false},{"name": "A7","number": 1,"value": true}]]
+}

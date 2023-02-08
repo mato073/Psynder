@@ -1,0 +1,36 @@
+<ng-container>
+  <agm-overlay
+      [latitude]="therapist.location.latitude"
+      [longitude]="therapist.location.longitude"
+  >
+    <div *ngIf="isShown()"
+        class="map-card bg-transparent cursor-default">
+      <div class="info flex flex-row flex-no-wrap items-center -mb-2">
+        
+        <!-- <div class="specialty h-6 rounded-lg flex-grow my-auto border border-black"
+        >
+          <div id="specialty-bg" [class]="therapist.specialty.color" 
+            [ngClass]="{'py-1': true, 'px-2': true, 'rounded-lg': true}">
+            <p class="text-center"
+              (mouseover)="toggleSpecialtyDescription(true)"
+              (mouseout)="toggleSpecialtyDescription(false)"
+            >{{ therapist.specialty.title }}</p>
+          </div>
+        </div> -->
+
+        <div class="mx-auto flex flex-row bg-white rounded-lg py-1 px-2 h-6 cursor-default border border-gray-700">
+          <img class="w-4 h-4 mr-1" src="../../../../assets/svg/directions_walk-24px.svg">
+          <p class="my-auto">{{ therapist.distance }}km</p>
+        </div>
+      </div>
+      <div *ngIf="therapist !== null">
+        <app-progress-ring class="cursor-pointer" (click)="switchToTherapistDetails()"
+          [avatar]="therapist.avatar"
+          [progress]="therapist.score"
+          [initials]="therapist.initials"
+        >
+        </app-progress-ring>
+      </div>
+    </div>
+  </agm-overlay>
+</ng-container>

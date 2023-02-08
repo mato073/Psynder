@@ -1,0 +1,288 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Psynder Admin API",
+    "description": "API for Psynder admins to interact with the platform's database.",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "tags": [
+    {
+      "name": "Specialties",
+      "description": "API to manage therapist-submitted specialties"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/specialties": {
+      "post": {
+        "tags": [
+          "Specialties"
+        ],
+        "summary": "Creates a new specialty",
+        "description": "returns the ID of the Specialty object created",
+        "responses": {
+          "200": {
+            "description": "ID of the Specialty object created"
+          },
+          "400": {
+            "description": "Message to know why the opration failed"
+          },
+          "401": {
+            "description": "Authentication error"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "name"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "acronym": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Specialties"
+        ],
+        "summary": "Gets all existing specialties",
+        "description": "Returns a list containing all specialties.",
+        "responses": {
+          "200": {
+            "description": "Array of Specialty objects"
+          },
+          "400": {
+            "description": "Message to know why the opration failed"
+          },
+          "401": {
+            "description": "Authentication error"
+          }
+        }
+      }
+    },
+    "/specialties/{id}": {
+      "get": {
+        "tags": [
+          "Specialties"
+        ],
+        "summary": "Gets a specific specialty by id",
+        "description": "Returns a list containing all specialties.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Specialty ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Specialty object"
+          },
+          "400": {
+            "description": "Message to know why the opration failed"
+          },
+          "401": {
+            "description": "Authentication error"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Specialties"
+        ],
+        "summary": "Update a specific specialty linked to id",
+        "description": "Only the fields you want to update must be specified.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Specialty ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Specialty object"
+          },
+          "400": {
+            "description": "Message to know why the opration failed"
+          },
+          "401": {
+            "description": "Authentication error"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "acronym": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Specialties"
+        ],
+        "summary": "Delete a specific specialty by id",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Specialty ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Specialty object"
+          },
+          "400": {
+            "description": "Message to know why the opration failed"
+          },
+          "401": {
+            "description": "Authentication error"
+          }
+        }
+      }
+    },
+    "/admin/therapists/locked": {
+      "get": {
+        "tags": [
+          "Therapists"
+        ],
+        "summary": "List all locked therapists",
+        "description": "To be called before /admin/unlock to get therapist uids",
+        "responses": {
+          "200": {
+            "description": "Array containing all locked therapists"
+          },
+          "400": {
+            "description": "Message to know why the operation failed"
+          },
+          "401": {
+            "description": "Authentication error"
+          }
+        }
+      }
+    },
+    "/admin/therapists/{id}/unlock": {
+      "put": {
+        "tags": [
+          "Therapists"
+        ],
+        "summary": "Unlock a specific therapist by ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Therapist ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Message to know if the operation succeeded"
+          },
+          "400": {
+            "description": "Message to know why the operation failed"
+          },
+          "401": {
+            "description": "Authentication error"
+          }
+        }
+      }
+    },
+    "/admin/therapists/{id}": {
+      "delete": {
+        "tags": [
+          "Therapists"
+        ],
+        "summary": "Delete a specific therapist by ID",
+        "description": "To use if we have not been able to verify the therapist in question and must delete his/her account",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Therapist ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Message to know if the operation succeeded"
+          },
+          "400": {
+            "description": "Message to know why the operation failed"
+          },
+          "401": {
+            "description": "Authentication error"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+<div class="bg-base-500 flex w-screen h-screen overflow-hidden" style="overflow: hidden !important;">
+
+  <div class="mt-8 pl-12">
+    <img class="w-48 fixed" src="../../../../assets/png/banner_4600x1500_with_transparency.png" (click)="redirectToLandingPage()">
+  </div>
+
+  <div class="fixed right-0 right-12 top-10">
+    <button
+      class="mr-10 rounded-lg cursor-pointer font-medium text-base text-gray-800 hover:underline"
+      (click)="redirectToAboutPage()">
+      À propos
+    </button>
+    <button
+      class="mr-10 rounded-lg cursor-pointer font-medium text-base text-gray-800 hover:underline"
+      (click)="redirectToFAQPage()">
+      Foire aux questions
+    </button>
+    <button
+      class="mr-10 rounded-lg cursor-pointer font-medium text-base text-gray-800 hover:underline"
+      (click)="redirectToFeedbackPage()">
+      Faire un retour
+    </button>
+    <button
+      class="mr-10 rounded-lg cursor-pointer font-medium text-base text-gray-800 hover:underline"
+      (click)="redirectToDownloadPage()">
+      Télécharger l'application
+    </button>
+    <button
+      class="mr-10 rounded-lg cursor-pointer font-medium text-base text-gray-800 hover:underline"
+      (click)="redirectToLoginSignupPage()">
+      Connexion / Inscription
+    </button>
+  </div>
+
+  <div class="flex flex-col my-auto mx-auto">
+    <img class="w-96 mx-auto" src="../../../../assets/svg/page_not_found.svg">
+    <p class="mt-16 text-center text-3xl text-gray-800">
+      La ressource à laquelle vous essayez<br>d'accéder est introuvable
+    </p>
+  </div>
+</div>

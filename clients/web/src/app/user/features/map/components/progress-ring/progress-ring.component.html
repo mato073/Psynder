@@ -1,0 +1,37 @@
+<div *ngIf="avatar as image_id">
+  <svg
+    class="progress-ring"
+    width="120"
+    height="120">
+    <!-- <defs> -->
+      <!-- here make sure that each pattern id is different-->
+      <!-- <pattern [id]="image_id" patternUnits="userSpaceOnUse" height="100" width="100">
+        <image x="20" y="20" height="80" width="80" [attr.xlink:href]="avatar"></image>
+      </pattern>
+    </defs> -->
+    <circle
+      class="bg-progress-ring_circle"
+      stroke="#D1D5DB"
+      fill="#E5E7EB"
+      stroke-width="7"
+      [attr.r]="normalizedRadius"
+      [attr.cx]="radius"
+      [attr.cy]="radius"/>
+    
+    <text style="text-anchor: middle;" x="60" y="68" font-family="Poppins" font-size="25" fill="#4B5563">
+      {{ initials }}
+    </text>
+    <circle
+      class="progress-ring__circle"
+      [attr.stroke]="progressColor"
+      fill="transparent"
+      stroke-linecap="round"
+      [attr.fill]="'url(#' + image_id + ')'"
+      [attr.stroke-width]="strokeWidth"
+      [style.stroke-dasharray]="circumference + ' ' + circumference"
+      [style.stroke-dashoffset]="strokeDashOffset"
+      [attr.r]="normalizedRadius"
+      [attr.cx]="radius"
+      [attr.cy]="radius"/>
+  </svg>
+</div>

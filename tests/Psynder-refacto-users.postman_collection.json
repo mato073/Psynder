@@ -1,0 +1,663 @@
+{
+	"info": {
+		"_postman_id": "20ba90e3-dd13-49dc-afee-39ea9fe9c78b",
+		"name": "Psynder-refacto-users",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "signup first user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "Jean Christian",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "MotDePasse",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "smthgg@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "firstname",
+							"value": "Jean",
+							"type": "text"
+						},
+						{
+							"key": "lastname",
+							"value": "Christian",
+							"type": "text"
+						},
+						{
+							"key": "phonenumber",
+							"value": "06 80 80 80 80",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "signup second user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "Martin",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "MotDePasse",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "martin@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "firstname",
+							"value": "Martin",
+							"type": "text"
+						},
+						{
+							"key": "lastname",
+							"value": "Martin",
+							"type": "text"
+						},
+						{
+							"key": "phonenumber",
+							"value": "06 80 80 80 80",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login first user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "smthgg@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "MotDePasse",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login second user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "martin@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "MotDePasse",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get current user (first)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDE5MmE4Zjc0NDc0ZTRiZDcyZGRlZDAiLCJpYXQiOjE2MTIzNjY0MTQsImV4cCI6MTYxMjQ1MjgxNH0.cHM3vBo_sFcF8j-2RVzM-durO_Sx5puZdSba_9eswgY",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/users/current",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"current"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get second user (first)",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDE5MmE4Zjc0NDc0ZTRiZDcyZGRlZDAiLCJpYXQiOjE2MTIzNjU3NjcsImV4cCI6MTYxMjQ1MjE2N30.uz1NBJ43yF6RX7ulyrnWEmeeurgFw8t8NMSHEwbcFS8"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/users/601b400b5a541e4e541085b4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"601b400b5a541e4e541085b4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete current user (first)",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDE5MmE4Zjc0NDc0ZTRiZDcyZGRlZDAiLCJpYXQiOjE2MTIzNjU3NjcsImV4cCI6MTYxMjQ1MjE2N30.uz1NBJ43yF6RX7ulyrnWEmeeurgFw8t8NMSHEwbcFS8"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/users/current",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"current"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update current user email address (second)",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/current",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"current"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "signup first therapist",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "Jean Christian",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "MotDePasse",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "smthgg@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "firstname",
+							"value": "Jean",
+							"type": "text"
+						},
+						{
+							"key": "lastname",
+							"value": "Christian",
+							"type": "text"
+						},
+						{
+							"key": "phonenumber",
+							"value": "06 80 80 80 80",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/therapists/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"therapists",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "signup second therapist",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "Jean Christian",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "MotDePasse",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "smthgg@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "firstname",
+							"value": "Jean",
+							"type": "text"
+						},
+						{
+							"key": "lastname",
+							"value": "Christian",
+							"type": "text"
+						},
+						{
+							"key": "phonenumber",
+							"value": "06 80 80 80 80",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/therapists/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"therapists",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login first therapist",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "smthgg@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "MotDePasse",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/therapists/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"therapists",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login second therapist",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "martin@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "MotDePasse",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/therapists/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"therapists",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get current therapist (first)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDE5MmE4Zjc0NDc0ZTRiZDcyZGRlZDAiLCJpYXQiOjE2MTIzNjU3NjcsImV4cCI6MTYxMjQ1MjE2N30.uz1NBJ43yF6RX7ulyrnWEmeeurgFw8t8NMSHEwbcFS8",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/therapists/current",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"therapists",
+						"current"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get current therapist (second)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDE5MmE4Zjc0NDc0ZTRiZDcyZGRlZDAiLCJpYXQiOjE2MTIzNjU3NjcsImV4cCI6MTYxMjQ1MjE2N30.uz1NBJ43yF6RX7ulyrnWEmeeurgFw8t8NMSHEwbcFS8",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/therapists/current",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"therapists",
+						"current"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get second therapist (first)",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDE5MmE4Zjc0NDc0ZTRiZDcyZGRlZDAiLCJpYXQiOjE2MTIzNjU3NjcsImV4cCI6MTYxMjQ1MjE2N30.uz1NBJ43yF6RX7ulyrnWEmeeurgFw8t8NMSHEwbcFS8"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/therapists/601b400b5a541e4e541085b4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"therapists",
+						"601b400b5a541e4e541085b4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete current therapist",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDE5MmE4Zjc0NDc0ZTRiZDcyZGRlZDAiLCJpYXQiOjE2MTIzNjU3NjcsImV4cCI6MTYxMjQ1MjE2N30.uz1NBJ43yF6RX7ulyrnWEmeeurgFw8t8NMSHEwbcFS8",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/therapists/current",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"therapists",
+						"current"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update current therapist specialty (second)",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "updated@gmail.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/therapists/current",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"therapists",
+						"current"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get current therapist appointments (first)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	]
+}

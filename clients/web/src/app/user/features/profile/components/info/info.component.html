@@ -1,0 +1,66 @@
+
+  <div class="mx-80 md:mx-32 px-44 py-12">
+    <!-- BASIC INFO -->
+    <div class="flex flex-row p-10 border rounded-md w-full">
+      <!-- <img src="../../../../../../assets/png/avatar.png" class="h-28 w-28 my-auto"> -->
+      <div class="flex-grow flex flex-col">
+        <div class="mt-2 text-gray-800 text-3xl font-semibold">
+          {{ user?.firstName + ' ' + user?.lastName }}
+        </div>
+        <div class="flex flex-row mt-4">
+          <div class="mt-2">
+            <div class="flex flex-row mt-2">
+              <img class="w-4 h-4 my-auto" src="../../../../assets/svg/mail-24px.svg">
+              <p class="my-auto ml-2 text-gray-500">
+                {{ user?.email }}
+              </p>
+            </div>
+            <div class="mt-1 flex flex-row">
+              <img class="w-4 h-4 my-auto" src="../../../../assets/svg/phone-24px.svg">
+              <p class="my-auto ml-2 text-gray-500">
+                {{ user?.phoneNumber }}
+              </p>
+            </div>
+          </div>
+          <img class="w-5 h-5 ml-24 mt-5" src="../../../../assets/svg/location_on-24px.svg">
+          <div *ngIf="location !== null; else locationUnknown" class="py-3 ml-2">
+            <p class="mt-1 leading-6 text-gray-500">
+              {{ location?.formattedAddress.split(', ')[0] }} <br>
+              {{ location?.formattedAddress.split(', ')[1] }}
+            </p>
+          </div>
+          <ng-template #locationUnknown>
+            <div class="py-3 ml-2">
+              <p class="mt-1 leading-6 text-red-crayola">
+                Adresse géographique<br>
+                non renseignée
+              </p>
+            </div>
+          </ng-template>
+        </div>
+        <button class="px-10 h-10 mx-2 border border-red-500 rounded-md text-lg font-semibold text-red-500 hover:bg-red-100 focus:outline-none"
+            (click)="deleteAccount()">
+              Supprimer mon compte
+          </button>
+      </div>
+      <button class="px-10 h-10 mx-2 border border-indigo-500 rounded-md text-lg font-semibold text-indigo-500 hover:bg-indigo-100 focus:outline-none"
+        (click)="basicInfoEditTriggered = true">
+        Éditer
+      </button>
+      <button class="px-10 h-10 mx-2 border border-yellow-500 rounded-md text-lg font-semibold text-yellow-500 hover:bg-yellow-100 focus:outline-none"
+        (click)="miniModalTriggered = true">
+        Accéder au questionaire
+      </button>
+    </div>
+    <app-basic-info-modal
+      *ngIf="basicInfoEditTriggered"
+      [user]="user"
+      [location]="location"
+      (changesMadeEvent)="getProfileInfo()"
+      (modalClosedEvent)="basicInfoEditTriggered = false"
+      ></app-basic-info-modal>
+      <app-questionaire-modal
+      *ngIf="miniModalTriggered"
+      (modalClosedEvent)="miniModalTriggered = false"
+      ></app-questionaire-modal>
+  </div>

@@ -1,0 +1,368 @@
+<div *ngIf="!signupSuccessful" class="relative max-w-3xl mx-auto">
+  <p class="absolute -mt-4 right-0 top-0 text-gray-400 text-sm">
+    *Champs requis
+  </p>
+</div>
+<div>
+  <div *ngIf="!signupSuccessful; else signupRecaptchaTemplate"
+    class="divide-y"
+    [class.opacity-0]="signupSuccessful"
+  >
+    <form (ngSubmit)="onSignup()" [formGroup]="form" method="post" class="flex flex-col">
+      <div class="flex flex-wrap justify-between">
+        <!-- FIRST NAME -->
+        <div class="w-1/2 pr-8">
+          <label
+            class="truncate block font-body text-base font-semibold mb-1"
+            for="firstName"
+          >
+            <div
+              *ngIf="form.get('firstName').hasError('required') &&
+                    (form.get('firstName').dirty || form.get('firstName').touched); else firstNameIncompleteLabel"
+              class="text-red-600"
+            >
+              Prénom requis
+            </div>
+            <ng-template #firstNameIncompleteLabel>
+              <div *ngIf="form.get('firstName').hasError('firstNameError') &&
+                    (form.get('firstName').dirty || form.get('firstName').touched); else firstNameLabel"
+                  class="text-red-600"
+              >
+                Prénom (prénom et nom requis)
+              </div>
+            </ng-template>
+            <ng-template #firstNameLabel
+            >
+              Prénom
+              <span class="text-gray-400">*</span>
+            </ng-template>
+          </label>
+          <input
+            class="font-body block w-full text-base border rounded-md px-4 py-1 focus:border-alpha-base focus:shadow-outline focus:outline-none focus:ring"
+            [class.ring-primary-200]="!isTherapist()"
+            [class.ring-t-primary-200]="isTherapist()"
+            placeholder="Prénom"
+            formControlName="firstName"
+            id="firstName"
+            required
+          />
+        </div>
+
+        <!-- LAST NAME -->
+        <div class="w-1/2">
+          <label
+            class="truncate block font-body text-base font-semibold mb-1"
+            for="lastName"
+          >
+            <div
+              *ngIf="form.get('lastName').hasError('required') &&
+                    (form.get('lastName').dirty || form.get('lastName').touched); else lastNameIncompleteLabel"
+              class="text-red-600"
+            >
+              Nom requis
+            </div>
+            <ng-template #lastNameIncompleteLabel>
+              <div *ngIf="form.get('lastName').hasError('lastNameError') &&
+                    (form.get('lastName').dirty || form.get('lastName').touched); else lastNameLabel"
+                  class="text-red-600"
+              >
+                Nom (requis)
+              </div>
+            </ng-template>
+            <ng-template #lastNameLabel
+            >
+              Nom
+              <span class="text-gray-400">*</span>
+            </ng-template>
+          </label>
+          <input
+            class="font-body block w-full text-base border rounded-md px-4 py-1 focus:border-alpha-base focus:shadow-outline focus:outline-none focus:ring"
+            [class.ring-primary-200]="!isTherapist()"
+            [class.ring-t-primary-200]="isTherapist()"
+            placeholder="Nom"
+            formControlName="lastName"
+            id="lastName"
+            required
+          />
+        </div>
+
+        <!-- EMAIL -->
+        <div class="w-1/2 pr-8">
+          <label
+            class="block truncate font-body text-base font-semibold mt-4 mb-1"
+            for="email"
+          >
+            <div *ngIf="form.get('email').hasError('required') &&
+                  (form.get('email').dirty || form.get('email').touched); else emailIncorrectLabel"
+              class="text-red-600"
+            >
+              Adresse mail requise
+            </div>
+            <ng-template #emailIncorrectLabel>
+              <div *ngIf="form.get('email').hasError('email') &&
+                    (form.get('email').dirty || form.get('email').touched); else emailLabel"
+                class="text-red-600"
+              >
+                Adresse mail (format incorrect)
+              </div>
+            </ng-template>
+            <ng-template #emailLabel>
+              Adresse mail
+              <span class="text-gray-400">*</span>
+            </ng-template>
+          </label>
+          <input
+            class="font-body block w-full text-base border rounded-md px-4 py-1 focus:border-alpha-base focus:shadow-outline focus:outline-none focus:ring"
+            [class.ring-primary-200]="!isTherapist()"
+            [class.ring-t-primary-200]="isTherapist()"
+            required
+            formControlName="email"
+            id="email"
+            placeholder="exemple@exemple.com"
+            type="email"
+          />
+        </div>
+
+        <!-- PHONE NUMBER -->
+        <div class="w-1/2">
+          <label
+            class="truncate block font-body text-base font-semibold mt-4 mb-1"
+            for="phoneNumber"
+          >
+            <div
+              *ngIf="form.get('phoneNumber').hasError('required') &&
+                    (form.get('phoneNumber').dirty || form.get('phoneNumber').touched); else phoneNumberIncompleteLabel"
+              class="text-red-600"
+            >
+              Numéro de téléphone requis
+            </div>
+            <ng-template #phoneNumberIncompleteLabel>
+              <div *ngIf="form.get('phoneNumber').hasError('pattern') &&
+                (form.get('phoneNumber').dirty || form.get('phoneNumber').touched); else phoneNumberLabel"
+                class="text-red-600"
+              >
+                Numéro de téléphone (10 chiffres requis)
+              </div>
+            </ng-template>
+
+            <ng-template #phoneNumberLabel>
+              Numéro de téléphone
+              <span class="text-gray-400">*</span>
+            </ng-template>
+          </label>
+          <input
+            class="font-body block w-full text-base border rounded-md px-4 py-1 focus:border-alpha-base focus:shadow-outline focus:outline-none focus:ring"
+            [class.ring-primary-200]="!isTherapist()"
+            [class.ring-t-primary-200]="isTherapist()"
+            placeholder="06 12 34 56 78"
+            formControlName="phoneNumber"
+            maxlength="14"
+            [value]="(form.get('phoneNumber').value | phoneNumberPipe)"
+            id="phonenumber"
+            required
+          />
+        </div>
+
+        <!-- PASSWORD -->
+        <div class="flex flex-row bg-gray-100 mt-4 w-full pb-4 rounded-md px-4">
+          <div class="w-1/2 mt-5">
+            <h3 class="font-medium text-gray-800 text-sm">
+              Le mot de passe doit avoir au moins:
+            </h3>
+            <p class="text-sm font-light pt-2 text-gray-500">
+              <span
+                [class.text-blue-600]="!form.get('password').hasError('minlength') && (form.get('password').dirty || form.get('password').touched) && form.get('password').value.length > 0"
+              >
+                • 8 caractères<br>
+              </span>
+              <span
+                [class.text-blue-600]="!form.get('password').hasError('noUpperCase') && (form.get('password').dirty || form.get('password').touched) && form.get('password').value.length > 0"
+              >
+                • Une majuscule<br>
+              </span>
+              <span
+                [class.text-blue-600]="!form.get('password').hasError('noLowerCase') && (form.get('password').dirty || form.get('password').touched) && form.get('password').value.length > 0"
+              >
+                • Une minuscule<br>
+              </span>
+              <span
+                [class.text-blue-600]="!form.get('password').hasError('noNumber') && (form.get('password').dirty || form.get('password').touched) && form.get('password').value.length > 0"
+              >
+                • Un chiffre<br>
+              </span>
+              <span
+                [class.text-blue-600]="!form.get('password').hasError('noSpecialChar') && (form.get('password').dirty || form.get('password').touched) && form.get('password').value.length > 0"
+              >
+                • Un caractère spécial<br>
+              </span>
+            </p>
+          </div>
+
+          <div class="flex flex-col w-1/2">
+            <div>
+              <label
+                class="block truncate font-body text-base font-semibold mt-4 mb-1"
+                for="newPassword"
+              >
+                <div *ngIf="form.get('password').hasError('required') &&
+                  (form.get('password').dirty || form.get('password').touched); else passwordIncorrectLabel"
+                  class="text-red-600"
+                >
+                  Mot de passe requis
+                </div>
+                <ng-template #passwordIncorrectLabel>
+                  <div *ngIf="form.get('password').hasError('minLength') &&
+                    (form.get('password').dirty || form.get('password').touched); else passwordLabel"
+                    class="text-red-600"
+                  >
+                    Mot de passe (min. 8 caractères)
+                  </div>
+                </ng-template>
+                <ng-template #passwordLabel>
+                  Mot de passe
+                  <span class="text-gray-400">*</span>
+                </ng-template>
+              </label>
+              <input
+                class="font-body block w-full text-base border rounded-md px-4 py-1 focus:border-alpha-base focus:shadow-outline focus:outline-none focus:ring"
+                [class.ring-primary-200]="!isTherapist()"
+                [class.ring-t-primary-200]="isTherapist()"
+                placeholder="Mot de passe"
+                type="password"
+                formControlName="password"
+                id="newPassword"
+                required
+              />
+            </div>
+
+            <!-- CONFIRM PASSWORD-->
+            <div>
+              <label
+                class="block truncate font-body text-base font-semibold mt-4 mb-1"
+                for="newPasswordRepeat"
+              >
+                <div *ngIf="form.get('password2').hasError('required') &&
+                  (form.get('password2').dirty || form.get('password2').touched); else passwordRepeatIncorrectLabel"
+                  class="text-red-600"
+                >
+                  Confirmer le mot de passe (requis)
+                </div>
+                <ng-template #passwordRepeatIncorrectLabel>
+                  <div *ngIf="form.get('password2').invalid && (form.get('password2').dirty ||
+                    form.get('password2').touched); else passwordRepeatLabel"
+                    class="text-red-600"
+                  >
+                    Confirmer le mot de passe (incorrect)
+                  </div>
+                </ng-template>
+                <ng-template #passwordRepeatLabel>
+                  Confirmer le mot de passe
+                  <span class="text-gray-400">*</span>
+                </ng-template>
+              </label>
+              <input
+                class="font-body block w-full text-base border rounded-md px-4 py-1 focus:border-alpha-base focus:shadow-outline focus:outline-none focus:ring"
+                [class.ring-primary-200]="!isTherapist()"
+                [class.ring-t-primary-200]="isTherapist()"
+                placeholder="Mot de passe"
+                type="password"
+                formControlName="password2"
+                id="newPasswordRepeat"
+                required
+              />
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+      <!-- SERVER ERRORS -->
+      <div *ngIf="error.getValue() !== undefined"
+        class="mt-2 text-red-500 text-sm"
+      >
+        {{ error.value }}
+      </div>
+
+      <button
+        type="submit"
+        [disabled]="!form.valid"
+        class="text-white text-md text-center mx-auto mt-6 mb-4 w-full px-6 py-3 font-semibold rounded-md
+        disabled:bg-gray-200 disabled:text-gray-600 disabled:cursor-default disabled:border-0
+        transition duration-300 ease-in-out hover:bg-opacity-80"
+        [class.bg-primary-500]="!isTherapist()"
+        [class.bg-t-primary-500]="isTherapist()"
+      >
+        S'inscrire
+      </button>
+    </form>
+
+    <div class="w-full"> <!-- flex flex-row"> -->
+      <button class="container flex border border-gray-300 w-full py-2 px-4 rounded-lg mt-4 hover:bg-gray-100"
+        (click)="signupWithGoogle()"
+      >
+        <img class="w-8 my-auto" src="../../../../assets/png/google_logo.png">
+        <span class="m-auto font-medium text-gray-700">
+          S'inscrire avec Google
+        </span>
+      </button>
+
+      <!-- <button class="border border-gray-300 w-full mr-4 py-2 rounded-lg mt-6"
+        (click)="signupWithGoogle()"
+      >
+        <img class="w-8 mx-auto" src="../../../../assets/png/google_logo.png">
+      </button>
+      <button class="mt-6 border border-gray-300 w-full py-2 mr-4 rounded-lg"
+        (click)="signupWithFacebook()"
+      >
+        <img class="w-8 mx-auto" src="../../../../assets/png/facebook_logo.png">
+      </button>
+      <button class="mt-6 border border-gray-300 w-full py-2 rounded-lg">
+        <img class="w-8 mx-auto" src="../../../../assets/png/twitter_logo.png">
+      </button> -->
+    </div>
+  </div>
+
+  <ng-template #signupRecaptchaTemplate>
+    <div *ngIf="!recaptchaSuccessful; else signupSuccessTemplate"
+      class="flex w-full"
+    >
+      <re-captcha class="center mx-auto"
+        (resolved)="recaptchaResolved($event)"
+        siteKey="6LdtvVUcAAAAAEPDJRWnwx0fDm8HtcQoHFkrud4s"
+      ></re-captcha>
+    </div>
+  </ng-template>
+
+  <ng-template #signupSuccessTemplate>
+
+    <div class="fade-in flex flex-col"
+      [class.opacity-0]="!signupSuccessful"
+    >
+      <div *ngIf="isTherapist()"
+        class="top-0 left-0 mt-4 ml-4"
+      >
+        <button
+          class="rounded-full cursor-pointer p-1 mb-0 flex flex-row hover:bg-opacity-10 hover:bg-black"
+          routerLink="/auth/therapist/login"
+          type="button"
+        >
+          <img class="w-8 m-auto" src="../../../../assets/svg/arrow_back_24dp.svg">
+        </button>
+      </div>
+
+      <img class="w-40 h-40 mx-auto mt-4" src="../../../../assets/svg/check_circle_green-24px.svg">
+
+      <div
+        class="mt-4 mb-4 px-5 text-center text-sm text-gray-800">
+        <span class="text-2xl font-medium">
+          Inscription réussie !
+        </span>
+        <br><br>
+        <div *ngIf="isTherapist()">
+          Nous allons procéder à une activation manuelle de votre compte, gardez un oeil sur votre boîte mail pour savoir quand vous pourrez vous connecter !
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>

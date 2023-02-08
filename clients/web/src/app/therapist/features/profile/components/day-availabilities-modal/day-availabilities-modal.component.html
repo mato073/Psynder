@@ -1,0 +1,162 @@
+<div class="fixed z-10 inset-0 overflow-y-auto">
+  <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+    <!--
+      Background overlay, show/hide based on modal state.
+
+      Entering: "ease-out duration-300"
+        From: "opacity-0"
+        To: "opacity-100"
+      Leaving: "ease-in duration-200"
+        From: "opacity-100"
+        To: "opacity-0"
+    -->
+    <div class="fixed inset-0 transition-opacity">
+      <div class="absolute inset-0 bg-t-gray-500 opacity-75"></div>
+    </div>
+
+    <!-- This element is to trick the browser into centering the modal contents. -->
+    <span class="hidden sm:inline-block sm:align-middle sm:h-screen"></span>&#8203;
+    <!--
+      Modal panel, show/hide based on modal state.
+
+      Entering: "ease-out duration-300"
+        From: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+        To: "opacity-100 translate-y-0 sm:scale-100"
+      Leaving: "ease-in duration-200"
+        From: "opacity-100 translate-y-0 sm:scale-100"
+        To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+    -->
+    <div #modal class="py-8 px-12 inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+      <button class="absolute p-1 right-0 top-0 mt-4 mr-6 rounded-full hover:bg-t-gray-100"
+        (click)="closeEvent.emit()"
+      >
+        <img class="w-6 h-6" src="../../../../assets/svg/close-24px.svg">
+      </button>
+      <div class="divide-y">
+        <h1 class="text-2xl font-semibold mb-2">
+          Horaires de consultation
+        </h1>
+        <div>
+          <h3 class="mt-6 text-md text-t-gray-500">
+            Jour
+          </h3>
+          <div class="flex flex-row">
+            <div *ngIf="chosenDayIn; else headingNoInput">              
+              <h1 class="font-semibold text-2xl text-t-gray-800">
+                {{ DAYS_IN_WEEK[chosenDayIn] }}
+              </h1>
+            </div>
+            <ng-template #headingNoInput>              
+              <h1 class="font-semibold text-2xl text-t-gray-800">
+                {{ DAYS_IN_WEEK[chosenDay] }}
+              </h1>
+            </ng-template>
+            <!-- 
+            <button class="ml-4 my-auto p-1 cursor-pointer rounded-full transition-colors duration-300 ease-in-out hover:bg-t-primary-100 focus:outline-none"
+              (click)="dayPickerShown = true"
+              *ngIf="chosenDayIn === undefined"
+            >
+              <img class="w-5 h-5 m-auto outline-none" src="../../../../assets/svg/create-24px.svg">
+            </button> -->
+            <button *ngIf="chosenDayIn === undefined"
+              class="my-auto ml-4 focus:outline-none"
+              (click)="dayPickerShown = true"
+            >
+              <svg class="h-6 w-6 text-t-primary-500 m-auto transition-colors duration-300 ease-in-out hover:text-t-primary-700" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+              </svg>
+            </button>
+
+            <div
+              *ngIf="dayPickerShown"
+              class="flex flex-col max-h-24 pr-8 overflow-y-auto divide-y z-50 border border-t-gray-300 bg-white mt-10 rounded-md shadow absolute"
+            >
+              <div *ngFor="let day of DAYS_IN_WEEK"
+                class="p-1 text-t-gray-500 font-semibold text-2xl cursor-pointer hover:text-t-gray-800"
+                (click)="newDayValue(day)"
+              >
+                <span>
+                  {{ day }}
+                </span>
+              </div>
+            </div>
+
+          </div>
+          <h3 class="mt-6 text-md text-t-gray-500">
+            Horaires
+          </h3>
+
+          <div class="overflow-y-auto">
+            <div *ngFor="let slot of timeSlots"
+              class="mt-2 flex flex-row"
+            >
+              <app-timeslot [timeslot]="slot"></app-timeslot>
+              <button class="ml-14 py-1 px-2 my-auto font-medium text-t-primary-500text-md hover:bg-red-100 rounded-md transition-colors duration-300 ease-in-out"
+                (click)="deleteTimeSlot(slot)"
+              >
+                Supprimer
+              </button>
+            </div>
+            <button *ngIf="!timeSlotPickerShown; else timeSlotPicker"
+              class="mt-2 flex flex-row rounded-md transition-colors duration-300 ease-in-out hover:bg-t-primary-100 px-1 py-1 mr-3 focus:outline-none"
+              (click)="timeSlotPickerShown = true"
+            >
+              <svg class="w-4 h-4 my-auto text-t-primary-500" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+              </svg>
+              <p class="font-medium ml-2 text-md text-t-primary-500 ">
+                Ajouter un créneau
+              </p>
+            </button>
+            <ng-template #timeSlotPicker>
+              <div class="mt-4 p-4 border rounded-lg">
+                <p class="text-md text-t-gray-800">
+                  De
+                </p>
+                <app-time-picker
+                  (timeInMin)="setTimeslotStartDate($event)"
+                >
+                <!-- (timeInMin)="console.log('a')" -->
+                </app-time-picker>
+                <p class="mt-3 text-md text-t-gray-800">
+                  À
+                </p>
+                <app-time-picker
+                  (timeInMin)="setTimeslotEndDate($event)"
+                >
+                <!-- (timeInMin)="console.log('a')" -->
+                </app-time-picker>
+                <div class="flex flex-row">
+                  <button class="mt-4 w-full py-2 bg-t-gray-300 text-t-gray-700 rounded-md text-center text-medium hover:bg-t-gray-200"
+                    (click)="timeSlotPickerShown = false"
+                  >
+                    Annuler
+                  </button>
+                  <button class="mt-4 ml-2 w-full py-2 bg-t-primary-500 rounded-md text-white text-center text-medium hover:bg-t-primary-400"
+                    (click)="validateTimeslot()"
+                  >
+                    Ajouter
+                  </button>
+                </div>
+              </div>
+            </ng-template>
+          </div>
+          <div *ngIf="timeSlots.length > 0"
+            class="flex flex-row mt-6"
+          >
+            <button class="mt-4 w-full py-2 bg-t-gray-300 text-t-gray-700 rounded-md text-white text-center text-medium hover:bg-t-gray-200"
+              (click)="closeEvent.emit()"
+            >
+              Annuler
+            </button>
+            <button class="mt-4 ml-2 w-full py-2 bg-t-primary-500 rounded-md text-white text-center text-medium hover:bg-t-primary-400"
+              (click)="registerDayTimeslots()"
+            >
+              Sauvegarder
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

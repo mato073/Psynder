@@ -1,0 +1,30 @@
+{
+	"validator": {
+		"$jsonSchema": {
+			"bsonType": "object",
+			"required": [ "lat", "lng", "owner", "ownerIsTherapist" ],
+			"properties": {
+				"lat": {
+					"bsonType": "decimal",
+					"description": "latitude, required"
+				},
+				"lng": {
+					"bsonType": "decimal",
+					"description": "longitude, required"
+				},
+				"formattedAddress": {
+					"bsonType": "string",
+					"description": "must be a string that contains the gmaps formatted address"
+				},
+				"owner": {
+					"bsonType": "string",
+					"description": "must be the id of the location's owner (Therapist or User), required"
+				},
+				"ownerIsTherapist": {
+					"bsonType": "bool",
+					"description": "must be a boolean that indicates if the location belongs to a therapist or a user, required"
+				}
+			}
+		}
+	}
+}	

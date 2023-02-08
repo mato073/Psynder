@@ -1,0 +1,771 @@
+{
+	"users": [
+		{
+			"password": "user1-password",
+			"email": "user1@user.com",
+			"firstName": "user1-firstname",
+			"lastName": "user1-lastname",
+			"phoneNumber": "06 66 66 66 66",
+			"uid": "",
+			"accessToken": "",
+			"refreshToken": "",
+			"surveys": [
+				{
+					"potentialDisorder": "Episode dépressif majeur",
+					"Questions": [
+						{"name": "A1", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "A2", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "A3", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "A4", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "A5", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "A6", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "A7", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "A8", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "A9", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "A10", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"}
+					]
+				},
+				{
+					"potentialDisorder": "Anxiété",
+					"Questions": [
+						{"name": "B1", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "B2", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "B3", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "B4", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "B5", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "B6", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "B7", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "B8", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "B9", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "B10", "question": "", "types": ["BOOL"], "answered": true, "value": "non"}
+					]
+				},
+				{
+					"potentialDisorder": "Isolement social",
+					"Questions": [
+						{"name": "C1", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "C2", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "C3", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "C4", "question": "", "types": ["BOOL"], "answered": true, "value": "non"}
+					]
+				},
+				{
+					"potentialDisorder": "Agoraphobie",
+					"Questions": [
+						{"name": "D1", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "D2", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "D3", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "D4", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "D5", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"}
+					]
+				},
+				{
+					"potentialDisorder": "Dépendance à la drogue",
+					"Questions": [
+						{"name": "D1", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "D2", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "D3", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "D4", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "D5", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "D6", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "D7", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "D8", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"}
+					]
+				},
+				{
+					"potentialDisorder": "Anorexie mentale",
+					"Questions": [
+						{"name": "E1", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "E2", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "E3", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "E4", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "E5", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "E6", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "E7", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "E8", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"}
+					]
+				}
+			]
+		},
+		{
+			"password": "user2-password",
+			"email": "user2@user.com",
+			"firstName": "user2-firstname",
+			"lastName": "user2-lastname",
+			"phoneNumber": "06 66 66 66 66",
+			"uid": "",
+			"accessToken": "",
+			"refreshToken": "",
+			"surveys": [
+				{
+					"potentialDisorder": "Risques suicidaires",
+					"Questions": [
+						{"name": "A1", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "A2", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "A3", "question": "", "types": ["BOOL"], "answered": false, "value": ""},
+						{"name": "A4", "question": "", "types": ["BOOL"], "answered": false, "value": ""},
+						{"name": "A5", "question": "", "types": ["BOOL"], "answered": false, "value": ""},
+						{"name": "A6", "question": "", "types": ["BOOL"], "answered": false, "value": ""},
+						{"name": "A7", "question": "", "types": ["BOOL"], "answered": false, "value": ""},
+						{"name": "A8", "question": "", "types": ["BOOL"], "answered": false, "value": ""},
+						{"name": "A9", "question": "", "types": ["BOOL"], "answered": false, "value": ""},
+						{"name": "A10", "question": "", "types": ["BOOL"], "answered": false, "value": ""}
+					]
+				},
+				{
+					"potentialDisorder": "Stress",
+					"Questions": [
+						{"name": "B1", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "B2", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "B3", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "B4", "question": "", "types": ["BOOL"], "answered": false, "value": ""},
+						{"name": "B5", "question": "", "types": ["BOOL"], "answered": false, "value": ""},
+						{"name": "B6", "question": "", "types": ["BOOL"], "answered": false, "value": ""},
+						{"name": "B7", "question": "", "types": ["BOOL"], "answered": false, "value": ""},
+						{"name": "B8", "question": "", "types": ["BOOL"], "answered": false, "value": ""},
+						{"name": "B9", "question": "", "types": ["BOOL"], "answered": false, "value": ""},
+						{"name": "B10", "question": "", "types": ["BOOL"], "answered": false, "value": ""}
+					]
+				},
+				{
+					"potentialDisorder": "Isolement social",
+					"Questions": [
+						{"name": "C1", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "C2", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "C3", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "C4", "question": "", "types": ["BOOL"], "answered": true, "value": "non"}
+					]
+				},
+				{
+					"potentialDisorder": "Traumatisme",
+					"Questions": [
+						{"name": "D1", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "D2", "question": "", "types": ["BOOL"], "answered": false, "value": ""},
+						{"name": "D3", "question": "", "types": ["BOOL"], "answered": false, "value": ""},
+						{"name": "D4", "question": "", "types": ["BOOL"], "answered": false, "value": ""},
+						{"name": "D5", "question": "", "types": ["BOOL"], "answered": false, "value": ""}
+					]
+				},
+				{
+					"potentialDisorder": "Dépendance à l'alcool",
+					"Questions": [
+						{"name": "D1", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "D2", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "D3", "question": "", "types": ["BOOL"], "answered": false, "value": ""},
+						{"name": "D4", "question": "", "types": ["BOOL"], "answered": false, "value": ""},
+						{"name": "D5", "question": "", "types": ["BOOL"], "answered": false, "value": ""},
+						{"name": "D6", "question": "", "types": ["BOOL"], "answered": false, "value": ""},
+						{"name": "D7", "question": "", "types": ["BOOL"], "answered": false, "value": ""},
+						{"name": "D8", "question": "", "types": ["BOOL"], "answered": false, "value": ""}
+					]
+				},
+				{
+					"potentialDisorder": "Anorexie mentale",
+					"Questions": [
+						{"name": "D1", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "D2", "question": "", "types": ["BOOL"], "answered": false, "value": ""},
+						{"name": "D3", "question": "", "types": ["BOOL"], "answered": false, "value": ""},
+						{"name": "D4", "question": "", "types": ["BOOL"], "answered": false, "value": ""},
+						{"name": "D5", "question": "", "types": ["BOOL"], "answered": false, "value": ""},
+						{"name": "D6", "question": "", "types": ["BOOL"], "answered": false, "value": ""},
+						{"name": "D7", "question": "", "types": ["BOOL"], "answered": false, "value": ""},
+						{"name": "D8", "question": "", "types": ["BOOL"], "answered": false, "value": ""}
+					]
+				}
+			]
+		},
+		{
+			"password": "user3-password",
+			"email": "user3@user.com",
+			"firstName": "user3-firstname",
+			"lastName": "user3-lastname",
+			"phoneNumber": "06 66 66 66 66",
+			"uid": "",
+			"accessToken": "",
+			"refreshToken": "",
+			"surveys": [
+				{
+					"potentialDisorder": "Trouble du désir",
+					"Questions": [
+						{"name": "A1", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "A2", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "A3", "question": "", "types": ["BOOL"], "answered": false, "value": ""},
+						{"name": "A4", "question": "", "types": ["BOOL"], "answered": false, "value": ""},
+						{"name": "A5", "question": "", "types": ["BOOL"], "answered": false, "value": ""},
+						{"name": "A6", "question": "", "types": ["BOOL"], "answered": false, "value": ""},
+						{"name": "A7", "question": "", "types": ["BOOL"], "answered": false, "value": ""},
+						{"name": "A8", "question": "", "types": ["BOOL"], "answered": false, "value": ""},
+						{"name": "A9", "question": "", "types": ["BOOL"], "answered": false, "value": ""},
+						{"name": "A10", "question": "", "types": ["BOOL"], "answered": false, "value": ""}
+					]
+				},
+				{
+					"potentialDisorder": "Anxiété",
+					"Questions": [
+						{"name": "B1", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "B2", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "B3", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "B4", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "B5", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "B6", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "B7", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "B8", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "B9", "question": "", "types": ["BOOL"], "answered": false, "value": ""},
+						{"name": "B10", "question": "", "types": ["BOOL"], "answered": false, "value": ""}
+					]
+				},
+				{
+					"potentialDisorder": "Isolement social",
+					"Questions": [
+						{"name": "C1", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "C2", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "C3", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "C4", "question": "", "types": ["BOOL"], "answered": true, "value": "non"}
+					]
+				},
+				{
+					"potentialDisorder": "Stress",
+					"Questions": [
+						{"name": "D1", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "D2", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "D3", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "D4", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "D5", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"}
+					]
+				},
+				{
+					"potentialDisorder": "Boulimie",
+					"Questions": [
+						{"name": "D1", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "D2", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "D3", "question": "", "types": ["BOOL"], "answered": false, "value": ""},
+						{"name": "D4", "question": "", "types": ["BOOL"], "answered": false, "value": ""},
+						{"name": "D5", "question": "", "types": ["BOOL"], "answered": false, "value": ""},
+						{"name": "D6", "question": "", "types": ["BOOL"], "answered": false, "value": ""},
+						{"name": "D7", "question": "", "types": ["BOOL"], "answered": false, "value": ""},
+						{"name": "D8", "question": "", "types": ["BOOL"], "answered": false, "value": ""}
+					]
+				},
+				{
+					"potentialDisorder": "Anorexie mentale",
+					"Questions": [
+						{"name": "E1", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "E2", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "E3", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "E4", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "E5", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "E6", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "E7", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "E8", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"}
+					]
+				}
+			]
+		},
+		{
+			"password": "user4-password",
+			"email": "user4@user.com",
+			"firstName": "user4-firstname",
+			"lastName": "user4-lastname",
+			"phoneNumber": "06 66 66 66 66",
+			"uid": "",
+			"accessToken": "",
+			"refreshToken": "",
+			"surveys": [
+				{
+					"potentialDisorder": "Problèmes du quotidien",
+					"Questions": [
+						{"name": "A1", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "A2", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "A3", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "A4", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "A5", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "A6", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "A7", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "A8", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "A9", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "A10", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"}
+					]
+				},
+				{
+					"potentialDisorder": "Conflits dans les relations interpersonnelles",
+					"Questions": [
+						{"name": "B1", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "B2", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "B3", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "B4", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "B5", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "B6", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "B7", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "B8", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "B9", "question": "", "types": ["BOOL"], "answered": false, "value": ""},
+						{"name": "B10", "question": "", "types": ["BOOL"], "answered": false, "value": ""}
+					]
+				},
+				{
+					"potentialDisorder": "Isolement social",
+					"Questions": [
+						{"name": "C1", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "C2", "question": "", "types": ["BOOL"], "answered": false, "value": ""},
+						{"name": "C3", "question": "", "types": ["BOOL"], "answered": false, "value": ""},
+						{"name": "C4", "question": "", "types": ["BOOL"], "answered": false, "value": ""}
+					]
+				},
+				{
+					"potentialDisorder": "Troubles de la personnalité",
+					"Questions": [
+						{"name": "D1", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "D2", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "D3", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "D4", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "D5", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "D6", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "D7", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "D8", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"}
+					]
+				},
+				{
+					"potentialDisorder": "Risques suicidaires",
+					"Questions": [
+						{"name": "E1", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "E2", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "E3", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "E4", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "E5", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"},
+						{"name": "E6", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "E7", "question": "", "types": ["BOOL"], "answered": true, "value": "non"},
+						{"name": "E8", "question": "", "types": ["BOOL"], "answered": true, "value": "oui"}
+					]
+				}
+			]
+		}
+	],
+	"therapists": [
+		{
+			"password": "psynder.betaTherapist1-password",
+			"email": "therapist1@psynder.beta.fr",
+			"firstName": "Jean",
+			"lastName": "Dupon",
+			"phoneNumber": "08 00 85 88 58",
+			"uid": "",
+			"accessToken": "",
+			"refreshToken": "",
+			"specialties": ["Psychologie clinique", "Psychothérapie"],
+			"alreadyTreated": [
+				{"name": "Risques suicidaires", "cured": true},
+				{"name": "Troubles alimentaires", "cured": true},
+				{"name": "Boulimie", "cured": true},
+				{"name": "Anxiété", "cured": false},
+				{"name": "Agoraphobie", "cured": false},
+				{"name": "Anorexie mentale", "cured": true},
+				{"name": "Démences", "cured": false},
+				{"name": "Stress", "cured": true},
+				{"name": "Dystymie", "cured": false},
+				{"name": "Problèmes du quotidien", "cured": true},
+				{"name": "Dépendance à la drogue", "cured": false}
+			]
+		},
+		{
+			"password": "psynder.betaTherapist2-password",
+			"email": "therapist2@psynder.beta.fr",
+			"firstName": "Manon",
+			"lastName": "Dupuis",
+			"phoneNumber": "08 00 85 88 58",
+			"uid": "",
+			"accessToken": "",
+			"refreshToken": "",
+			"specialties": ["Psychiatrie"],
+			"alreadyTreated": [
+				{"name": "Episode dépressif majeur", "cured": true},
+				{"name": "Risques suicidaires", "cured": true},
+				{"name": "Stress post-traumatique", "cured": true},
+				{"name": "Traumatisme", "cured": false},
+				{"name": "Stress", "cured": true}
+			]
+		},
+		{
+			"password": "psynder.betaTherapist3-password",
+			"email": "therapist3@psynder.beta.fr",
+			"firstName": "Michelle",
+			"lastName": "Bertrand",
+			"phoneNumber": "08 00 85 88 58",
+			"uid": "",
+			"accessToken": "",
+			"refreshToken": "",
+			"specialties": ["Psychologie de l’éducation"],
+			"alreadyTreated": [
+				{"name": "Stress", "cured": true},
+				{"name": "Troubles de l'appentissage", "cured": true},
+				{"name": "Boulimie", "cured": true},
+				{"name": "Dystymie", "cured": true},
+				{"name": "Anorexie mentale", "cured": false},
+				{"name": "Risques suicidaires", "cured": true},
+				{"name": "Phobie sociale", "cured": false}
+			]
+		},
+		{
+			"password": "psynder.betaTherapist4-password",
+			"email": "therapist4@psynder.beta.fr",
+			"firstName": "Philippe",
+			"lastName": "Dubois",
+			"phoneNumber": "08 00 85 88 58",
+			"uid": "",
+			"accessToken": "",
+			"refreshToken": "",
+			"specialties": ["Psychothérapie", "Neuropsychologie"],
+			"alreadyTreated": [
+				{"name": "Problèmes du quotidien", "cured": true},
+				{"name": "Trouble de la sexualité", "cured": false},
+				{"name": "Conflits dans les relations interpersonnelles", "cured": true},
+				{"name": "Stress", "cured": true},
+				{"name": "Anxiété", "cured": false},
+				{"name": "Risques suicidaires", "cured": true},
+				{"name": "Stress", "cured": true},
+				{"name": "Dépendance à l'alcool'", "cured": false},
+				{"name": "Episode dépressif majeur", "cured": true},
+				{"name": "Troubles alimentaires", "cured": true}
+			]
+		},
+		{
+			"password": "psynder.betaTherapist5-password",
+			"email": "therapist5@psynder.beta.fr",
+			"firstName": "Katerine",
+			"lastName": "Boulanger",
+			"phoneNumber": "08 00 85 88 58",
+			"uid": "",
+			"accessToken": "",
+			"refreshToken": "",
+			"specialties": ["Sexologie"],
+			"alreadyTreated": [
+				{"name": "Stress", "cured": false},
+				{"name": "Trouble de la sexualité", "cured": true},
+				{"name": "Dépendance à la drogue", "cured": true},
+				{"name": "Trouble du désir", "cured": true},
+				{"name": "Traumatisme", "cured": false},
+				{"name": "Problèmes du quotidien", "cured": true},
+				{"name": "Risques suicidaires", "cured": false},
+				{"name": "Anxiété", "cured": false},
+				{"name": "Problèmes émotionnels", "cured": true}
+			]
+		},
+		{
+			"password": "psynder.betaTherapist6-password",
+			"email": "therapist6@psynder.beta.fr",
+			"firstName": "Jean-Michel",
+			"lastName": "Pois",
+			"phoneNumber": "08 00 85 88 58",
+			"uid": "",
+			"accessToken": "",
+			"refreshToken": "",
+			"specialties": ["Psychologie sociale", "Psychologie clinique"],
+			"alreadyTreated": [
+				{"name": "Agoraphobie", "cured": true},
+				{"name": "Phobie sociale", "cured": true},
+				{"name": "Stress", "cured": true},
+				{"name": "Anxiété", "cured": true},
+				{"name": "Dépendance à la drogue", "cured": true},
+				{"name": "Episode dépressif majeur", "cured": false},
+				{"name": "Stress post-traumatique", "cured": true},
+				{"name": "Risques suicidaires", "cured": false},
+				{"name": "Trouble de l'excitation", "cured": false},
+				{"name": "Boulimie", "cured": true},
+				{"name": "Conflits dans les relations interpersonnelles", "cured": true}
+			]
+		},
+		{
+			"password": "psynder.betaTherapist7-password",
+			"email": "therapist7@psynder.beta.fr",
+			"firstName": "Inès",
+			"lastName": "Busque",
+			"phoneNumber": "08 00 85 88 58",
+			"uid": "",
+			"accessToken": "",
+			"refreshToken": "",
+			"specialties": ["Psychologie sociale", "Psychologie clinique"],
+			"alreadyTreated": [
+				{"name": "Agoraphobie", "cured": false},
+				{"name": "Phobie sociale", "cured": false},
+				{"name": "Stress", "cured": false},
+				{"name": "Anxiété", "cured":false},
+				{"name": "Dépendance à la drogue", "cured": false},
+				{"name": "Episode dépressif majeur", "cured": true},
+				{"name": "Stress post-traumatique", "cured": false},
+				{"name": "Risques suicidaires", "cured": false},
+				{"name": "Trouble de l'excitation", "cured": true},
+				{"name": "Boulimie", "cured": false},
+				{"name": "Conflits dans les relations interpersonnelles", "cured": false}
+			]
+		},
+		{
+			"password": "psynder.betaTherapist8-password",
+			"email": "therapist8@psynder.beta.fr",
+			"firstName": "Ernest",
+			"lastName": "Boiseau",
+			"phoneNumber": "08 00 85 88 58",
+			"uid": "",
+			"accessToken": "",
+			"refreshToken": "",
+			"specialties": ["Psychologie sportive", "Addictologie"],
+			"alreadyTreated": [
+				{"name": "Stress", "cured": true},
+				{"name": "Dépendance à l'alcool", "cured": false},
+				{"name": "Dépendance à la drogue", "cured": true},
+				{"name": "Trouble de l'orgasme", "cured": true},
+				{"name": "Traumatisme", "cured": true},
+				{"name": "Risques suicidaires", "cured": true},
+				{"name": "Conflits dans les relations interpersonnelles", "cured": false},
+				{"name": "Anorexie mentale", "cured": true}
+			]
+		},
+		{
+			"password": "psynder.betaTherapist9-password",
+			"email": "therapist9@psynder.beta.fr",
+			"firstName": "Martine",
+			"lastName": "Talon",
+			"phoneNumber": "08 00 85 88 58",
+			"uid": "",
+			"accessToken": "",
+			"refreshToken": "",
+			"specialties": ["Psychiatrie", "Psychologie sociale", "Sexologie"],
+			"alreadyTreated": [
+				{"name": "Stress", "cured": true},
+				{"name": "Trouble de la sexualité", "cured": true},
+				{"name": "Dépendance à la drogue", "cured": true},
+				{"name": "Trouble du désir", "cured": true},
+				{"name": "Traumatisme", "cured": true},
+				{"name": "Problèmes du quotidien", "cured": false},
+				{"name": "Anxiété", "cured": false},
+				{"name": "Problèmes émotionnels", "cured": false},
+				{"name": "Agoraphobie", "cured": true},
+				{"name": "Phobie sociale", "cured": true},
+				{"name": "Episode dépressif majeur", "cured": false},
+				{"name": "Stress post-traumatique", "cured": true},
+				{"name": "Risques suicidaires", "cured": true},
+				{"name": "Trouble de l'excitation", "cured": false},
+				{"name": "Boulimie", "cured": true},
+				{"name": "Conflits dans les relations interpersonnelles", "cured": true}
+			]
+		},
+		{
+			"password": "psynder.betaTherapist10-password",
+			"email": "therapist10@psynder.beta.fr",
+			"firstName": "Aymon",
+			"lastName": "Provencher",
+			"phoneNumber": "08 00 85 88 58",
+			"uid": "",
+			"accessToken": "",
+			"refreshToken": "",
+			"specialties": ["Addictologie", "Psychologie du travail"],
+			"alreadyTreated": [
+				{"name": "Stress", "cured": true},
+				{"name": "Boulimie", "cured": true},
+				{"name": "Anorexie mentale", "cured": true},
+				{"name": "Agoraphobie", "cured": false},
+				{"name": "Anxiété", "cured": true},
+				{"name": "Dépendance à l'alcool", "cured": true},
+				{"name": "Démences", "cured": false},
+				{"name": "Troubles de l'appentissage", "cured": true}
+			]
+		},
+		{
+			"password": "psynder.betaTherapist11-password",
+			"email": "therapist11@psynder.beta.fr",
+			"firstName": "Mathilde",
+			"lastName": "Sciverit",
+			"phoneNumber": "08 00 85 88 58",
+			"uid": "",
+			"accessToken": "",
+			"refreshToken": "",
+			"specialties": ["Psychologie clinique", "Psychologie criminologique"],
+			"alreadyTreated": [
+				{"name": "Traumatisme", "cured": true},
+				{"name": "Dépendance à la drogue", "cured": false},
+				{"name": "Trouble de la panique", "cured": true},
+				{"name": "Risques suicidaires", "cured": true},
+				{"name": "Dystymie", "cured": true},
+				{"name": "Boulimie", "cured": false},
+				{"name": "Phobie sociale", "cured": true},
+				{"name": "Démences", "cured": false}
+			]
+		},
+		{
+			"password": "psynder.betaTherapist12-password",
+			"email": "therapist12@psynder.beta.fr",
+			"firstName": "Gérard",
+			"lastName": "Poiron",
+			"phoneNumber": "08 00 85 88 58",
+			"uid": "",
+			"accessToken": "",
+			"refreshToken": "",
+			"specialties": ["Hypnologie", "Psychologie du travail", "Neuropsychologie"],
+			"alreadyTreated": [
+				{"name": "Stress", "cured": true},
+				{"name": "Dépendance à l'alcool", "cured": true},
+				{"name": "Dépendance à la drogue", "cured": false},
+				{"name": "Trouble de l'orgasme", "cured": false},
+				{"name": "Traumatisme", "cured": false},
+				{"name": "Conflits dans les relations interpersonnelles", "cured": true},
+				{"name": "Anorexie mentale", "cured": false},
+				{"name": "Trouble de la sexualité", "cured": true},
+				{"name": "Trouble du désir", "cured": false},
+				{"name": "Traumatisme", "cured": true},
+				{"name": "Problèmes du quotidien", "cured": false},
+				{"name": "Anxiété", "cured": true},
+				{"name": "Problèmes émotionnels", "cured": false}
+			]
+		},
+		{
+			"password": "psynder.betaTherapist13-password",
+			"email": "therapist13@psynder.beta.fr",
+			"firstName": "Renée",
+			"lastName": "Riel",
+			"phoneNumber": "08 00 85 88 58",
+			"uid": "",
+			"accessToken": "",
+			"refreshToken": "",
+			"specialties": ["Psychiatrie", "Hypnologie", "Psychologie de l’éducation"],
+			"alreadyTreated": [
+				{"name": "Stress", "cured": true},
+				{"name": "Trouble de la sexualité", "cured": true},
+				{"name": "Dépendance à l'alcool", "cured": true},
+				{"name": "Anorexie mentale", "cured": true},
+				{"name": "Problèmes du quotidien", "cured": true},
+				{"name": "Problèmes émotionnels", "cured": true},
+				{"name": "Trouble de la panique", "cured": true},
+				{"name": "Stress post-traumatique", "cured": true},
+				{"name": "Episode dépressif majeur", "cured": true},
+				{"name": "Agoraphobie", "cured": true},
+				{"name": "Troubles de l'appentissage", "cured": true},
+				{"name": "Conflits dans les relations interpersonnelles", "cured": true}
+			]
+		},
+		{
+			"password": "psynder.betaTherapist14-password",
+			"email": "therapist14@psynder.beta.fr",
+			"firstName": "Huette",
+			"lastName": "Moreau",
+			"phoneNumber": "08 00 85 88 58",
+			"uid": "",
+			"accessToken": "",
+			"refreshToken": "",
+			"specialties": ["Psychologie sociale", "Sexologie"],
+			"alreadyTreated": [
+				{"name": "Stress", "cured": false},
+				{"name": "Trouble de l'excitation", "cured": true},
+				{"name": "Trouble du désir", "cured": true},
+				{"name": "Agoraphobie", "cured": true},
+				{"name": "Traumatisme", "cured": false},
+				{"name": "Troubles alimentaires", "cured": true},
+				{"name": "Risques suicidaires", "cured": true},
+				{"name": "Stress post-traumatique", "cured": true}
+			]
+		},
+		{
+			"password": "psynder.betaTherapist15-password",
+			"email": "therapist15@psynder.beta.fr",
+			"firstName": "Aurore",
+			"lastName": "Pépinoit",
+			"phoneNumber": "08 00 85 88 58",
+			"uid": "",
+			"accessToken": "",
+			"refreshToken": "",
+			"specialties": ["Neuropsychologie", "Psychologie de l’éducation", "Psychologie clinique"],
+			"alreadyTreated": [
+				{"name": "Phobie sociale", "cured": false},
+				{"name": "Troubles de la personnalité", "cured": true},
+				{"name": "Problèmes émotionnels", "cured": true},
+				{"name": "Stress", "cured": true},
+				{"name": "Dépendance à la drogue", "cured": false},
+				{"name": "Episode dépressif majeur", "cured": true},
+				{"name": "Trouble de la sexualité", "cured": true},
+				{"name": "Boulimie", "cured": true},
+				{"name": "Dystymie", "cured": false}
+			]
+		}
+	],
+	"specialties": [
+		{
+			"id": "",
+			"name": "Psychiatrie",
+			"acronym": "",
+			"description": "La psychiatrie est une spécialité médicale traitant de la maladie mentale de manière générale.",
+			"managedDisorders": ["Stress post-traumatique", "Trouble de la panique", "Agoraphobie", "Episode dépressif majeur", "Dystymie", "Dépendance à la drogue", "Dépendance à l'alcool", "Boulimie", "Anorexie mentale", "Risques suicidaires"]
+		},
+		{
+			"id": "",
+			"name": "Psychologie clinique",
+			"acronym": "",
+			"description": "La visée de la psychologie clinique est de faire accéder le patient à la cessation de ses souffrances psychiques. Dans cette optique, le clinicien tente d'isoler et de comprendre les signes cliniques et symptômes qui touchent l'individu.",
+			"managedDisorders": ["Troubles alimentaires", "Boulimie", "Anxiété", "Troubles de la personnalité", "Dépendance à la drogue", "Trouble de la panique", "Agoraphobie", "Episode dépressif majeur", "Dystymie", "Stress post-traumatique", "Anorexie mentale", "Risques suicidaires"]
+		},
+		{
+			"id": "",
+			"name": "Psychothérapie",
+			"acronym": "",
+			"description": "La psychothérapie est un traitement qui repose sur des moyens uniquement psychologiques fondés sur la parole au cours d’entretiens réguliers. Ils peuvent être réalisés seuls ou en groupe avec le psychothérapeute.",
+			"managedDisorders": ["Problèmes du quotidien", "Conflits dans les relations interpersonnelles", "Problèmes émotionnels", "Stress", "Anxiété"]
+		},
+		{
+			"id": "",
+			"name": "Psychologie de l’éducation",
+			"acronym": "",
+			"description": "La psychologie de l’éducation est une branche de la psychologie dont l’objet d’étude concerne les formes sous lesquelles a lieu l’apprentissage humain dans les centres éducatifs. Ainsi, la psychologie de l’éducation s’intéresse à la façon comment les étudiants (élèves) apprennent et à tout le déroulement.",
+			"managedDisorders": ["Troubles de l'appentissage"]
+		},
+		{
+			"id": "",
+			"name": "Neuropsychologie",
+			"acronym": "",
+			"description": "La neuropsychologie est une branche de la psychologie clinique qui s'intéresse aux relations entre le cerveau et le fonctionnement psychologique (fonctions cognitives, comportements et émotions) au moyen d'observations menées auprès de sujets normaux ou de patients présentant des lésions cérébrales d'origines diverses.",
+			"managedDisorders": ["Démences", "Traumatisme"]
+		},
+		{
+			"id": "",
+			"name": "Psychologie sociale",
+			"acronym": "",
+			"description": "La psychologie sociale est la branche de la psychologie expérimentale qui étudie de façon empirique comment «les pensées, les émotions et les comportements des individus sont influencés par la présence réelle, imaginaire ou implicite d'autres personnes».",
+			"managedDisorders": ["Phobie sociale", "Agoraphobie"]
+		},
+		{
+			"id": "",
+			"name": "Psychologie du travail",
+			"acronym": "",
+			"description": "La psychologie du travail et des organisations est une branche de la psychologie qui s'intéresse aux attitudes et comportements humains en rapport avec le travail et au sein des organisations dans le but d'améliorer au mieux les conditions de travail et le respect des individus en situation professionnelle.",
+			"managedDisorders": []
+		},
+		{
+			"id": "",
+			"name": "Psychologie sportive",
+			"acronym": "",
+			"description": "La psychologie du sport a pour objet l'étude des aptitudes mentales et psychologiques qui déterminent la performance sportive ou physique, selon les différents contextes (compétition ou coopération, sport collectif ou individuel, rôles des proches comme les parents et les éducateurs, présence du public, etc).",
+			"managedDisorders": ["Stress"]
+		},
+		{
+			"id": "",
+			"name": "Sexologie",
+			"acronym": "",
+			"description": "La sexologie est l'étude de la sexualité humaine et de ses manifestations. Elle étudie tous les aspects de la sexualité, à savoir le développement sexuel, les mécanismes des rapports érotiques, le comportement sexuel humain et les relations affectives, en incluant les aspects physiologiques, psychologiques, médicaux, sociaux et culturels.",
+			"managedDisorders": ["Trouble de la sexualité", "Trouble du désir", "Trouble de l'excitation", "Trouble de l'orgasme"]
+		},
+		{
+			"id": "",
+			"name": "Hypnologie",
+			"acronym": "",
+			"description": "L’hypnologie (ou somnologie) est la médecine du sommeil et de l'éveil, spécialisée dans le diagnostic et le traitement des troubles de la vigilance et du sommeil.",
+			"managedDisorders": []
+		},
+		{
+			"id": "",
+			"name": "Addictologie",
+			"acronym": "",
+			"description": "L'addictologie est l'étude et le soin des addictions, c'est-à-dire de la dépendance physiologique et psychologique à une substance ou à un comportement.",
+			"managedDisorders": ["Dépendance à l'alcool", "Dépendance à la drogue", "Anorexie mentale", "Boulimie"]
+		},
+		{
+			"id": "",
+			"name": "Psychologie criminologique",
+			"acronym": "",
+			"description": "La psychologie criminologique est un domaine de recherche commun à la psychologie et à la criminologie, prenant comme objet d'étude le fonctionnement du sujet auteur et victime d'infractions pénales.",
+			"managedDisorders": []
+		}
+	]
+}

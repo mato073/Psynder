@@ -1,0 +1,54 @@
+<div class="flex flex-col p-6 container-height">
+  <div class="m-4">
+    <p
+      *ngIf="isPast; else futureTitle" 
+      class="mb-2 font-medium text-2xl text-t-gray-500"
+    >
+      Rendez-vous passés
+    </p>
+    <ng-template #futureTitle>
+      <p
+        class="mb-2 font-medium text-2xl text-t-gray-500"
+      >
+        Rendez-vous à venir
+      </p>
+    </ng-template>
+    <div class="mt-6 px-1 pb-1 mt-2 w-full overflow-y-auto h-80 rounded-md bg-t-gray-100 border">
+      <div *ngFor="let apt of apts"
+        class="flex relative mt-1 w-full h-24 rounded-md bg-white border cursor-pointer hover:shadow-md"
+        (click)="triggerAptUpdateModal(apt)"
+      >
+        <span class="my-auto ml-10 font-semibold text-lg text-t-gray-600">
+          {{ apt.user.firstName + ' ' + apt.user.lastName }}
+        </span>
+
+        <div class="absolute top-0 right-0 mr-4 mt-4">
+          <span *ngIf="isPast; else futureTimeUntilTemplate"
+            class="flex flex-row font-light text-sm text-red-crayola"
+          >
+            il y a
+            <span class="ml-2 font-medium text-red-crayola">
+              {{ getElapsedTime(getAptEndDate(apt.date, apt.durationInMin)) }}
+            </span>
+          </span>
+          <ng-template #futureTimeUntilTemplate>
+            <span class="flex flex-row font-light text-sm text-t-gray-600">
+              dans 
+              <span class="ml-2 font-medium text-t-gray-600">
+                {{ getElapsedTime(apt.date)}}
+              </span>
+            </span>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-update-appointment-modal
+  *ngIf="updateAppointmentModalTriggered"
+  [apt]="aptToUpdate"
+  (modalClosedEvent)="updateAppointmentModalTriggered = false"
+  (dateUpdated)="getAppointmentsForTimeframe()"
+>
+</app-update-appointment-modal>

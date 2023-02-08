@@ -1,0 +1,31 @@
+<div class="full-width flex-grow h-full" #map>
+  <agm-map class="rounded-lg h-full"
+    (mapReady)="mapReady($event)"
+    [style.height.px]="map.offsetHeight" style.width.px="700"
+    style.top="0"
+    [latitude]='gls.coordinates.latitude' [longitude]='gls.coordinates.longitude' 
+    [mapTypeId]='mapType' [zoom]='zoom'>
+    
+    <agm-marker [latitude]="gls.coordinates.latitude" [longitude]="gls.coordinates.longitude"></agm-marker>
+
+    <agm-circle [latitude]="gls.coordinates.latitude" [longitude]="gls.coordinates.longitude"
+              [radius]="mus.maxDistance"
+              fillColor="#05A68F" fillOpacity=".035 "
+              strokeColor="#05A68F" strokeWeight="1"
+    ></agm-circle>
+
+    <div id="specialty-helper"
+      class="z-50 bg-gray-900 opacity-50 max-w-md"
+      [class.p-4]="specialtyDescription!==''"
+    >
+      <p class="text-white text-sm">{{ specialtyDescription }}</p>
+    </div>
+    
+    <app-therapist-map-icon *ngFor="let therapist of therapists"
+      [therapist]="therapist"
+      [mapCenterCoords]="centerCoords"
+      (specialtyDescription)="toggleSpecialtyDescription($event)"
+    ></app-therapist-map-icon>
+
+  </agm-map>
+</div>

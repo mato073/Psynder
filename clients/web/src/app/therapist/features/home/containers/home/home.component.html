@@ -1,0 +1,19 @@
+<div class="mx-96 md:mx-32 px-44 py-12">
+  <h1 class="ml-12 mt-8 text-t-gray-800 text-3xl font-medium mb-4">
+    Rendez-vous
+  </h1>
+  <div
+    class="flex flex-row p-2 bg-white rounded-md w-full"
+  >
+    <div class="w-full divide-x flex flex-row">
+      <app-appointment-list 
+        class="w-1/2"
+        [isPast]="true"
+      ></app-appointment-list>
+      <app-appointment-list
+        class="w-1/2"
+        [isPast]="false"
+      ></app-appointment-list>
+    </div>
+  </div>
+</div>

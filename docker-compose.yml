@@ -1,0 +1,114 @@
+version: "3.3"
+services:
+    server_dev:
+        build:
+            context: .
+            dockerfile: ./server/infrastructures/Dockerfile.dev
+        ports:
+            - "8080:8080"
+        container_name: server_psynder_dev
+        restart: always
+        networks:
+            - db_net
+            - cache_net
+        depends_on:
+            - db
+            - cache
+        links:
+            - db:db
+            - cache:cache
+
+    server_prod:
+        build:
+            context: .
+            dockerfile: ./server/infrastructures/Dockerfile.prod
+        ports:
+            - "8080:8080"
+        image: eip_psynder_2022
+        container_name: server_psynder_prod
+        restart: always
+        networks:
+            - db_net
+            - cache_net
+        depends_on:
+           - db
+           - cache
+        links:
+           - db:db
+           - cache:cache
+
+
+    server_and_mobile_client_dev:
+        build:
+            context: .
+            dockerfile: ./infrastructures/Dockerfile.dev
+        ports:
+            - "8080:8080"
+        container_name: server_psynder_and_mobile_client_dev
+        restart: always
+        depends_on:
+           - db
+        links:
+           - db:db
+
+    server_and_mobile_client_prod:
+        build:
+            context: .
+            dockerfile: ./infrastructures/Dockerfile.prod
+        ports:
+            - "8080:8080"
+        container_name: server_psynder_and_mobile_client_prod
+        restart: always
+        networks:
+            - db_net
+            - cache_net
+        depends_on:
+           - db
+        links:
+           - db:db
+
+
+    web_client_dev:
+        image: web_client_eip_psynder_dev
+        build:
+            context: ./clients/web
+            dockerfile: ./infrastructures/Dockerfile.dev
+        ports:
+            - "80:4200"
+        container_name: web_client_psynder_dev
+
+    web_client_prod:
+        image: web_client_eip_psynder_prod
+        build: 
+            context: ./clients/web
+            dockerfile: ./infrastructures/Dockerfile.prod
+        ports:
+            - "80:4200"
+        container_name: web_client_psynder_prod
+
+
+    db:
+        image: mongo
+        ports:
+            - "27017:27017"
+        command: --quiet
+        container_name: mongodb_psynder
+        networks:
+            - db_net
+        volumes: 
+            - ./data/db:/data/db
+
+    cache:
+        image: "redis:alpine"
+        command: redis-server /usr/local/etc/redis/redis.conf
+        volumes:
+            - ./server/redis.conf:/usr/local/etc/redis/redis.conf
+        expose:
+            - "6379"
+        networks:
+            - cache_net
+        container_name: redis_psynder
+
+networks:
+    db_net:
+    cache_net:

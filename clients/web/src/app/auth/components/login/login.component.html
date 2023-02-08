@@ -1,0 +1,80 @@
+<div class="relative divide-y">
+
+  <div>
+    <form [formGroup]="form" (ngSubmit)="onLogin()" method="post" class="flex flex-col">
+      <div>
+        <label
+          class="block font-body text-base font-semibold focus-within:text-alpha-base"
+          for="email"
+        >
+          Adresse mail
+          <input
+            formControlName="email"
+            class="font-body block w-full text-base text-gray-900 border rounded-md px-4 py-1 mt-1 focus:shadow-outline focus:outline-none focus:ring"
+            [class.ring-primary-200]="!isTherapist()"
+            [class.ring-t-primary-200]="isTherapist()"
+            id="email"
+            type="email"
+            placeholder="Adresse mail"
+            required
+          />
+        </label>
+      </div>
+      <div>
+        <label
+          class="block font-body text-base font-semibold mt-4 focus-within:text-alpha-base"
+          for="password"
+        >
+          Mot de passe
+          <input
+            formControlName="password"
+            class="font-body block w-full text-base text-gray-900 border rounded-md px-4 py-1 focus:border-alpha-base mt-1 focus:shadow-outline focus:outline-none focus:ring"
+            [class.ring-primary-200]="!isTherapist()"
+            [class.ring-t-primary-200]="isTherapist()"
+            id="password"
+            type="password"
+            placeholder="Mot de passe"
+            required
+          />
+        </label>
+      </div>
+
+      <div *ngIf="error.getValue()">
+        <p class="mt-1 text-red-500 text-sm">
+          {{ error.getValue() }}
+        </p>
+      </div>
+      <a 
+        class="text-sm font-medium my-4 cursor-pointer hover:underline"
+        [class.text-t-primary-500]="isTherapist()"
+        [class.text-primary-500]="!isTherapist()"
+        [routerLink]="pwdResetRedirectUrl" 
+      >
+        Mot de passe oublié ?
+      </a>
+      <button
+        type="submit"
+        [disabled]="form.invalid"
+        class="w-full text-white border text-base text-center mx-auto mb-8 py-3 font-medium rounded-md
+          disabled:border-gray-200 disabled:bg-gray-200 disabled:text-gray-600 disabled:cursor-default disabled:border-0
+          hover:bg-opacity-80
+          transition duration-300 ease-in-out"
+        [class.bg-primary-500]="!isTherapist()"
+        [class.bg-t-primary-500]="isTherapist()"
+      >
+        Se connecter
+      </button>
+    </form>
+  </div>
+  <div class="w-full">  <!-- flex flex-row"> -->
+    <button class="flex flex-row border border-gray-300 w-full py-2 px-4 rounded-lg mt-8 hover:bg-gray-100"
+      (click)="loginWithGoogle()"
+    >
+      <img class="w-8 my-auto" src="../../../../assets/png/google_logo.png">
+      <span class="m-auto font-medium text-gray-700">
+        Se connecter avec Google
+      </span>
+    </button>
+  </div>
+
+</div>

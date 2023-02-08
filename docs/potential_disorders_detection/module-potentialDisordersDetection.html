@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Module: potentialDisordersDetection</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <script src="scripts/nav.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.6/fuse.min.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link type="text/css" rel="stylesheet" href="styles/skyceil.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="utilities">
+        <div id="search">
+            <input type="text" id="search-box" placeholder="Search for stuffs..."><br>
+            <div id="search-results" style="display: none;"></div>
+        </div>
+        <button class="theme" data-theme="light"><i class="fas fa-moon"></i></button>
+    </div>
+    <hr>
+    <h4><a href="index.html">Home</a></h4><h5 class="no-bottom must-underline">Modules</h5><ul><li><span class="small-icon M">M</span><b><a href="module-allQuestionsAnsweredWithNameStartingBy.html">allQuestionsAnsweredWithNameStartingBy</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="module-allQuestionsAnsweredWithNameStartingBy.html#~allQuestionsAnsweredWithNameStartingBy">allQuestionsAnsweredWithNameStartingBy</a></li></ul></li><li><span class="small-icon M">M</span><b><a href="module-checkAnswer.html">checkAnswer</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="module-checkAnswer.html#~checkAnswer">checkAnswer</a></li><li><span class="small-icon F">F</span><a href="module-checkAnswer.html#~checkValidityofDateAnswer">checkValidityofDateAnswer</a></li><li><span class="small-icon F">F</span><a href="module-checkAnswer.html#~checkValidityofIntAnswer">checkValidityofIntAnswer</a></li></ul></li><li><span class="small-icon M">M</span><b><a href="module-countMaxPoints.html">countMaxPoints</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="module-countMaxPoints.html#~countMaxPoints">countMaxPoints</a></li><li><span class="small-icon F">F</span><a href="module-countMaxPoints.html#~getValuesOfAnswersObjectArray">getValuesOfAnswersObjectArray</a></li></ul></li><li><span class="small-icon M">M</span><b><a href="module-countPoints.html">countPoints</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="module-countPoints.html#~countPoints">countPoints</a></li></ul></li><li><span class="small-icon M">M</span><b><a href="module-getTypesOfAnswers.html">getTypesOfAnswers</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="module-getTypesOfAnswers.html#~getTypesOfAnswer">getTypesOfAnswer</a></li></ul></li><li><span class="small-icon M">M</span><b><a href="module-getValuesOfForksAnswersInArray.html">getValuesOfForksAnswersInArray</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="module-getValuesOfForksAnswersInArray.html#~getValuesOfForksAnswersInArray">getValuesOfForksAnswersInArray</a></li></ul></li><li><span class="small-icon M">M</span><a href="module-parsingSurvey.html">parsingSurvey</a></li><li><span class="small-icon M">M</span><b><a href="module-potentialDisordersDetection.html">potentialDisordersDetection</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="module-potentialDisordersDetection.html#~potentialDisordersDetection">potentialDisordersDetection</a></li></ul></li></ul><h4>Global</h4><ul><li><a href="global.html#FAIL">FAIL</a></li><li><a href="global.html#POSSIBLE_ANSWERS">POSSIBLE_ANSWERS</a></li><li><a href="global.html#SUCCESS">SUCCESS</a></li></ul>
+</nav>
+
+<div id="main">
+    <div class="burger">
+        <div class="burger-line-1"></div>
+        <div class="burger-line-2"></div>
+        <div class="burger-line-3"></div>
+    </div>
+
+    <h1 class="page-title">Module: potentialDisordersDetection</h1>
+
+    
+
+
+
+
+<section>
+<header>
+    <hr>
+    
+        
+            
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description"><p>Module with main loop of the algorithm to detect potential depression disorders.</p>
+<p>Code with comments:</p>
+<pre class="prettyprint source"><code>POSSIBLE_ANSWERS = {
+	BOOL: &quot;bool&quot;,
+	DATE: {
+		NEAR: &quot;date.near&quot;,
+		FAR: &quot;date.far&quot;
+	},
+	ANSWERS: &quot;answers&quot;,
+	BRUT: {
+		INT: &quot;brut.int&quot;,
+		STRING: &quot;brut.string&quot;
+	}
+};
+
+SUCCESS = true;
+FAIL = false;
+
+const getTypesOfAnswers = require(&quot;./src/getTypesOfAnswers.js&quot;);
+const checkAnswer = require(&quot;./src/checkAnswer.js&quot;);
+const countPoints = require(&quot;./src/countPoints.js&quot;);
+const countMaxPoints = require(&quot;./src/countMaxPoints.js&quot;);
+const parsingSurvey = require(&quot;./src/parsingSurvey.js&quot;);
+
+async function(surveyFile)
+{
+	try {
+		// If the survey is empty, we throw an error
+		if (!surveyFile || !parsingSurvey(surveyFile))
+			return ({success: false, message: &quot;Informations are missing or they're in a wrong type&quot;});
+
+		for (let i = 0; i &lt; surveyFile.Questions.length; i++) {
+			const waitingTypesOfAnswers = getTypesOfAnswers(surveyFile, i);
+			const answer = checkAnswer(surveyFile, i, waitingTypesOfAnswers);
+			if (answer.success === FAIL)
+				return ({success: false, message: `Bad type of answer for question n°${i} : ${answer.message}`});
+		}
+
+		const points = countPoints(surveyFile);
+		const maxPoints = countMaxPoints(surveyFile);
+		const results = {
+			name: surveyFile.potentialDisorder,
+			getDisorder: (points >= maxPoints / 2 ? true : false),
+			score: points,
+			maxScore: maxPoints
+		};
+		return ({success: true, results: results});
+	} catch (exception) {
+		console.log(`Error exception:\n${exception.stack}`);
+		bot.sendLog(`Error exception:\n${exception.stack}`);
+		return ({success: false, message: exception.message});
+	}
+}
+</code></pre></div>
+        
+
+        
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li>module:nextFile</li>
+        
+            <li>module:displayQuestions</li>
+        
+            <li><a href="module-checkAnswer.html">module:checkAnswer</a></li>
+        
+            <li>module:checkConditions</li>
+        
+            <li>module:getSurveyNames</li>
+        
+            <li><a href="module-parsingSurvey.html">module:parsingSurvey</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<hr>
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="~potentialDisordersDetection"><span class="type-signature">(inner) </span>potentialDisordersDetection<span class="signature">(surveyFile)</span><span class="type-signature"> &rarr; {JSON|boolean|string}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Main loop of the algorithme to detect potentials depression disorders.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>surveyFile</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">JSON</span>
+
+
+                
+                </td>
+
+                
+
+                
+
+                <td class="description last"><p>Current survey we are working with.</p></td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+<ul>
+        <li>
+<div class="param-desc">
+    <p>json - Return object depending on what appened.</p>
+</div>
+
+
+
+<ul>
+    <li>
+        Type: <span class="simple-code">
+<span class="param-type">JSON</span>
+
+</span>
+    </li>
+</ul>
+</li>
+    
+        <li>
+<div class="param-desc">
+    <p>json.success - true or false depending on what appened.</p>
+</div>
+
+
+
+<ul>
+    <li>
+        Type: <span class="simple-code">
+<span class="param-type">boolean</span>
+
+</span>
+    </li>
+</ul>
+</li>
+    
+        <li>
+<div class="param-desc">
+    <p>fail_json.message - Return object depending on what appened.</p>
+</div>
+
+
+
+<ul>
+    <li>
+        Type: <span class="simple-code">
+<span class="param-type">string</span>
+
+</span>
+    </li>
+</ul>
+</li>
+    </ul>
+
+
+
+
+
+<hr>
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> using <a href="https://github.com/devsnowflake/jsdoc-skyceil">Skyceil Theme</a>
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Module: checkAnswer</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <script src="scripts/nav.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.6/fuse.min.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link type="text/css" rel="stylesheet" href="styles/skyceil.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="utilities">
+        <div id="search">
+            <input type="text" id="search-box" placeholder="Search for stuffs..."><br>
+            <div id="search-results" style="display: none;"></div>
+        </div>
+        <button class="theme" data-theme="light"><i class="fas fa-moon"></i></button>
+    </div>
+    <hr>
+    <h4><a href="index.html">Home</a></h4><h5 class="no-bottom must-underline">Modules</h5><ul><li><span class="small-icon M">M</span><b><a href="module-allQuestionsAnsweredWithNameStartingBy.html">allQuestionsAnsweredWithNameStartingBy</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="module-allQuestionsAnsweredWithNameStartingBy.html#~allQuestionsAnsweredWithNameStartingBy">allQuestionsAnsweredWithNameStartingBy</a></li></ul></li><li><span class="small-icon M">M</span><b><a href="module-checkAnswer.html">checkAnswer</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="module-checkAnswer.html#~checkAnswer">checkAnswer</a></li><li><span class="small-icon F">F</span><a href="module-checkAnswer.html#~checkValidityofDateAnswer">checkValidityofDateAnswer</a></li><li><span class="small-icon F">F</span><a href="module-checkAnswer.html#~checkValidityofIntAnswer">checkValidityofIntAnswer</a></li></ul></li><li><span class="small-icon M">M</span><b><a href="module-countMaxPoints.html">countMaxPoints</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="module-countMaxPoints.html#~countMaxPoints">countMaxPoints</a></li><li><span class="small-icon F">F</span><a href="module-countMaxPoints.html#~getValuesOfAnswersObjectArray">getValuesOfAnswersObjectArray</a></li></ul></li><li><span class="small-icon M">M</span><b><a href="module-countPoints.html">countPoints</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="module-countPoints.html#~countPoints">countPoints</a></li></ul></li><li><span class="small-icon M">M</span><b><a href="module-getTypesOfAnswers.html">getTypesOfAnswers</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="module-getTypesOfAnswers.html#~getTypesOfAnswer">getTypesOfAnswer</a></li></ul></li><li><span class="small-icon M">M</span><b><a href="module-getValuesOfForksAnswersInArray.html">getValuesOfForksAnswersInArray</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="module-getValuesOfForksAnswersInArray.html#~getValuesOfForksAnswersInArray">getValuesOfForksAnswersInArray</a></li></ul></li><li><span class="small-icon M">M</span><a href="module-parsingSurvey.html">parsingSurvey</a></li><li><span class="small-icon M">M</span><b><a href="module-potentialDisordersDetection.html">potentialDisordersDetection</a></b><ul class="has-class-methods"><li><span class="small-icon F">F</span><a href="module-potentialDisordersDetection.html#~potentialDisordersDetection">potentialDisordersDetection</a></li></ul></li></ul><h4>Global</h4><ul><li><a href="global.html#FAIL">FAIL</a></li><li><a href="global.html#POSSIBLE_ANSWERS">POSSIBLE_ANSWERS</a></li><li><a href="global.html#SUCCESS">SUCCESS</a></li></ul>
+</nav>
+
+<div id="main">
+    <div class="burger">
+        <div class="burger-line-1"></div>
+        <div class="burger-line-2"></div>
+        <div class="burger-line-3"></div>
+    </div>
+
+    <h1 class="page-title">Module: checkAnswer</h1>
+
+    
+
+
+
+
+<section>
+<header>
+    <hr>
+    
+        
+            
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description"><p>Module with function to parse the input received and tell if the input is valid dependind on what we were waiting as response.</p>
+<p>Code of function checkAnswer with comments:</p>
+<pre class="prettyprint source"><code>function(currentSurvey, currentQuestionNumber, waitingTypesOfAnswer) {
+	const answer = (typeof(currentSurvey.Questions[currentQuestionNumber].value) === &quot;string&quot; ? currentSurvey.Questions[currentQuestionNumber].value.toLowerCase().trim() : currentSurvey.Questions[currentQuestionNumber].value);
+
+	// We do loop on each response we were waiting for and each types of response we can have
+	for (let i = 0; i &lt; waitingTypesOfAnswer.length; i++) {
+		// If answer is only *yes* or *no*
+		if (waitingTypesOfAnswer[i] == POSSIBLE_ANSWERS.BOOL && (answer === &quot;oui&quot; || answer === &quot;non&quot;)) {
+			//  We do set the variable *value* to true if the anwser is *yes* because by default it's false
+			currentSurvey.Questions[currentQuestionNumber].score = (answer === &quot;oui&quot; ? 1 : 0);
+			return ({success: true});
+
+		} else if (waitingTypesOfAnswer[i] == POSSIBLE_ANSWERS.DATE.FAR || waitingTypesOfAnswer[i] == POSSIBLE_ANSWERS.DATE.NEAR) {
+			// If the answer dosn't match with a dat like DD/MM/YYYY (year commencing between 19 or 20) it will be considered as not a date send
+			if (!answer.match(/^(0[1-9]|1\d|2\d|3[01])\/(0[1-9]|1[0-2])\/(19|20)\d{2}$/))
+				continue;
+			return (checkValidityofDateAnswer(currentSurvey, currentQuestionNumber, answer, waitingTypesOfAnswer, i));
+
+		} else if (waitingTypesOfAnswer[i] == POSSIBLE_ANSWERS.BRUT.INT && Number.isInteger(parseInt(answer)))
+			return (checkValidityofIntAnswer(currentSurvey, currentQuestionNumber, answer));
+
+		else if (waitingTypesOfAnswer[i] == POSSIBLE_ANSWERS.BRUT.STRING) {
+			// Here, there is nothing to analyze so we only give a point (by setting *value* to true)
+			currentSurvey.Questions[currentQuestionNumber].value = 1;
+			return ({success: true});
+
+		} else if (waitingTypesOfAnswer[i] == POSSIBLE_ANSWERS.ANSWERS) {
+			// Here we check is the answer is in an array of answers given
+			const answers = currentSurvey.Questions[currentQuestionNumber].answers;
+			for (let j = 0; j &lt; answers.length; j++)
+				if (answer === answers[j].name.toLowerCase().trim()) {
+					currentSurvey.Questions[currentQuestionNumber].score = answers[j].value;
+					return ({success: true});
+				}
+		}
+	}
+
+	// By default we return an error message and FAIL
+	return ({success: false, message: `${answer} is not a good value`});
+}
+</code></pre>
+<p>Code of function checkValidityofDateAnswer with comments:</p>
+<pre class="prettyprint source"><code>function checkValidityofDateAnswer(currentSurvey, currentQuestionNumber, answer, waitingTypesOfAnswer, i) {
+	// We do split the answer by / character to get the day (2 digits), the month (2 digits) and the year (4 digits)
+	const pdate = answer.split('/');
+	const dd = parseInt(pdate[0]);
+	const mm  = parseInt(pdate[1]);
+	const yy = parseInt(pdate[2]);
+	// Create list of days of a month (assume there is no leap year by default)
+	const nbOfDays = [31,28,31,30,31,30,31,31,30,31,30,31];
+
+	// Then we do chck if the date is valid
+	if ((mm == 1 || mm > 2) && dd > nbOfDays[mm - 1])
+		return ({success: false, message: &quot;Invalid date&quot;});
+
+	if (mm == 2) {
+		let lyear = FAIL;
+		if ((yy % 4 !== 0 && yy % 100 === 0) || yy % 400 === 0)
+			lyear = true;
+		if (!lyear && dd >= 29)
+			return ({success: false, message: &quot;Invalid date&quot;});
+		if (lyear && dd > 29)
+			return ({success: false, message: &quot;Invalid date&quot;});
+	}
+
+	const now = new Date();
+	const answerDate = new Date(+yy, mm - 1, +dd);
+
+	if (!answerDate || answerDate > now)
+		return ({success: false, message: &quot;Invalid date&quot;});
+
+	const yearsDiff =  now.getFullYear() - answerDate.getFullYear();
+	const monthsDiff = (yearsDiff * 12) + (now.getMonth() - answerDate.getMonth());
+
+	// At the end we compare if the result is near or far from today's date
+	if (waitingTypesOfAnswer[i] == POSSIBLE_ANSWERS.DATE.FAR) {
+		// If it's a far date awaited we give more score for date superior to one year
+		if (monthsDiff > 12)
+			currentSurvey.Questions[currentQuestionNumber].score = 3;
+		else
+			currentSurvey.Questions[currentQuestionNumber].score = 1;
+	} else {
+		// If it's a near date awaited we give more score for date inferior to six months
+		if (monthsDiff &lt; 6)
+			currentSurvey.Questions[currentQuestionNumber].score = 3;
+		else
+			currentSurvey.Questions[currentQuestionNumber].score = 1;
+	}
+	return ({success: true});
+}
+</code></pre>
+<p>Code of function checkValidityofIntAnswer with comments:</p>
+<pre class="prettyprint source"><code>function checkValidityofIntAnswer(currentSurvey, currentQuestionNumber, answer) {
+	// We do transform the string into an int to use it as it
+	const intAnswer = parseInt(answer);
+	// We do get the object representing our fork of answers with their value
+	const forksAnswers = currentSurvey.Questions[currentQuestionNumber].forksAnswers;
+	let scoreToGive = NaN;
+
+	loop : {
+		for (let j = 0; j &lt; forksAnswers.length; j++) {
+			let limits = forksAnswers[j].fork.split(&quot;-&quot;);
+
+			// If the valu get isn't containing a *-* we consider that it's a maximum value and above (ex: 10+)
+			if (!limits[1]) {
+				limits = forksAnswers[j].fork.split(&quot;+&quot;);
+				const fork = {min: limits[0], max: NaN};
+				// Then if the answer we had as parameter is superior or equal to the value of the fork, we assign the score for this fork to the variabl *value* of th question
+				if (intAnswer >= fork.min) {
+					scoreToGive = forksAnswers[j].value;
+					// Break for the block named loop (not the for loop) to be able to return
+					break loop;
+				} else {
+					// Else we try with the next fork value
+					continue;
+				}
+			}
+
+			const fork = {min: limits[0], max: limits[1]};
+			// Then if the answer we had as parameter is between the values of the fork, we assign the score for this fork to the variable *value* of th question
+			if (intAnswer > fork.min && intAnswer &lt;= fork.max) {
+				scoreToGive = forksAnswers[j].value;
+				// Break for the block named loop (not the for loop) to be able to return
+				break loop;
+			} else {
+				// Else we try with the next fork value
+				continue;
+			}
+		}
+	}
+
+	// If the value receinved isn't in the fork values, we return FAIL and send an error message
+	if (isNaN(scoreToGive))
+		return ({success: false, message: &quot;Variable scoreToGive isn't a number&quot;});
+
+	currentSurvey.Questions[currentQuestionNumber].score = scoreToGive;
+	return ({success: true});
+}
+</code></pre></div>
+        
+
+        
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li>checkValidityofDateAnswer</li>
+        
+            <li>checkValidityofIntAnswer</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<hr>
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="~checkAnswer"><span class="type-signature">(inner) </span>checkAnswer<span class="signature">(currentSurvey, currentQuestionNumber, waitingTypesOfAnswer)</span><span class="type-signature"> &rarr; {JSON|boolean|string}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Function to parse the input received and tell if the input is valid dependind on what we were waiting as response.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>currentSurvey</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">JSON</span>
+
+
+                
+                </td>
+
+                
+
+                
+
+                <td class="description last"><p>Current survey we are working with.</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>currentQuestionNumber</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">int</span>
+
+
+                
+                </td>
+
+                
+
+                
+
+                <td class="description last"><p>Number of the current question in the survey we are working with.</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>waitingTypesOfAnswer</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">object</span>
+
+
+                
+                </td>
+
+                
+
+                
+
+                <td class="description last"><p>Array of types of answers that can be waited for this questions <a href="global.html#POSSIBLE_ANSWERS"><code>POSSIBLE_ANSWERS</code></a>.</p></td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+<ul>
+        <li>
+<div class="param-desc">
+    <p>json - Return object depending on what appened.</p>
+</div>
+
+
+
+<ul>
+    <li>
+        Type: <span class="simple-code">
+<span class="param-type">JSON</span>
+
+</span>
+    </li>
+</ul>
+</li>
+    
+        <li>
+<div class="param-desc">
+    <p>json.success - true or false depending on what appened.</p>
+</div>
+
+
+
+<ul>
+    <li>
+        Type: <span class="simple-code">
+<span class="param-type">boolean</span>
+
+</span>
+    </li>
+</ul>
+</li>
+    
+        <li>
+<div class="param-desc">
+    <p>fail_json.message - String to explain what appened.</p>
+</div>
+
+
+
+<ul>
+    <li>
+        Type: <span class="simple-code">
+<span class="param-type">string</span>
+
+</span>
+    </li>
+</ul>
+</li>
+    </ul>
+
+
+
+
+
+<hr>
+        
+            
+
+    
+
+    
+    <h4 class="name" id="~checkValidityofDateAnswer"><span class="type-signature">(inner) </span>checkValidityofDateAnswer<span class="signature">(answer, i)</span><span class="type-signature"> &rarr; {JSON|boolean|string}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Function to check if the date given exists and is valid.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>answer</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">string</span>
+
+
+                
+                </td>
+
+                
+
+                
+
+                <td class="description last"><p>The input of the user.</p></td>
+            </tr>
+
+        
+
+            <tr>
+                
+                    <td class="name"><code>i</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">int</span>
+
+
+                
+                </td>
+
+                
+
+                
+
+                <td class="description last"><p>To know if the awaited answer is near or far.</p></td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+<ul>
+        <li>
+<div class="param-desc">
+    <p>json - Return object depending on what appened.</p>
+</div>
+
+
+
+<ul>
+    <li>
+        Type: <span class="simple-code">
+<span class="param-type">JSON</span>
+
+</span>
+    </li>
+</ul>
+</li>
+    
+        <li>
+<div class="param-desc">
+    <p>json.success - true or false depending on what appened.</p>
+</div>
+
+
+
+<ul>
+    <li>
+        Type: <span class="simple-code">
+<span class="param-type">boolean</span>
+
+</span>
+    </li>
+</ul>
+</li>
+    
+        <li>
+<div class="param-desc">
+    <p>fail_json.message - String to explain what appened.</p>
+</div>
+
+
+
+<ul>
+    <li>
+        Type: <span class="simple-code">
+<span class="param-type">string</span>
+
+</span>
+    </li>
+</ul>
+</li>
+    </ul>
+
+
+
+
+
+<hr>
+        
+            
+
+    
+
+    
+    <h4 class="name" id="~checkValidityofIntAnswer"><span class="type-signature">(inner) </span>checkValidityofIntAnswer<span class="signature">(answer)</span><span class="type-signature"> &rarr; {JSON|boolean|string}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Function to check if the answer as int is in a fork of values.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<div class="table-box">
+    <table class="params">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            <tr>
+                
+                    <td class="name"><code>answer</code></td>
+                
+
+                <td class="type">
+                
+                    
+<span class="param-type">string</span>
+
+
+                
+                </td>
+
+                
+
+                
+
+                <td class="description last"><p>The input of the user.</p></td>
+            </tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+<ul>
+        <li>
+<div class="param-desc">
+    <p>json - Return object depending on what appened.</p>
+</div>
+
+
+
+<ul>
+    <li>
+        Type: <span class="simple-code">
+<span class="param-type">JSON</span>
+
+</span>
+    </li>
+</ul>
+</li>
+    
+        <li>
+<div class="param-desc">
+    <p>json.success - true or false depending on what appened.</p>
+</div>
+
+
+
+<ul>
+    <li>
+        Type: <span class="simple-code">
+<span class="param-type">boolean</span>
+
+</span>
+    </li>
+</ul>
+</li>
+    
+        <li>
+<div class="param-desc">
+    <p>fail_json.message - String to explain what appened.</p>
+</div>
+
+
+
+<ul>
+    <li>
+        Type: <span class="simple-code">
+<span class="param-type">string</span>
+
+</span>
+    </li>
+</ul>
+</li>
+    </ul>
+
+
+
+
+
+<hr>
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> using <a href="https://github.com/devsnowflake/jsdoc-skyceil">Skyceil Theme</a>
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+
+</body>
+</html>

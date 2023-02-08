@@ -1,0 +1,64 @@
+<div class="bg-base-500 flex w-screen h-screen overflow-auto">
+  <div class="mt-8 pl-12">
+    <img class="w-48 fixed" src="../../../../assets/png/banner_4600x1500_with_transparency.png" (click)="redirectToLandingPage()">
+  </div>
+
+  <div class="fixed right-0 right-12 top-10">
+    <button
+      class="mr-10 rounded-lg cursor-pointer font-medium text-base text-gray-800 hover:underline"
+      (click)="redirectToDownloadPage()">
+      Télécharger l'application
+    </button>
+    <button
+      class="mr-10 rounded-lg cursor-pointer font-medium text-base text-gray-800 hover:underline"
+      (click)="redirectToAboutPage()">
+      À propos
+    </button>
+    <button
+      class="mr-10 rounded-lg cursor-pointer font-medium text-base text-gray-800 hover:underline"
+      (click)="redirectToFeedbackPage()">
+      Faire un retour
+    </button>
+    <button
+      class="mr-10 rounded-lg cursor-pointer font-medium text-base text-gray-800 hover:underline"
+      (click)="redirectToLoginSignupPage()">
+      Connexion / Inscription
+    </button>
+  </div>
+
+  <div class="mx-auto my-auto" style="padding-top: 150px">
+    <div class="flex-col mx-auto my-auto">
+      <h1 class="container text-xl md:text-4xl lg:text-4xl font-semibold text-black" style="text-align: center">
+        Foire aux questions
+      </h1>
+      <img class="w-64 md:w-96 mt-8 md:-mt-16 mx-auto" src="../../../../assets/svg/papers.svg" style="padding-top: 100px;">
+    </div>
+
+    <div class="mt-8 w-full" style="text-overflow: ellipsis;">
+        <div *ngFor="let item of faqItems" class="bg-base-100 hover:bg-base-300 w-full select-none cursor-pointer shadow-md divide-y mx-2 my-5 px-6 py-4 rounded-lg text-sm" style="width: 55vw;">
+            <button (click)="item.isShown = !item.isShown" class="w-full">
+                <div class="flex flex-row w-full">
+                    <div class="flex-grow text-left">
+                        <span class="text-gray-800 font-semibold text-left">
+                            {{ item.question }}
+                        </span>
+                    </div>
+                    <div class="flex-shrink">
+                        <svg *ngIf="!item.isShown" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                        </svg>
+                        <svg *ngIf="item.isShown" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                </div>
+            </button>
+            <div *ngIf="item.isShown" class="mt-2">
+                <div class="mt-4 text-gray-700">
+                    {{ item.answer }}
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>

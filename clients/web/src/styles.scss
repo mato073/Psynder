@@ -1,0 +1,25 @@
+@import '../node_modules/quill/dist/quill.core.css';
+@import '../node_modules/quill/dist/quill.bubble.css';
+@import '../node_modules/quill/dist/quill.snow.css';
+
+/* Angular Calendar */
+@import "../node_modules/angular-calendar/css/angular-calendar.css";
+
+/* You can add global styles to this file, and also import other style files */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Fonts */
+@font-face {
+    font-family: 'Cambria';
+    src: url("./assets/fonts/Cambria.ttf") format("truetype");
+}
+
+:root {
+    font-family: 'Poppins', sans-serif;
+}
+
+button:focus, input:focus {
+    outline: none;
+}

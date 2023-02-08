@@ -1,0 +1,221 @@
+{
+	"info": {
+		"_postman_id": "57068956-3f5f-4a9d-a51f-5823263b6bab",
+		"name": "CI_tests_local_API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Test first route added",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2c5532ca-372f-4695-b824-48aa9e3aff27",
+						"exec": [
+							"pm.test(\"response is ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api:8080/firstTest",
+					"protocol": "http",
+					"host": [
+						"api"
+					],
+					"port": "8080",
+					"path": [
+						"firstTest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testSuccessMessage",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d3c194d4-86d5-487b-8b4c-43e31784cd7f",
+						"exec": [
+							"pm.test(\"response is ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Body is correct\", function () {",
+							"    pm.response.to.have.body('{\"success\":\"true\",\"message\":\"This is a success message\"}');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api:8080/testSuccessMessage",
+					"protocol": "http",
+					"host": [
+						"api"
+					],
+					"port": "8080",
+					"path": [
+						"testSuccessMessage"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test delete element in DB",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9009fcbf-2645-4532-aaf8-8dab776cf54c",
+						"exec": [
+							"pm.test(\"response is ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Body is correct\", function () {",
+							"    pm.response.to.have.body('{\"success\":\"true\",\"message\":\"Success of removing element\"}');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"goodTestVegetable\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://api:8080/testDeleteElementInDB",
+					"protocol": "http",
+					"host": [
+						"api"
+					],
+					"port": "8080",
+					"path": [
+						"testDeleteElementInDB"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test get element in DB",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "92167d36-b6ee-4e6d-ad4f-6aa103830e81",
+						"exec": [
+							"pm.test(\"response is ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Body is correct\", function () {",
+							"    pm.response.to.have.body('{\"qty\":2,\"color\":\"yellow\"}');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"potato\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://api:8080/testGetElementInDB",
+					"protocol": "http",
+					"host": [
+						"api"
+					],
+					"port": "8080",
+					"path": [
+						"testGetElementInDB"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test update element in DB",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8a807578-24df-4a34-972e-0ab2ace65b67",
+						"exec": [
+							"pm.test(\"response is ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Body is correct\", function () {",
+							"    pm.response.to.have.body('{\"success\":\"true\",\"message\":\"Success of updating element\"}');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"potato\",\n\t\"qty\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://api:8080/testUpdateElementInDB",
+					"protocol": "http",
+					"host": [
+						"api"
+					],
+					"port": "8080",
+					"path": [
+						"testUpdateElementInDB"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

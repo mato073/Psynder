@@ -1,0 +1,75 @@
+<div class="bg-base-500 flex w-screen h-screen overflow-hidden" style="overflow: hidden !important;">
+  <div class="mt-8 pl-12">
+    <img class="w-48 fixed" src="../../../../assets/png/banner_4600x1500_with_transparency.png" (click)="redirectToLandingPage()">
+  </div>
+
+  <div class="fixed right-0 right-12 top-10">
+    <button
+      class="mr-10 rounded-lg cursor-pointer font-medium text-base text-gray-800 hover:underline"
+      (click)="redirectToDownloadPage()">
+      Télécharger l'application
+    </button>
+    <button
+      class="mr-10 rounded-lg cursor-pointer font-medium text-base text-gray-800 hover:underline"
+      (click)="redirectToAboutPage()">
+      À propos
+    </button>
+    <button
+      class="mr-10 rounded-lg cursor-pointer font-medium text-base text-gray-800 hover:underline"
+      (click)="redirectToFAQPage()">
+      Foire aux questions
+    </button>
+    <button
+      class="mr-10 rounded-lg cursor-pointer font-medium text-base text-gray-800 hover:underline"
+      (click)="redirectToFeedbackPage()">
+      Faire un retour
+    </button>
+  </div>
+
+  <div class="flex flex-col mx-auto my-auto">
+    <div class="flex-col mx-auto my-auto">
+      <h1 class="container text-xl md:text-4xl lg:text-4xl font-semibold text-black" style="padding-top: 100px">
+        Vous voulez vous inscrire ? Ou peut être vous connecter ?
+      </h1>
+      <img class="w-64 md:w-96 mt-8 md:-mt-16 mx-auto" src="../../../../assets/svg/character_dancing.svg" style="padding-top: 100px; padding-bottom: 50px">
+    </div>
+
+    <div class="flex flex-row my-auto mx-auto">
+
+      <div class="flex flex-wrap flex-col" style="margin-left: -100px; margin-right: 100px;">
+        <div class="mx-auto md:ml-12 md:max-w-2xl">
+          <h2 class="container text-xl md:text-4l md:text-2xl font-semibold text-black">
+            Si vous n'êtes pas thérapeute
+          </h2>
+          <p class="flex-wrap mt-4 md:mt-4 text-gray-600 text-m md:text-l">
+            Cet espace est destiné à tous les personnes en recherche d'aide et qui souhaitent s'inscrire sur le site ou se connecter à leur compte.<br>
+            Afin de vous connecter / inscrire en tant qu'utilisateur non-thérapeute, veuillez utiliser le bouton ci-dessous.
+          </p>
+        </div>
+        <button class="mt-14 px-5 py-3 mx-auto flex flex-row border border-black rounded-lg hover:bg-black hover:bg-opacity-5 user" (click)="redirectToUserLogin()">
+          <span class="ml-8 my-auto font-medium text-2xl">
+            Utilisateur non-thérapeute
+          </span>
+        </button>
+      </div>
+
+      <div class="flex flex-wrap flex-col">
+        <div class="mx-auto md:ml-12 md:max-w-2xl">
+          <h2 class="container text-xl md:text-4l md:text-2xl font-semibold text-black">
+            Si vous êtes thérapeute
+          </h2>
+          <p class="flex-wrap mt-4 md:mt-4 text-gray-600 text-m md:text-l">
+            Cet espace est destiné aux thérapeutes qui souhaitent s'inscrire sur le site ou se connecter à leur compte.<br>
+            Afin de vous connecter / inscrire en tant qu'utilisateur thérapeute, veuillez utiliser le bouton ci-dessous.
+          </p>
+        </div>
+        <button class="mt-14 px-5 py-3 mx-auto flex flex-row border border-black rounded-lg hover:bg-black hover:bg-opacity-5 therapist" (click)="redirectToTherapistLogin()">
+          <span class="ml-8 my-auto font-medium text-2xl">
+            Utilisateur thérapeute
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+</div>

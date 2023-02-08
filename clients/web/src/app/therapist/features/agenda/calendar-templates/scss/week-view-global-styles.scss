@@ -1,0 +1,105 @@
+.cal-week-view {
+    border-left: none;
+    border-top: none;
+    background-color: #faf9fd; // #F3F4F6;
+
+    /* Headers */
+    .cal-day-headers {
+        background-color: #F2F1F9;
+        border-left: none;
+        border-right: none;
+    }
+    
+    .cal-day-headers .cal-header {
+        border-bottom: .2px solid #cfcbe9;
+        border-top: none;
+    }
+
+    .cal-day-headers .cal-header:last-of-type {
+        padding-right: 15px;
+    }  
+    
+    .cal-day-headers .cal-header:hover,
+    .cal-day-headers .cal-drag-over {
+        background-color: #efeef8;
+    }
+    
+    .cal-day-headers b {
+        font-weight: 400;
+        font-size: 0.75rem;
+        line-height: 1.25rem;
+        color: #4B5563;
+    }
+    .cal-day-headers span {
+        font-weight: 500;
+        font-size: 1.125rem;
+        line-height: 1.75rem;
+    }
+    .cal-today {
+        background-color: #f9537a;
+        
+        span {
+            opacity: 100%;
+            color: white;
+        }
+    }
+    
+    .cal-weekend .cal-today {
+        border: 1px solid #f9537a;
+        background-color: #F2F1F9; 
+    }
+
+
+
+    .cal-header.cal-weekend span {
+        color: #4B5563;
+        opacity: 100%;
+    }
+    
+    .cal-header.cal-past span {
+        color: #4B5563;
+        opacity: 100%;
+    }
+
+    .cal-header.cal-future span {
+        color: #4B5563;
+        opacity: 100%;
+    }
+
+    .cal-header .last-day-cell {
+        border-right: none;
+    }
+    
+    
+    /* Hour segments */    
+    .cal-time {
+        color: #374151;
+        font-weight: 300;
+        padding-top: 5px;
+        padding-right: 5px;
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+      }
+
+    /* Columns */
+    .cal-time-events {
+        overflow-y: auto;
+        max-height: 72vh;
+    }
+
+    .cal-hour-odd {
+        background-color: #F2F1F9;
+    }
+
+    .cal-day-columns {
+        height: 100%;
+    }
+
+
+    /* Events */
+    .cal-event {
+        font-weight: 500;
+        font-size: 0.85rem;
+        color: #efeef8;
+    }
+}

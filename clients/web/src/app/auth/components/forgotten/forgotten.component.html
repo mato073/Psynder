@@ -1,0 +1,72 @@
+<div
+    *ngIf="!isMobile"
+    class="ml-16 mt-16 left-0 fixed"
+  >
+    <a 
+      class="rounded-full cursor-pointer p-1 mb-0 flex flex-row hover:bg-opacity-10 hover:bg-black"
+      routerLink="/auth/login"
+      type="button"
+    >
+      <img class="w-8 m-auto" src="../../../../assets/svg/arrow_back_24dp.svg">
+      <span class="my-auto px-2">Accueil</span>
+    </a>
+</div>
+<div
+  *ngIf="!(pwdResetSuccessful && isMobile); else mobileSuccessTemplate"
+  class="flex items-center justify-center bg-no-repeat w-screen h-screen bg-isabelline overflow-hidden">
+  <div class="flex justify-center relative z-10">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div
+      class="rounded-lg px-12 py-6 bg-white shadow-xl w-full transition-max-width duration-300 ease-in-out">
+      <div>
+        <label
+          class="block font-body text-base font-semibold mt-3 focus-within:text-alpha-base"
+          for="password"
+        >
+          Nouveau mot de passe
+          <input
+            formControlName="password"
+            class="font-body block w-full text-base text-gray-900 border rounded-md px-4 py-1 focus:border-alpha-base mt-1 focus:shadow-outline focus:outline-none focus:ring"
+            id="password" type="text" formControlName="password" required
+          />
+        </label>
+      </div>
+      <div>
+        <label
+          class="block font-body text-base font-semibold mt-4 focus-within:text-alpha-base"
+          for="password"
+        >
+          Confirmer le mot de passe
+          <input
+            formControlName="password2"
+            class="font-body block w-full text-base text-gray-900 border rounded-md px-4 py-1 focus:border-alpha-base mt-1 focus:shadow-outline focus:outline-none focus:ring"
+            id="password2" type="text" formControlName="password2" required
+          />
+        </label>
+      </div>
+      <button class="w-full text-white border bg-indigo-500 text-base text-center mx-auto mt-6 py-3 mb-4 font-medium rounded-md
+        disabled:border-gray-200 disabled:bg-gray-200 disabled:text-gray-600 disabled:cursor-default disabled:border-0
+        hover:bg-indigo-400" type="submit"
+        [disabled]="pwdResetSuccessful"
+      >
+        Réinitialiser
+      </button>
+      <div *ngIf="isWrong === true" class="text-red-500 mb-2 items-center">
+        <p>Confirmation du mot de passe incorrect</p>
+      </div>
+      <div *ngIf="pwdResetSuccessful" class="text-green-600 mb-2 items-center">
+        <p>Votre mot de passe a été réinitialisé avec succès</p>
+      </div>
+    </div>
+    </form>
+  </div>
+</div>
+<ng-template #mobileSuccessTemplate>
+  <div class="h-screen w-full bg-isabelline flex flex-col justify-center">
+    <div class="my-auto text-center px-16">
+      <span class="text-lg text-gray-800 font-medium">
+        Vous pouvez revenir sur l'application et vous y connecter avec votre nouveau mot de passe
+      </span>
+    </div>
+  </div>
+</ng-template>

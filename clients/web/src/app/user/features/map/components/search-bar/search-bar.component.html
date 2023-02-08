@@ -1,0 +1,20 @@
+<form class="mt-4 relative">
+  <div
+    class="right-0 mr-2 absolute top-1/2 transform -translate-y-1/2"
+  >
+    <div *ngIf="search.value.length === 0; else cancelTemplate">
+      <img class="w-6 h-6 pointer-events-none" src="../../../../assets/svg/search_24dp.svg">
+    </div>
+    <ng-template #cancelTemplate>
+      <button class="cursor-pointer mt-2"
+        (click)="resetSearch()"
+      >
+        <img class="w-6 h-6" src="/assets/svg/close-24px.svg">
+      </button>
+    </ng-template>
+  </div>
+  <input class="border border-gray-300 bg-white h-10 w-full px-5 pr-16 rounded-lg text-sm focus:outline-none focus:ring-1 ring-primary-400"
+    name="search" placeholder="Rechercher par mot-clé"
+    [formControl]="search"
+  >
+</form>

@@ -1,0 +1,92 @@
+{
+	"validator": {
+		"$jsonSchema": {
+			"bsonType": "object",
+			"required": ["locked", "email", "password", "firstName", "lastName", "phoneNumber"],
+			"properties": {
+				"locked": {
+					"bsonType": "bool",
+					"description": "must be a boolean and is required"
+				},
+				"email": {
+					"bsonType": "string",
+					"description": "must be a string and is required"
+				},
+				"password": {
+					"bsonType": "string",
+					"description": "must be a string and is required"
+				},
+				"firstName": {
+					"bsonType": "string",
+					"description": "must be a string and is required"
+				},
+				"lastName": {
+					"bsonType": "string",
+					"description": "must be a string and is required"
+				},
+				"phoneNumber": {
+					"bsonType": "string",
+					"description": "must be a string and is required"
+				},
+				"specialties": {
+					"bsonType": "array",
+					"description": "array containing the IDs of the specialty objects, not required",
+					"uniqueItems": true,
+					"additionalProperties": false,
+					"items": {
+						"bsonType": "objectId"
+					}
+				},
+				"alreadyTreated": {
+					"bsonType": "array",
+					"description": "array of objects containing the name of the disorder already treated and if cured, not required",
+					"items": {
+						"bsonType": "object",
+						"required": ["name", "cured"],
+						"properties": {
+							"name": {
+								"bsonType": "string",
+								"description": "must be a string and is required"
+							},
+							"cured": {
+								"bsonType": "bool",
+								"description": "must be a boolean and is required"
+							}
+						}
+					}
+				},
+				"description": {
+					"bsonType": "string",
+					"description": "must be a string and is not required"
+				},
+				"tags": {
+					"bsonType": "array",
+					"description": "array containing string of customs tags, not required",
+					"uniqueItems": true,
+					"additionalProperties": false,
+					"items": {
+						"bsonType": "string"
+					}
+				},
+				"activeTherapies": {
+					"bsonType": "array",
+					"description": "array containing the IDs of the current active therapies of the therapist, not required",
+					"uniqueItems": true,
+					"additionalProperties": false,
+					"items": {
+						"bsonType": "objectId"
+					}
+				},
+				"typesOfAppointment": {
+					"bsonType": "array",
+					"description": "array containing the IDs of the types of appointment of the therapist, not required",
+					"uniqueItems": true,
+					"additionalProperties": false,
+					"items": {
+						"bsonType": "objectId"
+					}
+				}
+			}
+		}
+	}
+}

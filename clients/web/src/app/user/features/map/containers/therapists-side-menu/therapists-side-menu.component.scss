@@ -1,0 +1,48 @@
+.full-width {
+   width: 20vw; 
+}
+
+input[type="range"]::-webkit-slider-thumb {
+   width: 15px;
+   -webkit-appearance: none;
+  appearance: none;
+   height: 15px;
+   cursor: ew-resize;
+   background: #05A68F;
+   box-shadow: -405px 0 0 400px #c1e9e3;
+   border-radius: 0%;
+   
+}
+
+.therapists-container {
+   height: 34rem;
+}
+
+
+.therapists-container::-webkit-scrollbar {
+   width: 10px;
+}
+
+.therapists-container::-webkit-scrollbar-track {
+   background-color: white;
+   border-radius: 10px;
+}
+
+.therapists-container::-webkit-scrollbar-thumb {
+   // width: 1%;
+   // cursor: pointer;
+   border-radius: 10px;
+   background-color: #D1D5DB; 
+   /*background-color: rgba(229, 231, 235, var(--bg-opacity));*/
+
+}
+.therapists-container::-webkit-scrollbar-track {
+   background-color: rgba(229, 231, 235, var(--bg-opacity));
+   cursor: pointer;
+   /*background: red;*/
+}
+.therapists-container::-webkit-scrollbar-thumb {
+   cursor: pointer;
+   background-color: #a0aec0;
+   /*outline: 1px solid slategrey;*/
+}

@@ -1,0 +1,128 @@
+<div class="w-full py-6 px-10 divide-y">
+  <div class="flex flex-row pb-1">
+    <div class="flex-grow">
+      <p class="font-semibold text-xl text-gray-800">Types de rendez-vous</p>
+    </div>
+    <button *ngIf="!editTriggered; else editValidate"
+        class="my-auto flex flex-row px-3 py-1 rounded-full focus:outline-none transition-colors duration-300 ease-in-out hover:bg-t-primary-100"
+        (click)="editTriggered = true"
+    >
+      <svg class="h-4 w-4 my-auto text-t-primary-500" viewBox="0 0 20 20" fill="currentColor">
+        <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+      </svg>
+      <span class="ml-3 text-base font-medium text-t-primary-500">
+        Éditer
+      </span>
+    </button>
+    <ng-template #editValidate>
+      <button 
+        class="border bg-t-gray-200 rounded-md transition-colors duration-300 ease-in-out hover:bg-t-gray-100 px-4 py-1 my-auto mr-3 focus:outline-none"
+        (click)="editTriggered = false"
+      >
+        <p class="font-medium text-base text-t-gray-500">
+          Retour
+        </p>
+      </button>
+      <button class="flex flex-row border bg-t-primary-500 rounded-md transition duration-300 ease-in-out hover:bg-t-primary-400 px-3 py-1 my-auto focus:outline-none"
+        (click)="modalShown = true"
+      >
+        <svg class="w-4 h-4 my-auto text-white" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+        </svg>
+        <p class="font-medium ml-2 text-base text-white ">
+          Créer
+        </p>
+      </button>
+    </ng-template>
+  </div>
+
+  <div *ngIf="!contentLoaded; else contentLoadedTemplate"
+    class="pt-4 flex flex-row gap-x-3"
+  >
+    <div *ngFor="let i of [].constructor(3)"
+      class="h-20 rounded-md animate-pulse flex-grow bg-t-base-600"
+    >
+    </div>
+  </div>
+
+  <ng-template #contentLoadedTemplate>
+    <div class="pt-4 flex flex-row flex-wrap gap-3">
+      <div *ngIf="!aptTypes || aptTypes.length === 0; else aptTypesListTemplate"
+        class="py-3 mx-auto"
+      >
+        <p class="font-medium text-base text-center text-t-gray-800">
+          Vous n'avez pas encore enregistré de types de rendez-vous
+        </p>
+        <p class="font-light text-t-gray-500 text-center text-sm">
+          Cliquez sur "Éditer" puis "Créer" pour en ajouter
+        </p> 
+      </div>
+      <ng-template #aptTypesListTemplate>
+        <div *ngFor="let aptType of aptTypes"
+          class="px-4 pt-3 pb-4 max-w-sm flex-grow flex flex-col rounded-md border"
+          [class.pt-0.5]="editTriggered"
+          [class.max-w-md]="editTriggered"
+        >
+            <div class="flex flex-row">
+              <span class="flex-grow font-medium text-t-gray-800 mt-0.5"
+                [class.pt-1]="editTriggered"
+              >
+                {{ aptType.name }}
+              </span>
+              <div class="ml-8 flex">
+                <div class="my-auto rounded-full w-4 h-4"
+                [style.background]="aptType.color"
+                ></div>
+              </div>
+              
+              <div *ngIf="editTriggered"
+                  class="ml-8 pt-1.5"
+              >
+                <button *ngIf="editTriggered"
+                class="my-auto focus:outline-none"
+                (click)="showUpdateModal(aptType)"
+                >
+                  <svg class="h-5 w-5 text-t-gray-300 transition-colors duration-300 ease-in-out hover:text-t-gray-600" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+                  </svg>
+                </button>
+                <button *ngIf="editTriggered"
+                class="ml-2.5 my-auto focus:outline-none"
+                (click)="deleteAptType(aptType)"
+                >
+                  <svg class="h-5 w-5 text-t-gray-300 transition-colors duration-300 ease-in-out hover:text-red-600" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <span class="text-t-gray-400">
+              {{ aptType.duration | appointmentDuration }}
+            </span>
+
+            <div *ngIf="aptType.description && aptType.description.length > 0" 
+              class="mt-2 text-sm text-t-gray-800 pr-2 pb-1">
+              {{ aptType.description }}
+            </div>
+        </div>
+      </ng-template>
+    </div>
+  </ng-template>
+</div>
+
+<div *ngIf="modalShown">
+  <div *ngIf="tmpAptType; else newAptTemplate">
+    <app-appointment-type-modal
+      [iAptType]="tmpAptType"
+      (updateEvent)="fetchAppointmentTypes()"
+      (modalClosedEvent)="onModalClosed()"
+    ></app-appointment-type-modal>
+  </div>
+  <ng-template #newAptTemplate>
+    <app-appointment-type-modal
+      (updateEvent)="fetchAppointmentTypes()"
+      (modalClosedEvent)="onModalClosed()"
+    ></app-appointment-type-modal>
+  </ng-template>
+</div>

@@ -1,0 +1,79 @@
+<div class="bg-base-500 flex w-screen h-screen overflow-hidden" style="overflow: hidden !important;">
+  <div class="mt-8 pl-12">
+    <img class="w-48 fixed" src="../../../../assets/png/banner_4600x1500_with_transparency.png" (click)="redirectToLandingPage()">
+  </div>
+
+  <div class="fixed right-0 right-12 top-10">
+    <button
+      class="mr-10 rounded-lg cursor-pointer font-medium text-base text-gray-800 hover:underline"
+      (click)="redirectToDownloadPage()">
+      Télécharger l'application
+    </button>
+    <button
+      class="mr-10 rounded-lg cursor-pointer font-medium text-base text-gray-800 hover:underline"
+      (click)="redirectToAboutPage()">
+      À propos
+    </button>
+    <button
+      class="mr-10 rounded-lg cursor-pointer font-medium text-base text-gray-800 hover:underline"
+      (click)="redirectToFAQPage()">
+      Foire aux questions
+    </button>
+    <button
+      class="mr-10 rounded-lg cursor-pointer font-medium text-base text-gray-800 hover:underline"
+      (click)="redirectToLoginSignupPage()">
+      Connexion / Inscription
+    </button>
+  </div>
+
+  <div class="flex flex-col mx-auto my-auto">
+    <div class="flex-col mx-auto my-auto">
+      <h1 class="container text-xl md:text-4xl lg:text-4xl font-semibold text-black" style="padding-top: 100px">
+        Vous avez quelque chose à nous faire remonter ?
+      </h1>
+      <img class="w-64 md:w-96 mt-8 md:-mt-16 mx-auto" src="../../../../assets/svg/papers.svg" style="padding-top: 100px;">
+    </div>
+
+    <div class="flex flex-row my-auto mx-auto">
+
+      <div class="flex flex-wrap flex-col" style="margin-left: -100px; margin-right: 100px;">
+        <div class="mx-auto md:ml-12 md:max-w-2xl">
+          <h2 class="container text-xl md:text-4l md:text-2xl font-semibold text-black">
+            Donner son avis
+          </h2>
+          <p class="flex-wrap mt-4 md:mt-4 text-gray-600 text-m md:text-l">
+            Vous pouvez nous faire un retour d'expérience sur ce que vous avez aimé ou non, que vous soyer thérapeute ou non.<br>
+            Vous pouvez aussi nous faire suggestions pour améliorations, le tout en cliquant sur le bouton ci-dessous.<br><br>
+            Tout type de retour est le bienvenu et il le sera encore plus si vous pouvez apporter un maximum de détails !
+          </p>
+        </div>
+        <button class="mt-8 px-5 py-3 mx-auto flex flex-row border border-black rounded-lg hover:bg-black hover:bg-opacity-5" (click)="redirectToFeedbackGoogleForms()" style="background-color: #DBD7D3; border-color: transparent;">
+          <img class="w-14 my-auto" src="../../../../assets/png/fill-the-form-icon.png">
+          <span class="ml-8 my-auto font-medium text-2xl">
+            Donner votre avis
+          </span>
+        </button>
+      </div>
+
+      <div class="flex flex-wrap flex-col">
+        <div class="mx-auto md:ml-12 md:max-w-2xl">
+          <h2 class="container text-xl md:text-4l md:text-2xl font-semibold text-black">
+            Contacter le support
+          </h2>
+          <p class="flex-wrap mt-4 md:mt-4 text-gray-600 text-m md:text-l">
+            Si vous avez rencontré un problème technique (bouton défectueux, lien invalide, etc) ou même un problème avec un autre utilisateur, vous pouvez contacter notre support en cliquant sur le bouton ci-dessous.<br><br>
+            <b>En cas de nécessité nous vous recontacterons à l'adresse mail précisée lors de la création de votre ticket.</b><br>
+            Il est donc important de bien remplir tous les champs correctement.
+          </p>
+        </div>
+        <button class="mt-10 px-5 py-3 mx-auto flex flex-row border border-black rounded-lg hover:bg-black hover:bg-opacity-5" (click)="redirectToSupportGoogleForms()" style="background-color: #DBD7D3; border-color: transparent;">
+          <img class="w-14 my-auto" src="../../../../assets/png/support-icon.png">
+          <span class="ml-8 my-auto font-medium text-2xl">
+            Contacter le support
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+</div>

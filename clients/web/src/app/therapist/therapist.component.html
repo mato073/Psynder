@@ -1,0 +1,10 @@
+<div class="h-screen w-full flex flex-col bg-t-base-500"
+>
+  <app-header-bar
+    [sections]="headerSections"
+    [isTherapist]="true"
+  ></app-header-bar>
+  <div class="flex-1 overflow-y-auto">
+    <router-outlet></router-outlet>
+  </div>
+</div>

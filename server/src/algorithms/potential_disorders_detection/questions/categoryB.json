@@ -1,0 +1,84 @@
+{
+	"potentialDisorder": "Dystymie",
+	"Questions": [
+		{
+			"name" : "B1",
+			"question": "Au cours des deux dernières années, vous êtes-vous senti(e) triste, cafardeux(se), déprimé(e), la plupart du temps ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "B2",
+			"question": "Durant cette période, vous est-il arrivé de vous sentir bien pendant plus de deux mois ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "B3a",
+			"question": "Toujours durant cette période des deux dernières années, Votre appétit a-t-il notablement changé ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "B3b",
+			"question": "Ces derniers temps, manquez-vous de sommeil ou au contraire dormez-vous trop ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "B3c",
+			"question": "Vous sentez-vous fatigué(e) ou manquez-vous d'énergie ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "B3d",
+			"question": "Avez-vous perdu confiance en vous-même ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "B3e",
+			"question": "Ressentez-vous des difficultés à vous concentrer ou à faire des choix ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "B3f",
+			"question": "Vous arrive-t-il de perdre espoir ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "B4",
+			"question": "Parmi les problèmes précedemement cités, vous font-ils beaucoup souffrir, ou bien vous gênent-ils dans votre vie de tous les jours (travail, relations, activités) ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "B5",
+			"question": "Parmi les problèmes précedemement cités, ceux-ci ont-ils toujours été déclenchés et maintenus par une maladie physique, par la prise de médicaments ou drogues ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name": "B6",
+			"question": "À quand remonte, à peu près, la première fois où vous avez eu une telle période ayant duré au moins deux ans où vous vous sentiez déprimé(e) la plupart du temps ?",
+			"types": ["ANSWERS"],
+			"answered": false,
+			"answers": [{"name": "Très récemment", "value": 7}, {"name": "Il y a quelques temps", "value": 5}, {"name": "Il y a plusieurs années", "value": 3}, {"name": "Cela remonte à longtemps", "value": 1}],
+			"value": false
+		}
+	],
+	"conditions": [[{"name": "B1","number": 1,"value": false}], [{"name": "B2","number": 1,"value": true}], [{"name": "B3","number": 2,"value": false}], [{"name": "B4","number": 1,"value": false}], [{"name": "B5","number": 1,"value": true}]] 
+}

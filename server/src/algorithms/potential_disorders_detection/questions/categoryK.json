@@ -1,0 +1,98 @@
+{
+	"potentialDisorder": "Dépendance à la drogue",
+	"Questions": [
+		{
+			"name" : "K1",
+			"question": "Au cours de votre vie, avez-vous eu au moins une période (d’au moins 12 mois) durant laquelle il vous est arrivé à plusieurs reprises de consommer de la drogue dans le but de vous sentir mieux ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "K2a",
+			"question": "Au cours de ces 12 derniers mois, avez-vous constaté que vous deviez en consommer de plus grandes quantités pour obtenir le même effet qu’auparavant ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "K2b",
+			"question": "Lorsque vous en consommiez moins, ou arrêtiez d’en consommer, aviez-vous des symptômes de sevrage* ?\n\n* : Nausée, tremblements, douleurs, mauvais sommeil",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "K2c",
+			"question": "Vous arrivait-il souvent, lorsque vous commenciez à en consommer, d’en prendre plus que vous n’en aviez l’intention ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "K2d",
+			"question": "Avez-vous essayé, sans y arriver, de réduire votre consommation ou d’arrêter d’en prendre ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "K2e",
+			"question": "Les jours où vous consommiez, passiez-vous beaucoup de temps (plus de deux heures) à essayer de vous en procurer, à en consommer, à vous remettre des effets, ou à y penser ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "K2f",
+			"question": "Avez-vous réduit vos activités quotidiennes (loisir, travail, ...) ou avez-vous passé moins de temps avec les autres parce que vous consommiez ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "K2g",
+			"question": "Avez-vous continué de consommer tout en sachant que cela entraînait chez vous des problèmes de santé ou des problèmes psychologiques ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "K3a",
+			"question": "Avez-vous été à plusieurs reprises intoxiqué(e) ou «défoncé(e)» alors que vous aviez des choses à faire au travail/à l’école ou à la maison ? Cela a-t-il posé des problèmes ?\n\nNotez oui si oui à l'un ou l'autre.",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "K3b",
+			"question": "Vous est-il arrivé d’être sous l’effet de drogues dans une situation où cela était physiquement risqué comme conduire, utiliser une machine ou un instrument dangereux, faire du bateau, etc ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "K3c",
+			"question": "Avez-vous eu des problèmes légaux parce que vous aviez consommé ? Comme une interpellation ou une condamnation.",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name" : "K3d",
+			"question": "Avez-vous continué de consommer tout en sachant que cela entraînait des problèmes avec votre famille ou votre entourage ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name": "K4",
+			"question": "À quand remonte, à peu près, la première fois avez-vous eu une telle période d’au moins 12 mois durant laquelle vous consommiez et aviez les problèmes dont nous venons de parler ?",
+			"types": ["ANSWERS"],
+			"answered": false,
+			"answers": [{"name": "Très récemment", "value": 7}, {"name": "Il y a quelques temps", "value": 5}, {"name": "Il y a plusieurs mois", "value": 3}, {"name": "Cela remonte à longtemps", "value": 1}],
+			"value": false
+		}
+	],
+	"conditions": [[{"name": "K1","number": 1,"value": false}], [{"name": "K2","number": 5,"value": false}], [{"name": "K3","number": 4,"value": false}]]
+}

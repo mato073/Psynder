@@ -1,0 +1,110 @@
+<div class="w-full py-6 px-10 divide-y">
+  <div class="flex flex-row pb-1">
+      <div class="flex-grow">
+        <p class="font-semibold text-xl text-gray-800">Description</p>
+      </div>
+      <button *ngIf="!editToggled; else descriptionValidate"
+            class="my-auto flex flex-row px-3 py-1 rounded-full focus:outline-none transition-colors duration-300 ease-in-out hover:bg-t-primary-100"
+            (click)="toggleEdit()"
+      >
+        <svg class="h-4 w-4 my-auto text-t-primary-500" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+        </svg>
+        <span class="ml-3 text-base font-medium text-t-primary-500">
+          Éditer
+        </span>
+      </button>
+      <ng-template #descriptionValidate>
+        <button 
+          class="border bg-t-gray-200 rounded-md transition-colors duration-300 ease-in-out hover:bg-t-gray-100 px-4 py-1 my-auto mr-3 focus:outline-none"
+          (click)="cancelEdit()"
+        >
+          <span class="font-medium text-base text-t-gray-500">
+            Retour
+          </span>
+        </button>
+        <button class="flex flex-row border bg-t-primary-500 rounded-md transition duration-300 ease-in-out hover:bg-t-primary-400 px-3 py-1 my-auto focus:outline-none"
+          (click)="saveDescription()"
+        >
+          <span class="font-medium text-base text-white">
+            Enregistrer
+          </span>
+        </button>
+      </ng-template>
+  </div>
+
+  <div *ngIf="!contentLoaded; else loadedTemplate"
+    class="animate-pulse mt-2 bg-t-base-600 w-full h-32 rounded-md"
+  ></div>
+
+  <ng-template #loadedTemplate>
+    <div *ngIf="!editToggled; else descriptionEdit">
+      <div *ngIf="text.value && text.value.length > 0; else noDescription"
+        class="mt-2"  
+      >
+        <quill-view-html
+          class="quill-view"
+          [content]="text.value"
+          theme="snow"
+        >
+        </quill-view-html>
+      </div>
+      <ng-template #noDescription>
+        <div class="pt-6 pb-2">
+          <p class="font-medium text-base text-center text-t-gray-800">
+            Vous n'avez pas spécifié de description
+          </p>
+          <p class="font-light text-t-gray-500 text-center text-sm">
+            Cliquez sur "Éditer" puis "Enregistrer" pour en ajouter
+          </p> 
+        </div>
+      </ng-template>
+    </div>
+
+    <ng-template #descriptionEdit>
+      <div 
+        class="mt-4 rounded-md ring-t-base-500 focus-within:ring focus-within:outline-none"
+      >
+        <quill-editor
+            [formControl]="text"
+            [styles]="{'font-size': '0.875rem', 'border-bottom-right-radius': '0.375rem', 'border-bottom-left-radius': '0.375rem', 'font-family': 'Poppins'}"
+            theme="snow"
+        >
+          <div quill-editor-toolbar class="rounded-t-md bg-t-base-500 bg-opacity-40">
+            <span class="ql-formats">
+              <select class="ql-size">
+                <option selected></option>
+                <option value="large"></option>
+                <option value="huge"></option>
+              </select>
+            </span>
+            <span class="ql-formats">
+              <button class="ql-bold"></button>
+              <button class="ql-italic"></button>
+              <button class="ql-underline"></button>
+              <button class="ql-strike"></button>
+            </span>
+            <span class="ql-formats">
+              <select class="ql-color"></select>
+              <select class="ql-background"></select>
+            </span>
+            <span class="ql-formats">
+              <button class="ql-list" value="ordered"></button>
+              <button class="ql-list" value="bullet"></button>
+              <select class="ql-align">
+                <option selected></option>
+                <option value="center"></option>
+                <option value="right"></option>
+                <option value="justify"></option>
+              </select>
+            </span>
+            <span class="ql-formats">
+              <button class="ql-link"></button>
+            </span>
+          </div>
+        </quill-editor>
+      </div>
+    </ng-template>
+  </ng-template>
+
+</div>

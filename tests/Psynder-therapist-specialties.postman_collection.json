@@ -1,0 +1,119 @@
+{
+	"info": {
+		"_postman_id": "08b1e165-df72-42d1-bd02-95403d67d5cb",
+		"name": "Psynder-therapist-specialties",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add TCC with only name",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Thérapies cognitives et comportementales",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/specialties/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"specialties",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Psychoanalysis with Acr & Desc",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Psychoanalyse",
+							"type": "text"
+						},
+						{
+							"key": "acronym",
+							"value": "PA",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "pa test",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/specialties/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"specialties",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List specialties",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/specialties/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"specialties",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve specialty by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/specialties/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"specialties",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

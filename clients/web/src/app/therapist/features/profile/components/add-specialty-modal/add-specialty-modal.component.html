@@ -1,0 +1,82 @@
+<div class="fixed z-10 inset-0 overflow-y-auto">
+  <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+    <!--
+      Background overlay, show/hide based on modal state.
+
+      Entering: "ease-out duration-300"
+        From: "opacity-0"
+        To: "opacity-100"
+      Leaving: "ease-in duration-200"
+        From: "opacity-100"
+        To: "opacity-0"
+    -->
+    <div class="fixed inset-0 transition-opacity">
+      <div class="absolute inset-0 bg-t-gray-500 opacity-75"></div>
+    </div>
+
+    <!-- This element is to trick the browser into centering the modal contents. -->
+    <span class="hidden sm:inline-block sm:align-middle sm:h-screen"></span>&#8203;
+    <!--
+      Modal panel, show/hide based on modal state.
+
+      Entering: "ease-out duration-300"
+        From: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+        To: "opacity-100 translate-y-0 sm:scale-100"
+      Leaving: "ease-in duration-200"
+        From: "opacity-100 translate-y-0 sm:scale-100"
+        To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+    -->
+    <div class="py-8 px-12 divide-y inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+      <h1 class="font-semibold text-2xl text-t-gray-800 mb-4">
+        Ajouter une spécialité
+      </h1>
+      <div>
+        <div class="mt-10 mb-14">
+          <h2 class="font-semibold text-t-gray-700 mb-1">
+            Nom
+          </h2>
+          <div class="rounded-md border border-t-gray-300 w-full mb-8">
+            <input type="hidden" name="possibleSpe" #possibleSpe>
+            <input #name
+              [formControl]="specialtyName"
+              class="form-input mx-2 py-1 outline-none mt-1"
+            >
+            <div
+              *ngIf="showPossibleSpecialties"
+              class="mt-2 flex flex-col absolute divide-y z-50 border border-t-gray-300 bg-white rounded-md shadow"
+              style="width: calc(100% - 6rem)"
+              (clickOutside)="showPossibleSpecialties = false"
+            >
+              <div *ngFor="let specialty of possibleSpecialties"
+                class="p-1 text-t-gray-600 font-medium cursor-pointer hover:bg-t-primary-500 hover:text-white"
+                (click)="newSpecialtyValue(specialty)"
+              >
+                {{ specialty.name }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="w-full flex flex-row "> <!-- justify-between right-0">
+          <button (click)="closeEvent.next(true)" 
+            class="rounded-md font-semibold w-5/12 py-2 border border-t-gray-400 text-t-gray-400 hover:bg-t-gray-100">
+            Annuler
+          </button>
+          <button (click)="addSpecialty()" 
+          class="rounded-md font-semibold w-5/12 py-2 border border-t-primary-500 text-t-primary-500 hover:bg-t-primary-100">
+            Valider
+          </button> -->
+          <button class="mt-4 w-full py-3 bg-t-gray-200 text-t-gray-500 rounded-md text-white text-center font-medium hover:bg-t-gray-100 transition duration-300 ease-in-out"
+            (click)="closeEvent.next(true)"
+          >
+            Annuler
+          </button>
+          <button class="mt-4 ml-2 w-full py-3 bg-t-primary-500 rounded-md text-white text-center font-medium hover:bg-t-primary-400 transition duration-200 ease-in-out"
+            (click)="addSpecialty()"
+          >
+            Valider
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

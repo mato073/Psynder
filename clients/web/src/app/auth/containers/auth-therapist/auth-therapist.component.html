@@ -1,0 +1,85 @@
+<div class="bg-t-base-500 w-screen h-screen overflow-hidden"
+  style="overflow: hidden !important;"
+>
+<!--<img class="w-40 fixed" src="../../../../assets/png/banner_4600x1500_with_transparency.png" (click)="redirectToLandingPage()">-->
+  <div class="fixed right-0 right-12 top-10">
+    <button
+      class="mr-10 rounded-lg cursor-pointer font-medium text-base text-gray-800 hover:underline"
+      [routerLink]="['/about', {backBtnEnabled: false}]"
+    >
+      À propos
+    </button>
+    <button
+      class="mr-10 rounded-lg cursor-pointer font-medium text-base text-gray-800 hover:underline"
+      [routerLink]="['/download']"
+    >
+      Télécharger l'application
+    </button>
+    <button
+      class="mr-10 rounded-lg cursor-pointer font-medium text-base text-gray-800 hover:underline"
+      [routerLink]="['/feedback']"
+    >
+      Faire un retour
+    </button>
+    <button
+      class="rounded-lg cursor-pointer font-medium text-base text-t-primary-500 hover:underline"
+      (click)="navigateBackToUserLogin()"
+    >
+      Espace utilisateur
+    </button>
+  </div>
+  <div class="mt-8 pl-12 fixed">
+    <img class="w-48 fixed" src="../../../../assets/png/banner_4600x1500_with_transparency.png" (click)="redirectToLandingPage()">
+  </div>
+  <div class="flex w-screen">
+    <h1 class="font-cambria mt-40 mx-auto text-center text-5xl text-gray-800">
+      Espace Thérapeute
+    </h1>
+  </div>
+  <div class="flex justify-center">
+    <div class="flex mt-12 z-10">
+      <input
+        [checked]="currentRoute === '/auth/therapist/login'"
+        (change)="switchAuthRoute($event)"
+        class="sr-only"
+        type="radio"
+        value="/auth/therapist/login"
+        name="auth-options"
+        id="Login"
+      />
+      <label
+        class="cursor-pointer c-custom-label rounded-full -m-1 px-10 py-5 font-display font-semibold text-2xl"
+        [class.text-t-primary-500]="currentRoute === '/auth/therapist/login'"
+        for="Login"
+        >Connexion</label
+      >
+
+      <input
+        [checked]="currentRoute === '/auth/therapist/sign-up'"
+        (change)="switchAuthRoute($event)"
+        class="sr-only"
+        type="radio"
+        value="/auth/therapist/sign-up"
+        name="auth-options"
+        id="Register"
+      />
+      <label
+        class="cursor-pointer c-custom-label rounded-full -m-1 px-10 py-5 font-display font-semibold text-2xl ml-2"
+        [class.text-t-primary-500]="currentRoute === '/auth/therapist/sign-up'"
+        for="Register"
+        >Inscription</label>
+    </div>
+  </div>
+
+  <div class="flex justify-center relative z-10">
+    <div
+      class="rounded-lg px-12 pt-8 pb-8 bg-white shadow-xl w-full transition-max-width duration-300 ease-in-out"
+      [ngClass]="{
+        'max-w-3xl': currentRoute === '/auth/therapist/sign-up',
+        'max-w-md': (currentRoute === '/auth/therapist/login' || currentRoute === '/auth/therapist/forgot-password')
+      }"
+    >
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

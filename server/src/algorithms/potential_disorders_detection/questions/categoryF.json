@@ -1,0 +1,34 @@
+{
+	"potentialDisorder": "Agoraphobie",
+	"Questions":[
+		{
+			"name":"F1",
+			"question": "Avez-vous déjà été anxieux(se) dans des endroits/situations dont il est difficile de s'échapper/avoir une aide si vous paniquiez ? Comme dans une foule par exemple.",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name":"F2",
+			"question": "Redoutiez-vous tellement ces situations que vous cherchiez à les éviter ? Vous sentiez-vous très mal à l'aise lorsque vous y faisiez face seul(e) ?\n\nNotez oui si oui à l'un ou l'autre.",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+		{
+			"name":"F3",
+			"question": "Au cours du mois écoulé, avez-vous redouté ces situations ?",
+			"types": ["BOOL"],
+			"answered": false,
+			"value": false
+		},
+				{
+			"name": "F4",
+			"question": "À quand remonte, à peu près, la première fois où vous avez redouté ces endroits/situations ?",
+			"types": ["ANSWERS"],
+			"answered": false,
+			"answers": [{"name": "Très récemment", "value": 7}, {"name": "Il y a quelques temps", "value": 5}, {"name": "Il y a plusieurs mois", "value": 3}, {"name": "Cela remonte à longtemps", "value": 1}],
+			"value": false
+		}
+	"conditions": [[{"name": "F1","number": 1,"value": false}], [{"name": "F2","number": 1,"value": false}], [{"name": "F3","number": 1,"value": false}]]
+}

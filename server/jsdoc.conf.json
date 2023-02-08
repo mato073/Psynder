@@ -1,0 +1,33 @@
+{
+	"tags": {
+		"allowUnknownTags": true,
+		"dictionaries": ["jsdoc"]
+	},
+	"source": {
+		"include": [".", "../README.md"],
+		"includePattern": ".+\\.js(doc|x)?$",
+		"exclude": ["node_modules", "drop_collections.js", "src/algorithms", "src/bot_psynder", "admin/", "beta/", "scripts/"],
+		"excludePattern": "(^|\\/|\\\\)_"
+	},
+	"plugins": [
+		"plugins/markdown",
+		"jsdoc-http-plugin"
+	],
+	"templates": {
+		"cleverLinks": false,
+		"monospaceLinks": true,
+		"useLongnameInNav": false,
+		"showInheritedInNav": true,
+		"default": {
+			"outputSourceFiles": false,
+			"includeDate": false
+		}
+	},
+	"opts": {
+		"destination": "../docs/server_api-rest",
+		"encoding": "utf8",
+		"private": true,
+		"recurse": true,
+		"template": "./node_modules/jsdoc-skyceil"
+	}
+}
